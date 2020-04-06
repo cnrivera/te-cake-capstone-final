@@ -28,6 +28,20 @@ CREATE TABLE users
 
 	constraint pk_users primary key (id)
 );
+CREATE TABLE cakeinfo
+(
+	id			int			identity(1,1),
+	name	varchar(50)	not null,
+	price	float not null,
+	style	varchar(50)	not null,
+	size	varchar(50) not null,
+	flavor varchar(50) not null,
+	icing varchar(50) not null,
+	filling varchar(50),
+	description varchar (200) not null
+
+	constraint pk_cakes primary key (id)
+);
 
 
 COMMIT TRANSACTION;
