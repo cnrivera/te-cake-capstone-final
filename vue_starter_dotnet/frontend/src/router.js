@@ -5,6 +5,7 @@ import Home from './views/Home.vue'
 import Login from './views/Login.vue'
 import Register from './views/Register.vue'
 import StandardCakes from './views/StandardCakes.vue'
+import CreateCake from './views/CreateCake.vue'
 
 Vue.use(Router)
 
@@ -51,6 +52,14 @@ const router = new Router({
       component: StandardCakes,
       meta: {
         requiresAuth: false
+      }
+    },
+    {
+      path: '/createcake',
+      name: 'create-cake',
+      component: CreateCake,
+      meta: {
+        requiresAuth: true
       }
     },
   ]
