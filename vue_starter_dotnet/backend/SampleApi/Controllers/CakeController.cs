@@ -26,7 +26,7 @@ namespace SampleApi.Controllers
             this.cakeDao = cakeDao;
         }
 
-        [HttpGet]
+        [HttpGet("getAll")]
         public List<Cake> GetAllCakes()
         {
             return cakeDao.GetAllCakes();
