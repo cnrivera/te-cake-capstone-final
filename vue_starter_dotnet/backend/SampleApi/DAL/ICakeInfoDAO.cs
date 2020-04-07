@@ -19,7 +19,7 @@ namespace SampleApi.DAL
         /// <summary>
         /// Adds a cake into our SQL database
         /// </summary>
-        void AddCake(Cake cake);
+        bool AddCake(Cake cake);
 
     }
 }

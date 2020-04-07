@@ -77,7 +77,7 @@ namespace SampleApi.DAL
         /// Saves the user to the database.
         /// </summary>
         /// <param name="cake">cake being added</param>
-        public void AddCake(Cake cake)
+        public bool AddCake(Cake cake)
         {
             try
             {
@@ -96,14 +96,17 @@ namespace SampleApi.DAL
 
                     cmd.ExecuteNonQuery();
 
-                    return;
+                 
                 }
             }
             catch (SqlException ex)
             {
-                throw ex;
+                
+                return false;
             }
+            return true;
         }
+
 
     }
 }

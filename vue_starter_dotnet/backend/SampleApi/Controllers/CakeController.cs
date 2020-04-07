@@ -37,11 +37,17 @@ namespace SampleApi.Controllers
         /// </summary>
         /// <param name="cake"></param>
         /// <returns></returns>
-        [HttpPost]
-        public void Create([FromBody] Cake cake)
+        [HttpPost("newCake")]
+        public IActionResult Create([FromBody] Cake cake)
         {
-            cakeDao.AddCake(cake);
-            
+            bool result=false;
+            if (cakeDao.AddCake(cake))
+            {
+               result = true;
+            }
+            return Ok(result);
+
+
         }
     }
 }
