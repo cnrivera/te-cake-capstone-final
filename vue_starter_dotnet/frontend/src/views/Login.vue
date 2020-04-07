@@ -32,8 +32,10 @@
           required
         />
       </div>
-      <router-link :to="{ name: 'register' }">Need an account?</router-link>
-      <button type="submit">Sign in</button>
+      <div id="loginPageButtons">
+        <router-link :to="{ name: 'register' }" id="needAccount">Need an account?</router-link>
+        <button type="submit" class="btn btn-info">Sign in</button>
+      </div>
     </form>
   </div>
 </template>
@@ -89,5 +91,19 @@ export default {
 #login {
   margin-left: 10%;
   margin-right: 10%;
+  padding: 15px;
+  background-color: hsla(188, 56%, 8%, 0.7);
+  color: whitesmoke;
+  border-radius: 5px;
+}
+#loginPageButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+#needAccount {
+  color: whitesmoke;
 }
 </style>

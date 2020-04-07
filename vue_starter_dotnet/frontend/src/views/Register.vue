@@ -39,10 +39,10 @@
           required
         />
       </div>
-      <router-link :to="{ name: 'login' }">
+      <router-link :to="{ name: 'login' }" id="haveAccount">
         Have an account?
       </router-link>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">
+      <button class="btn btn-lg btn-info btn-block" type="submit">
         Create Account
       </button>
     </form>
@@ -91,5 +91,12 @@ export default {
 #register {
   margin-left: 10%;
   margin-right: 10%;
+  padding: 15px;
+  background-color: hsla(188, 56%, 8%, 0.7);
+  color: whitesmoke;
+  border-radius: 5px;
+}
+#haveAccount {
+  color: whitesmoke;
 }
 </style>

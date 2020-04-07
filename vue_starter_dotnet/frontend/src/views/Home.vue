@@ -9,3 +9,9 @@ export default {
   name: 'home'
 }
 </script>
+
+<style>
+h1 {
+  font-size: 600px;
+}
+</style>

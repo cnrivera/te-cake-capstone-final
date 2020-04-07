@@ -7,13 +7,9 @@
         <div id="header-img">
           <img class="header-img" src="./assets/elevate-sweets.png">
         </div>  
-        <div id="navbutton">
-          <button><router-link :to="{name: 'home'}">Home</router-link></button>
-          <button><router-link :to="{name: 'standard-cakes'}">Standard Cakes</router-link></button>
-        </div>
-        <div id="loginbutton">
-          <button><router-link :to="{name: 'login'}">Emplayee Login</router-link></button>
-        </div>
+        <router-link :to="{name: 'home'}" class="btn btn-info" role="button">Home</router-link>
+        <router-link :to="{name: 'standard-cakes'}" class="btn btn-info" role="button">Standard Cakes</router-link>
+        <router-link :to="{name: 'login'}" class="btn btn-info" role="button">Employee Login</router-link>
       </div>
     </nav>
 
@@ -22,30 +18,26 @@
 </template>
 
 <style>
-body{
-  margin: 100px;
-  color: white;
+html, #app{
+  background-color: rgb(24, 184, 184);
 }
 .navbar{
-  background-color: rgb(80, 76, 76);
+  background-color: rgb(56, 54, 54);
   margin-bottom: 15px;
 }
 #navbarcontents {
   display: flex;
-}
-#navbutton {
-  display: flex;
-  justify-content: flex-start;
+  justify-content: left;
 }
 #loginbutton {
-  display: flex;
-  justify-content: flex-end;
+  justify-content: right;
 }
-#navbarcontents button{
+#navbarcontents .btn{
   margin: 10px;
 }
 #header-img {
   height: 150px;
+  margin-right: 40px;
 }
 #header-img > img {
   height: 100%;
