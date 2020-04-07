@@ -88,4 +88,8 @@ export default {
 </script>
 
 <style>
+#register {
+  margin-left: 10%;
+  margin-right: 10%;
+}
 </style>
