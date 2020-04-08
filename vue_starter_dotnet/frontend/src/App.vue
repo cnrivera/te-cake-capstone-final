@@ -23,7 +23,6 @@ html, #app{
 }
 .navbar{
   background-color: rgb(56, 54, 54);
-  margin-bottom: 15px;
 }
 #navbarcontents {
   display: flex;
@@ -36,7 +35,7 @@ html, #app{
   margin: 10px;
 }
 #header-img {
-  height: 150px;
+  height: 15vh;
   margin-right: 40px;
 }
 #header-img > img {

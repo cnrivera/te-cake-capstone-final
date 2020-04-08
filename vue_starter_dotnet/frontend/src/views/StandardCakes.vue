@@ -1,6 +1,5 @@
 <template>
 <div class="container">
-    <h1>here</h1>
   <div v-for="cake in cakes" :key="cake.name" class="cakeinfo">
       <h3>{{cake.name}} price: ${{cake.price}}</h3>
       <p>style: {{cake.style}} size: {{cake.size}} flavor: {{cake.flavor}}</p>
@@ -16,31 +15,9 @@
 export default {
     name: "standard-cakes",
     data() {
-        return {
-            /*cakes: [
-                {
-                    name: 'holy sheet cake',
-                    price: 50,
-                    style: 'sheetcake',
-                    size: 'large',
-                    flavor: 'vanilla',
-                    icing: 'chocolate',
-                    filling: 'raspberry',
-                    description: 'thats a damn good cake'
-                },
-                {
-                    name: 'nice cake!',
-                    price: 40,
-                    style: 'layer cake',
-                    size: 'small',
-                    flavor: 'vanilla',
-                    icing: 'chocolate',
-                    filling: 'vanilla',
-                    description: 'MMMmmmm cake!'
-                }
-            ]*/
-            cakes: []
-        }
+      return {
+        cakes: []
+      }
     },
     methods: {
     getCakeList() {
@@ -49,7 +26,7 @@ export default {
           return response.json();
         })
         .then((data) => {
-            this.cakes = data;
+          this.cakes = data;
         })
         .catch((err) => console.error(err));
     },

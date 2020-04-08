@@ -1,7 +1,6 @@
 <template>
-  <div class="home">
-    <h1>Home</h1>
-  </div>
+<div id="homepage">
+</div>
 </template>
 
 <script>
@@ -11,7 +10,11 @@ export default {
 </script>
 
 <style>
-h1 {
-  font-size: 600px;
+#homepage {
+  background-image: url('../../src/assets/home-background.jpg');
+  height: 83vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 </style>
