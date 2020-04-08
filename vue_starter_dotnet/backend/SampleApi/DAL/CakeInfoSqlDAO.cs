@@ -25,6 +25,17 @@ namespace SampleApi.DAL
         }
 
         /// <summary>
+        /// Looks into our list of cakes, and returns the one with the matching id
+        /// </summary>
+        /// <param name="id">the id passed in from vue, after the user clicks on a cake</param>
+        public Cake GetCake(int id)
+        {
+            return GetAllCakes().FirstOrDefault(c => c.id == id);
+        }
+
+
+
+        /// <summary>
         /// Returns a list of all Cakes in the database
         /// </summary>
         public List<Cake> GetAllCakes()

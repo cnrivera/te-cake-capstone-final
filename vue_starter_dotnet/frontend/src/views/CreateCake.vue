@@ -72,14 +72,16 @@
     required
     />
   </div>
-  <button class="btn btn-lg btn-info btn-block" type="submit">
-        Create Cake
+  <button class="btn btn-lg btn-info btn-block" type="submit" >
+        Create Cakesadfasd
       </button>
       </form>
 </div>
 </template>
 
 <script>
+import auth from '../auth';
+
 export default {
   name: 'createCake',
   data() {
