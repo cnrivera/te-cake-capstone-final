@@ -32,6 +32,13 @@ namespace SampleApi.Controllers
             return cakeDao.GetAllCakes();
         }
 
+        [HttpGet( "{id}", Name ="getCake")]
+        public Cake GetCake(int id)
+        {
+            return cakeDao.GetCake(id);
+        }
+
+
         /// <summary>
         /// Creates a new standard cake in the database
         /// </summary>

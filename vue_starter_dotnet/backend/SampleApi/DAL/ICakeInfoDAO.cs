@@ -21,5 +21,7 @@ namespace SampleApi.DAL
         /// </summary>
         bool AddCake(Cake cake);
 
+        Cake GetCake(int id);
+
     }
 }

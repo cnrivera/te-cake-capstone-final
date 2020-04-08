@@ -7,5 +7,6 @@ namespace SampleApi.Models
 {
     public class Order
     {
+        
     }
 }
