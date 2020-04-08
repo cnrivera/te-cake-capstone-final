@@ -49,7 +49,7 @@ namespace SampleApi.DAL
                     // Loop through each row
                     while (reader.Read())
                     {
-                        // Create a review
+                    
                         Cake cake = new Cake();
                         cake.id = Convert.ToInt32(reader["id"]);
                         cake.name = Convert.ToString(reader["name"]);
@@ -84,7 +84,7 @@ namespace SampleApi.DAL
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("INSERT INTO cake Info VALUES (@name, @price, @style, @size, @flavor, @icing, @filling, @description;", conn);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO cakeinfo VALUES (@name, @price, @style, @size, @flavor, @icing, @filling, @description);", conn);
                     cmd.Parameters.AddWithValue("@name", cake.name);
                     cmd.Parameters.AddWithValue("@price", cake.price);
                     cmd.Parameters.AddWithValue("@style", cake.style);

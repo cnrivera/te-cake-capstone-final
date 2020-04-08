@@ -1,6 +1,10 @@
 <template>
 <div id="cakeform">
   <h1>Create a New Cake</h1>
+  <div class="alert alert-danger" role="alert" v-if="createCakeErrors">
+        There were problems creating this cake.
+      </div>
+  <form class="form-register" @submit.prevent="createCake">
   <div class="form-group">
     <label for="name">Name:</label>
     <input v-model="cake.name"
@@ -68,11 +72,16 @@
     required
     />
   </div>
+  <button class="btn btn-lg btn-info btn-block" type="submit">
+        Create Cake
+      </button>
+      </form>
 </div>
 </template>
 
 <script>
 export default {
+  name: 'createCake',
   data() {
     return {
       cake: {
@@ -85,23 +94,24 @@ export default {
         filling: '',
         description: ''
       },
+      createCakeErrors: false,
     };
   },
   methods: {
-    register() {
+    createCake() {
       fetch(`${process.env.VUE_APP_REMOTE_API_CAKE}/newCake`, {
         method: 'POST',
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(this.user),
+        body: JSON.stringify(this.cake),
       })
         .then((response) => {
           if (response.ok) {
             this.$router.push({ path: '/standardcakes' });
           } else {
-            this.registrationErrors = true;
+            this.createCakeErrors = true;
           }
         })
 
