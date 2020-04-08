@@ -89,6 +89,7 @@ export default {
 
 <style>
 #login {
+  margin-top: 30px;
   margin-left: 10%;
   margin-right: 10%;
   padding: 15px;

@@ -1,5 +1,22 @@
 <template>
 <div id="homepage">
+  <div id="hometext">
+    <p>There was one who said unto me that the universe was going to cause me to tremble,
+    That I am not the sharpest cutting implement in the storehouse.She had the appearance unto me as a stupid one,
+    With her finger and her thumb
+    In the frame of a Greek gamma upon her forehead.
+    Behold, the years begin coming, and do not cease from coming.
+    Fed unto the axioms, and I fell upon the earth and ran.
+    It was not acceptable if not to live for the sake of pleasurable things.
+    Your brain increases its wisdom, but your heart increases its stupidity.
+    A great amount to do, a great amount to see,
+    Therefore, there is no difficult problem if we take the streets of the backside.
+    </p>
+  </div>
+  <div id="homebtn">
+    <router-link :to="{name: 'standard-cakes'}" class="btn btn-info" role="button">Standard Cakes</router-link>
+    <router-link :to="{name: ''}" class="btn btn-info" role="button">Make a Cake</router-link>
+  </div>
 </div>
 </template>
 
@@ -16,5 +33,20 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+#hometext {
+  width: 55%;
+  padding: 10vh;
+  font-size: 1.1vw;
+  font-weight: bold;
+}
+#homebtn {
+  padding: 10vh;
+}
+#homebtn .btn {
+  border: 3px solid black;
+  font-size: 2.2vw;
+  font-weight: bold;
+  margin-left: 4vh;
 }
 </style>
