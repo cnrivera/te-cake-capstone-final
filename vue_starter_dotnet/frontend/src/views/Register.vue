@@ -65,14 +65,15 @@ export default {
   },
   methods: {
     register() {
-      fetch(`${process.env.VUE_APP_REMOTE_API}/register`, {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(this.user),
-      })
+      if(this.user.password == this.user.confirmPassword){
+        fetch(`${process.env.VUE_APP_REMOTE_API}/register`, {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(this.user),
+        })
         .then((response) => {
           if (response.ok) {
             this.$router.push({ path: '/login', query: { registration: 'success' } });
@@ -80,8 +81,10 @@ export default {
             this.registrationErrors = true;
           }
         })
-
         .then((err) => console.error(err));
+      } else {
+        this.registrationErrors = true;
+      }
     },
   },
 };
