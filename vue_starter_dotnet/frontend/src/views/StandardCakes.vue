@@ -2,7 +2,7 @@
 <div class="container">
   <div v-for="cake in cakes" :key="cake.name" class="cakeinfo">
       <h3>{{cake.name}} price: ${{cake.price}}</h3>
-      <img src="../../src/assets/{{cake.image_path}}" /> 
+      <img v-bind:src="require('../../src/assets/' + cake.imageName)" /> 
       <p>style: {{cake.style}} size: {{cake.size}} flavor: {{cake.flavor}}</p>
       <p>icing: {{cake.icing}} filling: {{cake.filling}}</p>
       <p>{{cake.description}}</p>
