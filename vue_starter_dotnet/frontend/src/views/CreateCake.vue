@@ -72,11 +72,26 @@
     required
     />
   </div>
+  <div class="form-group">
+    <label for="imageName">Image File Name, if loaded (otherwise leave placeholder file)</label>
+    <input v-model="cake.imageName"
+    type="text"
+    class="form-control"
+    />
+  </div>
+  <div class="form-group">
+    <label for="imageName">Cake is available for sale:</label>
+    <input type="checkbox" v-model="cake.isAvailable"
+    class="form-control"
+    />
+  </div>
+  
   <button class="btn btn-lg btn-info btn-block" type="submit" >
-        Create Cakes
+        Create Cake
       </button>
       </form>
 </div>
+
 </template>
 
 <script>
@@ -92,7 +107,9 @@ export default {
         flavor: '',
         icing: '',
         filling: '',
-        description: ''
+        description: '',
+        imageName: 'placeholder-image.png',
+        isAvailable: true
       },
       createCakeErrors: false,
     };

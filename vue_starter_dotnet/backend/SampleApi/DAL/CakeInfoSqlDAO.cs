@@ -97,7 +97,7 @@ namespace SampleApi.DAL
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("INSERT INTO cakeinfo VALUES (@name, @price, @style, @size, @flavor, @icing, @filling, @description);", conn);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO cakeinfo VALUES (@name, @price, @style, @size, @flavor, @icing, @filling, @description, @image_path, @available);", conn);
                     cmd.Parameters.AddWithValue("@name", cake.name);
                     cmd.Parameters.AddWithValue("@price", cake.price);
                     cmd.Parameters.AddWithValue("@style", cake.style);
@@ -106,7 +106,8 @@ namespace SampleApi.DAL
                     cmd.Parameters.AddWithValue("@icing", cake.icing);
                     cmd.Parameters.AddWithValue("@filling", cake.filling);
                     cmd.Parameters.AddWithValue("@description", cake.description);
-                    cmd.Parameters.AddWithValue("@image_name", cake.imageName);
+                    cmd.Parameters.AddWithValue("@image_path", cake.imageName);
+                    cmd.Parameters.AddWithValue("@available", cake.isAvailable);
 
 
                     cmd.ExecuteNonQuery();
