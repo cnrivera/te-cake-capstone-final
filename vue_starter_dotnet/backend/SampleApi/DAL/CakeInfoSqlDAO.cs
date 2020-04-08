@@ -71,6 +71,8 @@ namespace SampleApi.DAL
                         cake.icing = Convert.ToString(reader["icing"]);
                         cake.filling = Convert.ToString(reader["filling"]);
                         cake.description = Convert.ToString(reader["description"]);
+                        cake.imageName = Convert.ToString(reader["image_path"]);
+                        cake.isAvailable = Convert.ToBoolean(reader["available"]);
 
                         listOfCakes.Add(cake);
                     }
@@ -104,6 +106,8 @@ namespace SampleApi.DAL
                     cmd.Parameters.AddWithValue("@icing", cake.icing);
                     cmd.Parameters.AddWithValue("@filling", cake.filling);
                     cmd.Parameters.AddWithValue("@description", cake.description);
+                    cmd.Parameters.AddWithValue("@image_name", cake.imageName);
+
 
                     cmd.ExecuteNonQuery();
 
