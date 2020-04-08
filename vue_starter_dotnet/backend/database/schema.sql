@@ -31,16 +31,19 @@ CREATE TABLE users
 CREATE TABLE cakeinfo
 (
 	id			int			identity(1,1),
-	name	varchar(50)	not null,
-	price	float not null,
-	style	varchar(50)	not null,
-	size	varchar(50) not null,
-	flavor varchar(50) not null,
-	icing varchar(50) not null,
-	filling varchar(50),
-	description varchar (500) not null
+	name		varchar(50)	not null,
+	price		float		not null,
+	style		varchar(50)	not null,
+	size		varchar(50) not null,
+	flavor		varchar(50) not null,
+	icing		varchar(50) not null,
+	filling		varchar(50),
+	description varchar(500) not null,
+	image_path	varchar(50) default('placeholder-image'),
+	available	bit			default(1)
+	
 
-	constraint pk_cakes primary key (id)
+	constraint pk_cakes primary key(id)
 );
 
 
