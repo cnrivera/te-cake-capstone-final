@@ -7,11 +7,12 @@
       <p>{{cake.description}}</p>
   </div>
 
-  <router-link to="/createcake">Add New Cake</router-link>
+  <router-link to="/createcake" >Add New Cake</router-link>
 </div>
 </template>
 
 <script>
+
 export default {
     name: "standard-cakes",
     data() {
