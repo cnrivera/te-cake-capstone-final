@@ -1,11 +1,19 @@
 <template>
 <div class="container">
   <div v-for="cake in cakes" :key="cake.name" class="cakeinfo">
-      <h3>{{cake.name}} price: ${{cake.price}}</h3>
+    <h3>{{cake.name}}</h3>
+    <div class="cakeimg">
       <img v-bind:src="require('../../src/assets/' + cake.imageName)" /> 
-      <p>style: {{cake.style}} size: {{cake.size}} flavor: {{cake.flavor}}</p>
-      <p>icing: {{cake.icing}} filling: {{cake.filling}}</p>
-      <p>{{cake.description}}</p>
+      <div class="price">${{cake.price}}</div>
+    </div>
+    <ul>
+      <li>Style: {{cake.style}}</li>
+      <li>Size: {{cake.size}}</li>
+      <li>Flavor: {{cake.flavor}}</li>
+      <li>Icing: {{cake.icing}}</li>
+      <li>Filling: {{cake.filling}}</li>
+    </ul>
+    <p>{{cake.description}}</p>
   </div>
 
 <router-link to="/createcake" class="btn btn-lg btn-info btn-block">Add New Cake</router-link>
@@ -42,10 +50,38 @@ export default {
 
 <style>
 .cakeinfo {
-    margin-top: 15px;
-    padding: 15px;
-    background-color: hsla(188, 56%, 8%, 0.7);
-    color: whitesmoke;
-    border-radius: 5px;
+  margin-top: 15px;
+  padding: 15px;
+  background-color: hsla(188, 56%, 8%, 0.7);
+  color: whitesmoke;
+  border-radius: 5px;
+  width: 49%;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.cakeimg > img {
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+li {
+  list-style: none;
+}
+h3 {
+  text-align: center;
+}
+.cakeimg {
+  position: relative;
+}
+.price {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background-color: hsla(188, 56%, 8%, 0.7);
+  padding: 5px;
+  border-radius: 5px;
 }
 </style>
