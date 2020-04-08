@@ -38,7 +38,7 @@ CREATE TABLE cakeinfo
 	flavor varchar(50) not null,
 	icing varchar(50) not null,
 	filling varchar(50),
-	description varchar (200) not null
+	description varchar (500) not null
 
 	constraint pk_cakes primary key (id)
 );
