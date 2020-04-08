@@ -2,12 +2,13 @@
 <div class="container">
   <div v-for="cake in cakes" :key="cake.name" class="cakeinfo">
       <h3>{{cake.name}} price: ${{cake.price}}</h3>
+      <img src="../../src/assets/{{cake.image_path}}" /> 
       <p>style: {{cake.style}} size: {{cake.size}} flavor: {{cake.flavor}}</p>
       <p>icing: {{cake.icing}} filling: {{cake.filling}}</p>
       <p>{{cake.description}}</p>
   </div>
 
-  <router-link to="/createcake" >Add New Cake</router-link>
+<router-link to="/createcake" class="btn btn-lg btn-info btn-block">Add New Cake</router-link>
 </div>
 </template>
 
