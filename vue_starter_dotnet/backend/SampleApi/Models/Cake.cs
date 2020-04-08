@@ -16,5 +16,7 @@ namespace SampleApi.Models
         public string icing { get; set; }
         public string filling { get; set; }
         public string description { get; set; }
+        public string imageName { get; set; }
+        public bool isAvailable { get; set; }
     }
 }
