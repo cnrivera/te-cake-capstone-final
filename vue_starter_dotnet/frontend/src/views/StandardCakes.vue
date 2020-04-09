@@ -14,9 +14,10 @@
       <li>Icing: {{cake.icing}}</li>
       <li>Filling: {{cake.filling}}</li>
     </ul>
+    <router-link v-bind:to="{name: 'order-cake',params: {id:cake.id}}" class="btn btn-info" role="button">Purchase Cake</router-link>
   </div>
 
-  <router-link to="/createcake" class="btn btn-lg btn-info btn-block">Add New Cake</router-link>
+  <router-link to="/createcake" class="newcakebtn btn btn-lg btn-info btn-block">Add New Cake</router-link>
 </div>
 </template>
 
@@ -26,7 +27,7 @@ export default {
     name: "standard-cakes",
     data() {
       return {
-        cakes: []
+        cakes: [],
       }
     },
     methods: {
@@ -87,7 +88,7 @@ h3 {
   border-radius: 5px;
   font-size: 1.5vw;
 }
-#standardcakescontainer .btn {
+#standardcakescontainer .newcakebtn {
   margin: 20px;
   border: 2px solid black;
   box-shadow: 1px 2px 20px rgba(0,0,0,.6);
