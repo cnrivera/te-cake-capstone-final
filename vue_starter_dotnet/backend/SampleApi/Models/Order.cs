@@ -8,6 +8,14 @@ namespace SampleApi.Models
     public class Order
     {
         public int cakeId { get; set; }
+
+        public string style { get; set; }
+        public string size { get; set; }
+        public string flavor { get; set; }
+        public string icing { get; set; }
+        public string filling { get; set; }
+        public string cakeName { get; set; }
+
         public string writingOnCake { get; set; }
         public int quantity { get; set; }
         public int orderId { get; set; }
