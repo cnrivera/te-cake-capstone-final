@@ -11,7 +11,7 @@
       <li>Style: {{cake.style}}</li>
       <li>Size: {{cake.size}}</li>
       <li>Flavor: {{cake.flavor}}</li>
-      <li>Icing: {{cake.icing}}</li>
+      <li>Frosting: {{cake.frosting}}</li>
       <li>Filling: {{cake.filling}}</li>
     </ul>
     <router-link v-bind:to="{name: 'order-cake',params: {id:cake.id}}" class="btn btn-info" role="button">Purchase Cake</router-link>

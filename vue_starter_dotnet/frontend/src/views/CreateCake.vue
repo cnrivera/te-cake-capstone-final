@@ -47,8 +47,8 @@
       />
     </div>
     <div class="form-group">
-      <label for="icing">Icing:</label>
-      <input v-model="cake.icing"
+      <label for="icing">Frosting:</label>
+      <input v-model="cake.frosting"
       type="text"
       class="form-control"
       required
@@ -104,7 +104,7 @@ export default {
         style: '',
         size: '',
         flavor: '',
-        icing: '',
+        frosting: '',
         filling: '',
         description: '',
         imageName: 'placeholder-image.png',

@@ -28,7 +28,7 @@ CREATE TABLE users
 
 	constraint pk_users primary key (id)
 );
-CREATE TABLE cakeinfo
+CREATE TABLE standard_cakes
 (
 	id			int			identity(1,1),
 	name		varchar(50)	not null,
@@ -36,11 +36,11 @@ CREATE TABLE cakeinfo
 	style		varchar(50)	not null,
 	size		varchar(50) not null,
 	flavor		varchar(50) not null,
-	icing		varchar(50) not null,
+	frosting		varchar(50) not null,
 	filling		varchar(50) not null,
 	description varchar(500) not null,
 	cake_message varchar(50),
-	image_path	varchar(50) default('placeholder-image'),
+	image_path	varchar(50) not null,
 	available	bit			default(1)
 	
 
@@ -52,7 +52,7 @@ CREATE TABLE styles
 	id			int			identity(1,1),
 	available bit not null,
 	style varchar (50) not null,
-	price_multiplier float not null,
+	price float not null,
 	
 	constraint pk_styles primary key (id)
 );
@@ -71,7 +71,6 @@ CREATE TABLE flavors
 	id			int			identity(1,1),
 	available bit not null,
 	flavor varchar (50) not null,
-	price_multiplier float not null,
 
 	constraint pk_flavors primary key(id)
 );
@@ -81,7 +80,6 @@ CREATE TABLE frostings
 	id			int			identity(1,1),
 	available bit not null,
 	frosting varchar (50) not null,
-	price_multiplier float not null,
 
 	constraint pk_frostings primary key(id)
 );
@@ -91,7 +89,7 @@ CREATE TABLE fillings
 	id			int			identity(1,1),
 	available bit not null,
 	filling varchar (50) not null,
-	price_multiplier float not null,
+	additional_cost float not null,
 
 	constraint pk_fillings primary key(id)
 );
@@ -105,7 +103,7 @@ CREATE TABLE style_size
 	constraint fk_style_size_size_id foreign key (size_id) references sizes (id)
 );
 
-CREATE TABLE cakes
+CREATE TABLE custom_cakes
 (
 	id			int			identity(1,1),
 	name			varchar(50)	not null,
@@ -137,7 +135,7 @@ CREATE TABLE orders
 	style		varchar(50)	not null,
 	size		varchar(50) not null,
 	flavor		varchar(50) not null,
-	icing		varchar(50) not null,
+	frosting	varchar(50) not null,
 	filling		varchar(50) not null,
 	cake_message varchar(50),
 	order_total		float		not null,
