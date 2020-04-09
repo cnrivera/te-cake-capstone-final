@@ -59,7 +59,7 @@ namespace SampleApi.DAL
                         order.style = Convert.ToString(reader["style"]);
                         order.size = Convert.ToString(reader["size"]);
                         order.flavor = Convert.ToString(reader["flavor"]);
-                        order.icing = Convert.ToString(reader["icing"]);
+                        order.frosting = Convert.ToString(reader["frosting"]);
                         order.filling = Convert.ToString(reader["filling"]);
                         order.orderTotal = Convert.ToDouble(reader["order_total"]);
                         order.orderStatus = Convert.ToString(reader["order_status"]);
@@ -99,7 +99,7 @@ namespace SampleApi.DAL
                     cmd.Parameters.AddWithValue("@style", order.style);
                     cmd.Parameters.AddWithValue("@size", order.size);
                     cmd.Parameters.AddWithValue("@flavor", order.flavor);
-                    cmd.Parameters.AddWithValue("@icing", order.icing);
+                    cmd.Parameters.AddWithValue("@frosting", order.frosting);
                     cmd.Parameters.AddWithValue("@filling", order.filling);
                     cmd.Parameters.AddWithValue("@orderTotal", order.orderTotal);
                     cmd.Parameters.AddWithValue("@orderStatus", order.orderStatus);

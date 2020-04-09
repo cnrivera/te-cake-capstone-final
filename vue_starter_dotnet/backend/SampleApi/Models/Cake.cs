@@ -13,7 +13,7 @@ namespace SampleApi.Models
         public string style { get; set; }
         public string size { get; set; }
         public string flavor { get; set; }
-        public string icing { get; set; }
+        public string frosting { get; set; }
         public string filling { get; set; }
         public string description { get; set; }
         public string imageName { get; set; }

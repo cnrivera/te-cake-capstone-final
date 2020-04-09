@@ -51,7 +51,7 @@ namespace SampleApi.DAL
                     // Open the connection
                     conn.Open();
 
-                    string sql = $"SELECT * FROM cakeInfo";
+                    string sql = $"SELECT * FROM standard_cakes";
                     SqlCommand cmd = new SqlCommand(sql, conn);
 
                     // Execute the command
@@ -68,7 +68,7 @@ namespace SampleApi.DAL
                         cake.style = Convert.ToString(reader["style"]);
                         cake.size = Convert.ToString(reader["size"]);
                         cake.flavor = Convert.ToString(reader["flavor"]);
-                        cake.icing = Convert.ToString(reader["icing"]);
+                        cake.frosting = Convert.ToString(reader["frosting"]);
                         cake.filling = Convert.ToString(reader["filling"]);
                         cake.description = Convert.ToString(reader["description"]);
                         cake.imageName = Convert.ToString(reader["image_path"]);
@@ -97,13 +97,13 @@ namespace SampleApi.DAL
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("INSERT INTO cakeinfo VALUES (@name, @price, @style, @size, @flavor, @icing, @filling, @description, @image_path, @available);", conn);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO standard_cakes VALUES (@name, @price, @style, @size, @flavor, @frosting, @filling, @description, @image_path, @available);", conn);
                     cmd.Parameters.AddWithValue("@name", cake.name);
                     cmd.Parameters.AddWithValue("@price", cake.price);
                     cmd.Parameters.AddWithValue("@style", cake.style);
                     cmd.Parameters.AddWithValue("@size", cake.size);
                     cmd.Parameters.AddWithValue("@flavor", cake.flavor);
-                    cmd.Parameters.AddWithValue("@icing", cake.icing);
+                    cmd.Parameters.AddWithValue("@frosting", cake.frosting);
                     cmd.Parameters.AddWithValue("@filling", cake.filling);
                     cmd.Parameters.AddWithValue("@description", cake.description);
                     cmd.Parameters.AddWithValue("@image_path", cake.imageName);
