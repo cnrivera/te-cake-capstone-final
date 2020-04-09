@@ -29,7 +29,7 @@ export default {
 <style>
 #homepage {
   background-image: url('../../src/assets/home-background.jpg');
-  height: 83vh;
+  height: 85vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -44,7 +44,8 @@ export default {
   padding: 10vh;
 }
 #homebtn .btn {
-  border: 3px solid black;
+  border: 2px solid black;
+  box-shadow: 1px 2px 40px rgba(0,0,0,.6);
   font-size: 2.2vw;
   font-weight: bold;
   margin-left: 4vh;

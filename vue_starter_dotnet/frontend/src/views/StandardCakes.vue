@@ -1,11 +1,12 @@
 <template>
-<div class="container">
+<div id="standardcakescontainer">
   <div v-for="cake in cakes" :key="cake.name" class="cakeinfo">
     <h3>{{cake.name}}</h3>
     <div class="cakeimg">
       <img v-bind:src="require('../../src/assets/' + cake.imageName)" /> 
       <div class="price">${{cake.price}}</div>
     </div>
+    <p>{{cake.description}}</p>
     <ul>
       <li>Style: {{cake.style}}</li>
       <li>Size: {{cake.size}}</li>
@@ -13,10 +14,9 @@
       <li>Icing: {{cake.icing}}</li>
       <li>Filling: {{cake.filling}}</li>
     </ul>
-    <p>{{cake.description}}</p>
   </div>
 
-<router-link to="/createcake" class="btn btn-lg btn-info btn-block">Add New Cake</router-link>
+  <router-link to="/createcake" class="btn btn-lg btn-info btn-block">Add New Cake</router-link>
 </div>
 </template>
 
@@ -57,7 +57,9 @@ export default {
   border-radius: 5px;
   width: 49%;
 }
-.container {
+#standardcakescontainer {
+  margin-left: 14%;
+  margin-right: 14%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -83,5 +85,11 @@ h3 {
   background-color: hsla(188, 56%, 8%, 0.7);
   padding: 5px;
   border-radius: 5px;
+  font-size: 1.5vw;
+}
+#standardcakescontainer .btn {
+  margin: 20px;
+  border: 2px solid black;
+  box-shadow: 1px 2px 20px rgba(0,0,0,.6);
 }
 </style>

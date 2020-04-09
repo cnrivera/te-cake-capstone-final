@@ -1,17 +1,15 @@
 <template>
   <div id="app">
     
-    <nav class="navbar navbar-inverse">
-      <div id="navbarcontents" class="container-fluid">
+    <div id="navbarcontents" class="container-fluid">
 
-        <div id="header-img">
-          <img class="header-img" src="./assets/elevate-sweets.png">
-        </div>  
+      <img src="./assets/elevate-sweets.png">
+      <div id="navbarbuttons">
         <router-link :to="{name: 'home'}" class="btn btn-info" role="button">Home</router-link>
         <router-link :to="{name: 'standard-cakes'}" class="btn btn-info" role="button">Standard Cakes</router-link>
         <router-link :to="{name: 'login'}" class="btn btn-info" role="button">Employee Login</router-link>
       </div>
-    </nav>
+    </div>
 
     <router-view/>
   </div>
@@ -19,27 +17,28 @@
 
 <style>
 html, #app{
-  background-color: rgb(24, 184, 184);
-}
-.navbar{
-  background-color: rgb(56, 54, 54);
+  background-color: rgb(45, 214, 214);
 }
 #navbarcontents {
+  background-color: rgb(56, 54, 54);
   display: flex;
   justify-content: left;
+  height: 15vh;
 }
 #loginbutton {
   justify-content: right;
 }
-#navbarcontents .btn{
+#navbarbuttons {
+  display: flex;
+  align-items: center;
+}
+#navbarbuttons .btn{
+  font-size: 22px;
   margin: 10px;
 }
-#header-img {
-  height: 15vh;
-  margin-right: 40px;
-}
-#header-img > img {
+#navbarcontents > img{
   height: 100%;
+  margin-right: 50px;
 }
 
 </style>
