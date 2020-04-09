@@ -1,15 +1,32 @@
 <template>
   <div>
-      <p>test</p>
-      <p>{{this.$route.params.id}}</p>
+      <p>{{cake.name}}</p>
   </div>
 </template>
 
 <script>
 export default {
-    name: 'orderCake',
-    props: {
+  name: 'orderCake',
+  data() {
+    return {
+      cake: [],
     }
+  },
+  methods: {
+    getCake(id) {
+      fetch(`${process.env.VUE_APP_REMOTE_API_CAKE}/getCake/${id}`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        this.cake = data;
+      })
+      .catch((err) => console.error(err));
+    }
+  },
+  created() {
+    this.getCake(this.$route.params.id);
+  }
 }
 </script>
 

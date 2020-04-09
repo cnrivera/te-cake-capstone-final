@@ -2,19 +2,23 @@
 <div id="standardcakescontainer">
   <div v-for="cake in cakes" :key="cake.name" class="cakeinfo">
     <h3>{{cake.name}}</h3>
+
     <div class="cakeimg">
       <img v-bind:src="require('../../src/assets/' + cake.imageName)" /> 
       <div class="price">${{cake.price}}</div>
     </div>
     <p>{{cake.description}}</p>
-    <ul>
-      <li>Style: {{cake.style}}</li>
-      <li>Size: {{cake.size}}</li>
-      <li>Flavor: {{cake.flavor}}</li>
-      <li>Frosting: {{cake.frosting}}</li>
-      <li>Filling: {{cake.filling}}</li>
-    </ul>
-    <router-link v-bind:to="{name: 'order-cake',params: {id:cake.id}}" class="btn btn-info" role="button">Purchase Cake</router-link>
+
+    <div class="cakedetails">
+      <ul>
+        <li>Style: {{cake.style}}</li>
+        <li>Size: {{cake.size}}</li>
+        <li>Flavor: {{cake.flavor}}</li>
+        <li>Frosting: {{cake.frosting}}</li>
+        <li>Filling: {{cake.filling}}</li>
+      </ul>
+      <router-link v-bind:to="{name: 'order-cake',params: {id:cake.id}}" class="btn btn-info" role="button">Purchase Cake</router-link>
+    </div>
   </div>
 
   <router-link to="/createcake" class="newcakebtn btn btn-lg btn-info btn-block">Add New Cake</router-link>
@@ -33,17 +37,16 @@ export default {
     methods: {
     getCakeList() {
       fetch(`${process.env.VUE_APP_REMOTE_API_CAKE}/getAll`)
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          this.cakes = data;
-        })
-        .catch((err) => console.error(err));
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        this.cakes = data;
+      })
+      .catch((err) => console.error(err));
     },
   },
   created() {
-    console.log("hello");
     this.getCakeList();
   }
 }
@@ -92,5 +95,13 @@ h3 {
   margin: 20px;
   border: 2px solid black;
   box-shadow: 1px 2px 20px rgba(0,0,0,.6);
+}
+.cakedetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.cakedetails .btn {
+  height: 40px;
 }
 </style>
