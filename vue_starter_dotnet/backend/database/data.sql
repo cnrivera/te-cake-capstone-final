@@ -96,6 +96,7 @@ VALUES ('Oh Ho, Oreo! Ice Cream Cake', 50, 'Ice Cream Cake', '8-inch', 'Cookies 
 INSERT INTO orders (cake_name, cake_quantity, style, size, flavor, frosting, filling, cake_message, order_total, order_status, customer_name, phone_number, email)
 VALUES ('Holy Sheet Cake!', 1, 'Sheet cake', 'Full-pan', 'Yellow', 'Hazelnut Buttercream', 'none', null, 50, 'pending', 'Xanth Hively', '867-5309', 'lilxanth@gmail.com');
 
+SELECT * from standard_cakes
 
 
 COMMIT TRANSACTION;

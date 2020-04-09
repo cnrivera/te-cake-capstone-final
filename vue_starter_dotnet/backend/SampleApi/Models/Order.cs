@@ -7,7 +7,6 @@ namespace SampleApi.Models
 {
     public class Order
     {
-        public int cakeId { get; set; }
 
         public string style { get; set; }
         public string size { get; set; }

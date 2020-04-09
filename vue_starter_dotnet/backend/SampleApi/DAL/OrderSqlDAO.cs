@@ -91,9 +91,8 @@ namespace SampleApi.DAL
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("INSERT INTO orders VALUES ();", conn);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO orders VALUES (@cakeName, @quantity, @style, @size, @flavor, @frosting, @filling, @orderTotal, @orderStatus, @customerName, @phoneNumber, @email, @writingOnCake);", conn);
 
-                    cmd.Parameters.AddWithValue("@orderId", order.orderId);
                     cmd.Parameters.AddWithValue("@cakeName", order.cakeName);
                     cmd.Parameters.AddWithValue("@quantity", order.quantity);
                     cmd.Parameters.AddWithValue("@style", order.style);
