@@ -11,11 +11,11 @@
 
     <div class="cakedetails">
       <ul>
-        <li>Style: {{cake.style}}</li>
-        <li>Size: {{cake.size}}</li>
-        <li>Flavor: {{cake.flavor}}</li>
-        <li>Frosting: {{cake.frosting}}</li>
-        <li>Filling: {{cake.filling}}</li>
+        <li><b>Style:</b> {{cake.style}}</li>
+        <li><b>Size:</b> {{cake.size}}</li>
+        <li><b>Flavor:</b> {{cake.flavor}}</li>
+        <li><b>Frosting:</b> {{cake.frosting}}</li>
+        <li><b>Filling:</b> {{cake.filling}}</li>
       </ul>
       <router-link v-bind:to="{name: 'order-cake',params: {id:cake.id}}" class="btn btn-info" role="button">Purchase Cake</router-link>
     </div>

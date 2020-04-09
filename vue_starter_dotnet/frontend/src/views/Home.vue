@@ -1,21 +1,11 @@
 <template>
 <div id="homepage">
   <div id="hometext">
-    <p>There was one who said unto me that the universe was going to cause me to tremble,
-    That I am not the sharpest cutting implement in the storehouse.She had the appearance unto me as a stupid one,
-    With her finger and her thumb
-    In the frame of a Greek gamma upon her forehead.
-    Behold, the years begin coming, and do not cease from coming.
-    Fed unto the axioms, and I fell upon the earth and ran.
-    It was not acceptable if not to live for the sake of pleasurable things.
-    Your brain increases its wisdom, but your heart increases its stupidity.
-    A great amount to do, a great amount to see,
-    Therefore, there is no difficult problem if we take the streets of the backside.
-    </p>
+    <p>Elevate Sweets provides delicious artisan cakes and treats for all occasions using the finest seasonal ingredients available. All of our baked goods are made fresh daily by veteran bakers with a keen sense for flavor and aesthetic. Select from one of our house favorites or create a custom cake from our currently available options.</p>
   </div>
   <div id="homebtn">
-    <router-link :to="{name: 'standard-cakes'}" class="btn btn-info" role="button">Standard Cakes</router-link>
-    <router-link :to="{name: ''}" class="btn btn-info" role="button">Make a Cake</router-link>
+    <router-link :to="{name: 'standard-cakes'}" class="btn btn-info" role="button">House Favorites</router-link>
+    <router-link :to="{name: ''}" class="btn btn-info" role="button">Custom Cake</router-link>
   </div>
 </div>
 </template>

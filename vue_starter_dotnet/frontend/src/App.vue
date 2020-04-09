@@ -6,7 +6,7 @@
       <img src="./assets/elevate-sweets.png">
       <div id="navbarbuttons">
         <router-link :to="{name: 'home'}" class="btn btn-info" role="button">Home</router-link>
-        <router-link :to="{name: 'standard-cakes'}" class="btn btn-info" role="button">Standard Cakes</router-link>
+        <router-link :to="{name: 'standard-cakes'}" class="btn btn-info" role="button">House Favorites</router-link>
         <router-link :to="{name: 'login'}" class="btn btn-info" role="button">Employee Login</router-link>
       </div>
     </div>

@@ -86,9 +86,9 @@
   </div>
   
   <button class="btn btn-lg btn-info btn-block" type="submit" >
-        Create Cake
-      </button>
-      </form>
+      Create Cake
+    </button>
+  </form>
 </div>
 
 </template>
