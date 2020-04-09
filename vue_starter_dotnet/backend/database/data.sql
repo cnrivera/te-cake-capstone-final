@@ -10,6 +10,8 @@ INSERT INTO users
 VALUES
   ('user', 'jUE98uhvS5tdIlxRsmz1W7/Qaqo=', '9CWPUTvXqQ4=', 'User');
 
+-- STANDARD CAKE INSERT STATEMENTS -- 
+
 INSERT INTO cakeinfo (name, price, style, size, flavor, icing, filling, description, image_path)
 VALUES ('Holy Sheet Cake!', 45, 'Sheet cake', 'Full-pan', 'Yellow', 'Hazelnut Buttercream', 'None', 'A great basic cake for any event. Delicious hazelnut buttercream icing pairs perfectly with yellow sponge cake.', 'sheet-cake-yellow-chocolate-frosting.png');
 
@@ -39,6 +41,60 @@ VALUES ('Magical Dimension Ice Cream Cake', 50, 'Ice Cream Cake', '8-inch', 'Cho
 
 INSERT INTO cakeinfo (name, price, style, size, flavor, icing, filling, description, image_path)
 VALUES ('Oh Ho, Oreo! Ice Cream Cake', 50, 'Ice Cream Cake', '8-inch', 'Cookies and Cream', 'Whipped Cream', 'Cookie', 'This family-favorite ice cream cake will make your day all the sweeter. Cookies-and-cream ice cream with a chocolate cake base layer, topped with whipped cream frosting, drizzled with chocolate hard shell, outlined with a circle of chocolate icing shells, and wedged with whole Oreo cookies.', 'ice-cream-cake-oreo.png');
+
+-- CUSTOM CAKE INSERT STATEMENTS --
+
+--INSERT INTO styles (available, style, price_multiplier)
+--VALUES ( 1, 'Sheet cake', 1)
+
+--INSERT INTO fillings (available, filling, price_multiplier)
+--VALUES ( 1, 'None', 1)
+
+--INSERT INTO flavors (available, flavor, price_multiplier)
+--VALUES ( 1, 'Yellow', 1)
+
+--INSERT INTO frostings (available, frosting, price_multiplier)
+--VALUES ( 1, 'Hazelnut Buttercream', 1)
+
+--INSERT INTO sizes (available, size, price_multiplier)
+--VALUES ( 1, 'Full-pan', 1)
+
+--INSERT INTO sizes (available, size, price_multiplier)
+--VALUES ( 1, 'Half-pan', 1)
+
+--INSERT INTO sizes (available, size, price_multiplier)
+--VALUES ( 1, '3-tier', 1)
+
+--INSERT INTO sizes (available, size, price_multiplier)
+--VALUES ( 1, 'Standard', 1)
+
+--INSERT INTO sizes (available, size, price_multiplier)
+--VALUES ( 1, '8-inch', 1)
+
+--INSERT INTO sizes (available, size, price_multiplier)
+--VALUES ( 1, '12-inch', 1)
+
+--INSERT INTO sizes (available, size, price_multiplier)
+--VALUES ( 1, '18-inch', 1)
+
+--INSERT INTO style_size (style_id, size_id)
+--VALUES (1, 1), (1,2)
+
+--INSERT INTO cakes (name, price, style_id, size_id, flavor_id, frosting_id, filling_id, description, image_path)
+--VALUES ('Holy Sheet Cake!', 45,  , 1 , 1, 1, 1, 'A great basic cake for any event. Delicious hazelnut buttercream icing pairs perfectly with yellow sponge cake.', 'sheet-cake-yellow-chocolate-frosting.png');
+
+--select name, styles.style, sizes.size, flavors.flavor, frostings.frosting, fillings.filling, description, image_path from cakes 
+--join styles on cakes.style_id = styles.id
+--join sizes on cakes.size_id = sizes.id
+--join flavors on cakes.flavor_id = flavors.id
+--join frostings on cakes.frosting_id = frostings.id
+--join fillings on cakes.filling_id = fillings.id
+
+
+--ORDER INSERT STATEMENTS--
+
+INSERT INTO orders (cake_name, cake_quantity, style, size, flavor, icing, filling, cake_message, order_total, order_status, customer_name, phone_number, email)
+VALUES ('Holy Sheet Cake!', 1, 'Sheet cake', 'Full-pan', 'Yellow', 'Hazelnut Buttercream', 'none', null, 50, 'pending', 'Xanth Hively', '867-5309', 'lilxanth@gmail.com');
 
 
 
