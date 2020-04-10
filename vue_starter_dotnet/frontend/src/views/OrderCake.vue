@@ -18,6 +18,9 @@
       </ul>
 
       <form class="form-register" @submit.prevent="submitOrder">
+        <div class="alert alert-danger" role="alert" v-if="createOrderErrors">
+        There were problems creating this order.
+      </div>
       <div class="orderforms">
         <div class="form-group">
           <label for="name">Quantity:</label>
@@ -29,7 +32,7 @@
         </div>
         <div class="form-group">
           <label for="price">Name:</label>
-          <input v-model="orderInfo.name"
+          <input v-model="orderInfo.customerName"
           type="text"
           class="form-control"
           required
@@ -37,7 +40,7 @@
         </div>
         <div class="form-group">
         <label for="name">Phone:</label>
-        <input v-model="orderInfo.phone"
+        <input v-model="orderInfo.phoneNumber"
         type="text"
         class="form-control"
         required
@@ -55,7 +58,7 @@
       </div>
       <div class="form-group" v-if="cake.style != 'Cupcake'">
       <label for="name">Message:</label>
-      <input v-model="orderInfo.message"
+      <input v-model="orderInfo.writingOnCake"
       type="text"
       class="form-control"
       required
@@ -72,42 +75,44 @@
 
 <script>
 export default {
-  name: 'orderCake',
+  name: 'order-cake',
   data() {
     return {
       cake: [],
       orderInfo: {
         quantity: '',
-        name: '',
-        phone: '',
+        customerName: '',
+        phoneNumber: '',
         email: '',
-        message: '',
-        
+        writingOnCake: '',
+
         cakename: '',
         style: '',
         size: '',
         flavor: '',
         frosting: '',
         filling: '',
-        totalcost: '',
+        orderTotal: '5',
+        orderStatus: 'pending'
       },
-    }
+      createOrderErrors: false,
+    };
   },
   methods: {
-    createCake() {
-      fetch(`${process.env.VUE_APP_REMOTE_API_CAKE}/newCake`, {
+    submitOrder() {
+      fetch(`${process.env.VUE_APP_REMOTE_API_ORDER}/cakeOrder`, {
         method: 'POST',
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(this.cake),
+        body: JSON.stringify(this.orderInfo),
       })
         .then((response) => {
           if (response.ok) {
             this.$router.push({ path: '/standardcakes' });
           } else {
-            this.createCakeErrors = true;
+            this.createOrderErrors = true;
           }
         })
 
