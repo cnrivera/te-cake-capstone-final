@@ -91,7 +91,7 @@ namespace SampleApi.DAL
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("INSERT INTO orders (cake_name, cake_quantity, style, size, flavor, frosting, filling, cake_message, order_total, order_status, customer_name, phone_number, email) VALUES (@cakeName, @quantity, @style, @size, @flavor, @frosting, @filling, @writingOnCake, @orderTotal, @orderStatus, @customerName, @phoneNumber, @email);", conn);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO orders (cake_name, cake_quantity, style, size, flavor, frosting, filling, cake_message, order_total, order_status, customer_name, phone_number, email, pickup_date, pickup_time) VALUES (@cakeName, @quantity, @style, @size, @flavor, @frosting, @filling, @writingOnCake, @orderTotal, @orderStatus, @customerName, @phoneNumber, @email, @pickup_datetime);", conn);
 
                     cmd.Parameters.AddWithValue("@cakeName", order.cake.name);
                     cmd.Parameters.AddWithValue("@quantity", order.quantity);
@@ -100,12 +100,13 @@ namespace SampleApi.DAL
                     cmd.Parameters.AddWithValue("@flavor", order.cake.flavor);
                     cmd.Parameters.AddWithValue("@frosting", order.cake.frosting);
                     cmd.Parameters.AddWithValue("@filling", order.cake.filling);
-                    cmd.Parameters.AddWithValue("@orderTotal", order.cake.price);
+                    cmd.Parameters.AddWithValue("@orderTotal", order.orderTotal);
                     cmd.Parameters.AddWithValue("@orderStatus", order.orderStatus);
                     cmd.Parameters.AddWithValue("@customerName", order.customerName);
                     cmd.Parameters.AddWithValue("@phoneNumber", order.phoneNumber);
                     cmd.Parameters.AddWithValue("@email", order.email);
                     cmd.Parameters.AddWithValue("@writingOnCake", order.writingOnCake);
+                    cmd.Parameters.AddWithValue("@pickup_datetime", order.pickupDateTime);
 
                     cmd.ExecuteNonQuery();
 
