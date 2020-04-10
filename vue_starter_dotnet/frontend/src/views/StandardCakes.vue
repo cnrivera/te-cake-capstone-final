@@ -89,7 +89,6 @@ h3 {
   background-color: hsla(188, 56%, 8%, 0.7);
   padding: 5px;
   border-radius: 5px;
-  font-size: 1.5vw;
 }
 #standardcakescontainer .newcakebtn {
   margin: 20px;
