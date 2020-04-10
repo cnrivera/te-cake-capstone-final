@@ -34,7 +34,6 @@ namespace SampleApi.Models
         public DateTime pickupDateTime 
         {
             get { return DateTime.Parse(date + " " + time); }
-            set { }
             
         }
         

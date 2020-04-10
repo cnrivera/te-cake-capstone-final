@@ -70,7 +70,8 @@ namespace SampleApi.DAL
                         order.phoneNumber = Convert.ToString(reader["phone_number"]);
                         order.email = Convert.ToString(reader["email"]);
                         order.writingOnCake = Convert.ToString(reader["cake_message"]);
-                        order.pickupDateTime = Convert.ToDateTime(reader["pickup_datetime"]);
+                        order.date = Convert.ToDateTime(reader["pickup_datetime"]).ToString("d");
+                        order.time = Convert.ToDateTime(reader["pickup_datetime"]).ToString("hh:mm tt");
 
                         listOfOrders.Add(order);
                     }

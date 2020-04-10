@@ -1,9 +1,13 @@
 <template>
     <div id="pendingorderscontainer"> 
-         <h1>testing</h1>    
-     
+         <h1>All Pending Orders</h1>    
       <div v-for="order in orders" :key="order.name" class="orderdetails">
-            <h2>testing2</h2>
+      <ul>
+        <li><b>Customer Name:</b> {{order.customerName}}</li>
+        <li><b>Pick up Date and Time:</b> {{order.date}} {{order.time}}</li>
+        <li><b>Pick up Date and Time:</b> {{order.pickupDateTime}}</li>
+        
+      </ul>
       </div>
       
   </div>
