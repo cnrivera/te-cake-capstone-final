@@ -8,63 +8,54 @@
 
    <div class="form-group">
       <label for="style">Style:</label>
-      <select v-model="selected">
-      <option v-for="style in orderInfo.cake.styles" :key="style.id" :value="style.style">
+      <select v-model="orderInfo.style">
+      <option v-for="style in cake.styles" :key="style.id" :value="style.style">
        {{ style.style }}
       </option>
 </select>
-<span>Selected: {{ selected }}</span>
 
-      class="form-control"
-      required
-      />
+      
     </div>
-
-
-<!--     <div class="form-group">
+    <div class="form-group">
       <label for="size">Size:</label>
-      <input v-model="cake.size"
-      type="text"
-      class="form-control"
-      required
-      />
+      <select v-model="orderInfo.size">
+      <option v-for="size in cake.sizes" :key="size.id" :value="size.size">
+       {{ size.size }}
+      </option>
+</select>
+
+      
     </div>
     <div class="form-group">
       <label for="flavor">Flavor:</label>
-      <input v-model="cake.flavor"
-      type="text"
-      class="form-control"
-      required
-      />
+      <select v-model="orderInfo.flavor">
+      <option v-for="flavor in cake.flavors" :key="flavor.id" :value="flavor.flavor">
+       {{ flavor.flavor }}
+      </option>
+</select>
+
+      
     </div>
     <div class="form-group">
-      <label for="icing">Frosting:</label>
-      <input v-model="cake.frosting"
-      type="text"
-      class="form-control"
-      required
-      />
+      <label for="frosting">Frosting:</label>
+      <select v-model="orderInfo.frosting">
+      <option v-for="frosting in cake.frostings" :key="frosting.id" :value="frosting.frosting">
+       {{ frosting.frosting }}
+      </option>
+</select>
+
+      
     </div>
     <div class="form-group">
       <label for="filling">Filling:</label>
-      <input v-model="cake.filling"
-      type="text"
-      class="form-control"
-      required
-      />
-    </div> -->
+      <select v-model="orderInfo.filling">
+      <option v-for="filling in cake.fillings" :key="filling.id" :value="filling.filling">
+       {{ filling.filling }}
+      </option>
+</select>
 
-
-    <!-- <div class="ordercakedetails">
-      <h3>{{orderInfo.cake.name}}</h3>
-      <p>{{orderInfo.cake.description}}</p>
-      <ul>
-        <li><b>Style:</b> {{orderInfo.cake.style}}</li>
-        <li><b>Size:</b> {{orderInfo.cake.size}}</li>
-        <li><b>Flavor:</b> {{orderInfo.cake.flavor}}</li>
-        <li><b>Frosting:</b> {{orderInfo.cake.frosting}}</li>
-        <li><b>Filling:</b> {{orderInfo.cake.filling}}</li>
-      </ul> -->
+      
+    </div>
 
       <form class="form-register" @submit.prevent="submitOrder">
         <div class="alert alert-danger" role="alert" v-if="createOrderErrors">
@@ -127,7 +118,7 @@
       </div>
 
       </div>
-      <div class="form-group" v-if="orderInfo.cake.style != 'Cupcake'">
+      <div class="form-group" v-if="orderInfo.style != 'Cupcake'">
       <label for="name">Message:</label>
       <input v-model="orderInfo.writingOnCake"
       type="text"
@@ -140,7 +131,7 @@
 
     </div>
 
-  </div>
+  
 </template>
 
 <script>
@@ -148,6 +139,34 @@ export default {
   name: 'order-cake',
   data() {
     return {
+      cake: 
+          {
+            name: 'Custom',
+            styles: [
+                {id: 1, style: 'sheet cake'},
+                {id: 2, style: 'layer cake'}
+              ],
+            sizes: [
+              {id: 1, size: 'full-pan'},
+              {id: 2, size: 'half-pan'},
+              {id: 3, size: '3-tier'},
+              {id: 4, size: '12-inch'}
+            ],
+            flavors: [
+              {id: 1, flavor: 'vanilla'},
+              {id: 2, flavor: 'chocolate'}
+            ],
+            frostings: [
+              {id: 1, frosting: 'vanilla buttercream'},
+              {id: 2, frosting: 'chocolate buttercream'}
+            ],
+            fillings: [
+              {id: 1, filling: 'raspberry'},
+              {id: 2, filling: 'orange cream'}
+            ],
+            price: ''
+
+    },
       
       orderInfo: {
         quantity: '',
@@ -158,36 +177,13 @@ export default {
         orderStatus: 'pending',
         date: '',
         time: '',
+        style: '',
+        size: '',
+        flavor: '',
+        frosting: '',
+        filling: ''
 
-        cake: [
-          {
-            name: 'Custom',
-            styles: [
-                {id: 1, style: 'sheet cake'},
-                {id: 2, style: 'layer cake'}
-              ],
-            sizes: [
-              {size: 'full-pan'},
-              {size: 'half-pan'},
-              {size: '3-tier'},
-              {size: '12-inch'}
-            ],
-            flavors: [
-              {flavor: 'vanilla'},
-              {flavor: 'chocolate'}
-            ],
-            frostings: [
-              {frosting: 'vanilla buttercream'},
-              {frosting: 'chocolate buttercream'}
-            ],
-            fillings: [
-              {filling: 'raspberry'},
-              {filling: 'orange cream'}
-            ],
-            price: ''
-          }
-          
-        ]
+        
       },
       createOrderErrors: false,
     };
