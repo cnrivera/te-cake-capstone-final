@@ -2,19 +2,19 @@
   <div id="ordercake">
 
     <div class="ordercakeimg">
-      <img v-bind:src="require('../../src/assets/' + cake.imageName)" /> 
-      <div class="price">${{cake.price}}</div>
+      <img v-bind:src="require('../../src/assets/' + orderInfo.cake.imageName)" /> 
+      <div class="price">${{orderInfo.cake.price}}</div>
     </div>
 
     <div class="ordercakedetails">
-      <h3>{{cake.name}}</h3>
-      <p>{{cake.description}}</p>
+      <h3>{{orderInfo.cake.name}}</h3>
+      <p>{{orderInfo.cake.description}}</p>
       <ul>
-        <li><b>Style:</b> {{cake.style}}</li>
-        <li><b>Size:</b> {{cake.size}}</li>
-        <li><b>Flavor:</b> {{cake.flavor}}</li>
-        <li><b>Frosting:</b> {{cake.frosting}}</li>
-        <li><b>Filling:</b> {{cake.filling}}</li>
+        <li><b>Style:</b> {{orderInfo.cake.style}}</li>
+        <li><b>Size:</b> {{orderInfo.cake.size}}</li>
+        <li><b>Flavor:</b> {{orderInfo.cake.flavor}}</li>
+        <li><b>Frosting:</b> {{orderInfo.cake.frosting}}</li>
+        <li><b>Filling:</b> {{orderInfo.cake.filling}}</li>
       </ul>
 
       <form class="form-register" @submit.prevent="submitOrder">
@@ -56,7 +56,7 @@
       </div>
 
       </div>
-      <div class="form-group" v-if="cake.style != 'Cupcake'">
+      <div class="form-group" v-if="orderInfo.cake.style != 'Cupcake'">
       <label for="name">Message:</label>
       <input v-model="orderInfo.writingOnCake"
       type="text"
@@ -78,22 +78,16 @@ export default {
   name: 'order-cake',
   data() {
     return {
-      cake: [],
+      
       orderInfo: {
         quantity: '',
         customerName: '',
         phoneNumber: '',
         email: '',
         writingOnCake: '',
+        orderStatus: 'pending',
 
-        cakename: '',
-        style: '',
-        size: '',
-        flavor: '',
-        frosting: '',
-        filling: '',
-        orderTotal: '5',
-        orderStatus: 'pending'
+        cake: []
       },
       createOrderErrors: false,
     };
@@ -124,7 +118,7 @@ export default {
         return response.json();
       })
       .then((data) => {
-        this.cake = data;
+        this.orderInfo.cake = data;
       })
       .catch((err) => console.error(err));
     }

@@ -54,14 +54,14 @@ namespace SampleApi.DAL
                         Order order = new Order();
 
                         order.orderId = Convert.ToInt32(reader["order_id"]);
-                        order.cakeName = Convert.ToString(reader["cake_name"]);
+                        order.cake.name = Convert.ToString(reader["cake_name"]);
                         order.quantity = Convert.ToInt32(reader["cake_quantity"]);
-                        order.style = Convert.ToString(reader["style"]);
-                        order.size = Convert.ToString(reader["size"]);
-                        order.flavor = Convert.ToString(reader["flavor"]);
-                        order.frosting = Convert.ToString(reader["frosting"]);
-                        order.filling = Convert.ToString(reader["filling"]);
-                        order.orderTotal = Convert.ToDouble(reader["order_total"]);
+                        order.cake.style = Convert.ToString(reader["style"]);
+                        order.cake.size = Convert.ToString(reader["size"]);
+                        order.cake.flavor = Convert.ToString(reader["flavor"]);
+                        order.cake.frosting = Convert.ToString(reader["frosting"]);
+                        order.cake.filling = Convert.ToString(reader["filling"]);
+                        order.cake.price = Convert.ToDouble(reader["order_total"]);
                         order.orderStatus = Convert.ToString(reader["order_status"]);
                         order.customerName = Convert.ToString(reader["customer_name"]);
                         order.phoneNumber = Convert.ToString(reader["phone_number"]);
@@ -93,14 +93,14 @@ namespace SampleApi.DAL
                     conn.Open();
                     SqlCommand cmd = new SqlCommand("INSERT INTO orders (cake_name, cake_quantity, style, size, flavor, frosting, filling, cake_message, order_total, order_status, customer_name, phone_number, email) VALUES (@cakeName, @quantity, @style, @size, @flavor, @frosting, @filling, @writingOnCake, @orderTotal, @orderStatus, @customerName, @phoneNumber, @email);", conn);
 
-                    cmd.Parameters.AddWithValue("@cakeName", order.cakeName);
+                    cmd.Parameters.AddWithValue("@cakeName", order.cake.name);
                     cmd.Parameters.AddWithValue("@quantity", order.quantity);
-                    cmd.Parameters.AddWithValue("@style", order.style);
-                    cmd.Parameters.AddWithValue("@size", order.size);
-                    cmd.Parameters.AddWithValue("@flavor", order.flavor);
-                    cmd.Parameters.AddWithValue("@frosting", order.frosting);
-                    cmd.Parameters.AddWithValue("@filling", order.filling);
-                    cmd.Parameters.AddWithValue("@orderTotal", order.price);
+                    cmd.Parameters.AddWithValue("@style", order.cake.style);
+                    cmd.Parameters.AddWithValue("@size", order.cake.size);
+                    cmd.Parameters.AddWithValue("@flavor", order.cake.flavor);
+                    cmd.Parameters.AddWithValue("@frosting", order.cake.frosting);
+                    cmd.Parameters.AddWithValue("@filling", order.cake.filling);
+                    cmd.Parameters.AddWithValue("@orderTotal", order.cake.price);
                     cmd.Parameters.AddWithValue("@orderStatus", order.orderStatus);
                     cmd.Parameters.AddWithValue("@customerName", order.customerName);
                     cmd.Parameters.AddWithValue("@phoneNumber", order.phoneNumber);
