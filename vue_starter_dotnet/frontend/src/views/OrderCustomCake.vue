@@ -9,7 +9,7 @@
    <div class="form-group">
       <label for="style">Style:</label>
       <select v-model="selected">
-      <option v-for="style in cake.styles" :key="style.id" :value="style.style">
+      <option v-for="style in orderInfo.cake.styles" :key="style.id" :value="style.style">
        {{ style.style }}
       </option>
 </select>
@@ -55,7 +55,7 @@
     </div> -->
 
 
-    <div class="ordercakedetails">
+    <!-- <div class="ordercakedetails">
       <h3>{{orderInfo.cake.name}}</h3>
       <p>{{orderInfo.cake.description}}</p>
       <ul>
@@ -64,7 +64,7 @@
         <li><b>Flavor:</b> {{orderInfo.cake.flavor}}</li>
         <li><b>Frosting:</b> {{orderInfo.cake.frosting}}</li>
         <li><b>Filling:</b> {{orderInfo.cake.filling}}</li>
-      </ul>
+      </ul> -->
 
       <form class="form-register" @submit.prevent="submitOrder">
         <div class="alert alert-danger" role="alert" v-if="createOrderErrors">
