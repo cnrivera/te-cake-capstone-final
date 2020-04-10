@@ -7,6 +7,7 @@ import Register from './views/Register.vue'
 import StandardCakes from './views/StandardCakes.vue'
 import CreateCake from './views/CreateCake.vue'
 import OrderCake from './views/OrderCake.vue'
+import PendingOrders from './views/PendingOrders.vue'
 
 Vue.use(Router)
 
@@ -67,6 +68,14 @@ const router = new Router({
       path: '/standardcakes/:id',
       name: 'order-cake',
       component: OrderCake,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: '/pendingorders',
+      name: 'pending-orders',
+      component: PendingOrders,
       meta: {
         requiresAuth: false
       }

@@ -52,16 +52,19 @@ namespace SampleApi.DAL
                     {
 
                         Order order = new Order();
+                        Cake orderCake = new Cake();
+
+                        orderCake.name = Convert.ToString(reader["cake_name"]);
+                        orderCake.style = Convert.ToString(reader["style"]);
+                        orderCake.size = Convert.ToString(reader["size"]);
+                        orderCake.flavor = Convert.ToString(reader["flavor"]);
+                        orderCake.frosting = Convert.ToString(reader["frosting"]);
+                        orderCake.filling = Convert.ToString(reader["filling"]);
+                        orderCake.price = Convert.ToDouble(reader["price"]);
+                        order.cake = orderCake;
 
                         order.orderId = Convert.ToInt32(reader["order_id"]);
-                        order.cake.name = Convert.ToString(reader["cake_name"]);
                         order.quantity = Convert.ToInt32(reader["cake_quantity"]);
-                        order.cake.style = Convert.ToString(reader["style"]);
-                        order.cake.size = Convert.ToString(reader["size"]);
-                        order.cake.flavor = Convert.ToString(reader["flavor"]);
-                        order.cake.frosting = Convert.ToString(reader["frosting"]);
-                        order.cake.filling = Convert.ToString(reader["filling"]);
-                        order.cake.price = Convert.ToDouble(reader["order_total"]);
                         order.orderStatus = Convert.ToString(reader["order_status"]);
                         order.customerName = Convert.ToString(reader["customer_name"]);
                         order.phoneNumber = Convert.ToString(reader["phone_number"]);
