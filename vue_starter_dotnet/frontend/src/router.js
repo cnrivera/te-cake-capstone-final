@@ -82,9 +82,9 @@ const router = new Router({
       }
     },
     {
-      path: '/createcustomcake',
-      name: 'create-custom-cake',
-      component: CreateCustomCake,
+      path: '/ordercustomcake',
+      name: 'order-custom-cake',
+      component: OrderCustomCake,
       meta: {
         requiresAuth: false
       }
