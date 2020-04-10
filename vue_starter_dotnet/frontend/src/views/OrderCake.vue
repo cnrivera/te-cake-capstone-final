@@ -53,6 +53,28 @@
         class="form-control"
         required
         />
+        </div>
+        <div class="form-group">
+        <label for="name">Date:</label>
+        <input v-model="orderInfo.date"
+        type="text"
+        class="form-control"
+        required
+        />
+        </div>
+        <div class="form-group">
+        <label for="name">Time:</label>
+        <select v-model="orderInfo.time" class="form-control">
+          <option value="9:00am">9:00am</option>
+          <option value="10:00am">10:00am</option>
+          <option value="11:00am">11:00am</option>
+          <option value="12:00am">12:00am</option>
+          <option value="1:00pm">1:00pm</option>
+          <option value="2:00pm">2:00pm</option>
+          <option value="3:00pm">3:00pm</option>
+          <option value="4:00pm">4:00pm</option>
+          <option value="5:00pm">5:00pm</option>
+        </select>
       </div>
 
       </div>
@@ -61,7 +83,6 @@
       <input v-model="orderInfo.writingOnCake"
       type="text"
       class="form-control"
-      required
       />
       <input type="hidden" v-model="orderInfo.id"/>
       </div>
@@ -86,6 +107,8 @@ export default {
         email: '',
         writingOnCake: '',
         orderStatus: 'pending',
+        date: '',
+        time: '',
 
         cake: []
       },

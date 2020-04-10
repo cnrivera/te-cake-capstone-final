@@ -33,7 +33,7 @@ namespace SampleApi.Models
         public string time { get; set; }
         public DateTime pickupDateTime 
         {
-            get { return DateTime.Parse(date + time); }
+            get { return DateTime.Parse(date +" "+ time); }
         }
         
     }
