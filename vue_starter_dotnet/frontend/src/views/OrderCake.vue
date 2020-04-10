@@ -25,9 +25,11 @@
         <div class="form-group">
           <label for="name">Quantity:</label>
           <input v-model="orderInfo.quantity"
-          type="text"
+          type="number"
           class="form-control"
           required
+          min="1"
+          max="10"
           />
         </div>
         <div class="form-group">
@@ -41,7 +43,9 @@
         <div class="form-group">
         <label for="name">Phone:</label>
         <input v-model="orderInfo.phoneNumber"
-        type="text"
+        type="tel"
+        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+        placeholder="123-456-7890"
         class="form-control"
         required
         />
@@ -49,7 +53,7 @@
         <div class="form-group">
         <label for="name">Email:</label>
         <input v-model="orderInfo.email"
-        type="text"
+        type="email"
         class="form-control"
         required
         />
@@ -57,7 +61,7 @@
         <div class="form-group">
         <label for="name">Date:</label>
         <input v-model="orderInfo.date"
-        type="text"
+        type="date"
         class="form-control"
         required
         />
@@ -84,7 +88,9 @@
       type="text"
       class="form-control"
       />
-      <input type="hidden" v-model="orderInfo.id"/>
+
+    
+
       </div>
       <button class="btn btn-lg btn-info btn-block" type="submit" >Submit Order</button>
     </form>

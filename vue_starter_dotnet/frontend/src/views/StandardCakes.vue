@@ -100,8 +100,20 @@ h3 {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  flex-wrap: wrap;
 }
 .cakedetails .btn {
   height: 40px;
+}
+@media (max-width:900px) {
+  .cakeinfo {
+    width: 100%;
+  }
+}
+@media (max-width:1300px) {
+  #standardcakescontainer {
+    margin-left: 7%;
+    margin-right: 7%;
+  }
 }
 </style>
