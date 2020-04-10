@@ -100,7 +100,7 @@ namespace SampleApi.DAL
                     cmd.Parameters.AddWithValue("@flavor", order.flavor);
                     cmd.Parameters.AddWithValue("@frosting", order.frosting);
                     cmd.Parameters.AddWithValue("@filling", order.filling);
-                    cmd.Parameters.AddWithValue("@orderTotal", order.orderTotal);
+                    cmd.Parameters.AddWithValue("@orderTotal", order.price);
                     cmd.Parameters.AddWithValue("@orderStatus", order.orderStatus);
                     cmd.Parameters.AddWithValue("@customerName", order.customerName);
                     cmd.Parameters.AddWithValue("@phoneNumber", order.phoneNumber);

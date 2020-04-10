@@ -18,7 +18,7 @@ namespace SampleApi.Models
         public string writingOnCake { get; set; }
         public int quantity { get; set; }
         public int orderId { get; set; }
-        public double orderTotal { get; set; }
+        public double price { get; set; }
         public string orderStatus { get; set; }
         public string customerName { get; set; }
         public string phoneNumber { get; set; }
