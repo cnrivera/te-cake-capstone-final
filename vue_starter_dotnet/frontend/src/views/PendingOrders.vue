@@ -1,9 +1,11 @@
 <template>
-    <div id="pendingorderscontainer" > 
+    <div id="pendingorderscontainer"> 
          <h1>testing</h1>    
-        <div v-for="order in orders" :key="order.id" class="order" id = "pendingorderscontainer">
-            <h3>{{order.customerName}}</h3>
-    </div>
+     
+      <div v-for="order in orders" :key="order.name" class="orderdetails">
+            <h2>testing2</h2>
+      </div>
+      
   </div>
 </template>
 

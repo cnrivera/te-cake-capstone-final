@@ -26,8 +26,12 @@ namespace SampleApi.Controllers
             this.orderDao = orderDao;
         }
 
-       
 
+        [HttpGet("getAllOrders")]
+        public List <Order> GetAllOrders()
+        {
+            return orderDao.GetAllOrders();
+        }
         /// <summary>
         /// Creates a new order in the database
         /// </summary>

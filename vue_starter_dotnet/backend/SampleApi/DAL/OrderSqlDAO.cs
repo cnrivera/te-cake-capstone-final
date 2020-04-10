@@ -60,7 +60,7 @@ namespace SampleApi.DAL
                         orderCake.flavor = Convert.ToString(reader["flavor"]);
                         orderCake.frosting = Convert.ToString(reader["frosting"]);
                         orderCake.filling = Convert.ToString(reader["filling"]);
-                        orderCake.price = Convert.ToDouble(reader["price"]);
+                        orderCake.price = (Convert.ToDouble(reader["order_total"]) / (Double)Convert.ToInt32(reader["cake_quantity"]));
                         order.cake = orderCake;
 
                         order.orderId = Convert.ToInt32(reader["order_id"]);
@@ -70,6 +70,7 @@ namespace SampleApi.DAL
                         order.phoneNumber = Convert.ToString(reader["phone_number"]);
                         order.email = Convert.ToString(reader["email"]);
                         order.writingOnCake = Convert.ToString(reader["cake_message"]);
+                        order.pickupDateTime = Convert.ToDateTime(reader["pickup_datetime"]);
 
                         listOfOrders.Add(order);
                     }
