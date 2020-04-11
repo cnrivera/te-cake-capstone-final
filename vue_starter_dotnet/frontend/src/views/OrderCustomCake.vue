@@ -120,7 +120,7 @@
 
       </div>
       <div class="form-group" v-if="orderInfo.style != 'Cupcake'">
-      <label for="name">Message:</label>
+      <label for="name">Add Message to Cake:</label>
       <input v-model="orderInfo.writingOnCake"
       type="text"
       class="form-control"
