@@ -37,7 +37,29 @@ namespace SampleApi.Controllers
             return cakeOptionsDao.GetAllCakeFrostings();
         }
 
+        /// <summary>
+        /// returns a list of all fillings from the fillings table
+        ///
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("getAllFillings")]
+        public List<Fillings> GetAllFillings()
+        {
+            return cakeOptionsDao.GetAllCakeFillings();
+        }
 
-        
+        /// <summary>
+        /// returns a list of all fillings from the fillings table
+        ///
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("getAllFlavors")]
+        public List<Fillings> GetAllFlavors()
+        {
+            return cakeOptionsDao.GetAllCakeFlavors();
+        }
+
+
+
     }
 }
