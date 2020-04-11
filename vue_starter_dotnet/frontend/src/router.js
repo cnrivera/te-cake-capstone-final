@@ -9,6 +9,7 @@ import CreateCake from './views/CreateCake.vue'
 import OrderCake from './views/OrderCake.vue'
 import PendingOrders from './views/PendingOrders.vue'
 import OrderCustomCake from './views/OrderCustomCake.vue'
+import AdminMenu from './views/AdminMenu.vue'
 
 Vue.use(Router)
 
@@ -87,6 +88,14 @@ const router = new Router({
       component: OrderCustomCake,
       meta: {
         requiresAuth: false
+      }
+    },
+    {
+      path: '/adminmenu',
+      name: 'admin-menu',
+      component: AdminMenu,
+      meta: {
+        requiresAuth: true
       }
     },
   ]

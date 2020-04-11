@@ -7,7 +7,7 @@
       <div id="navbarbuttons">
         <router-link :to="{name: 'home'}" class="btn btn-info" role="button">Home</router-link>
         <router-link :to="{name: 'standard-cakes'}" class="btn btn-info" role="button">House Favorites</router-link>
-        <router-link :to="{name: 'login'}" class="btn btn-info" role="button">Employee Login</router-link>
+        <router-link :to="{name: 'admin-menu'}" class="btn btn-info" role="button">Admin Menu</router-link>
         <router-link :to="{name: 'pending-orders'}" class="btn btn-info" role="button">Pending Orders</router-link>
       </div>
     </div>
