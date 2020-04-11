@@ -5,10 +5,14 @@
       <img v-bind:src="require('../../src/assets/' + orderInfo.cake.imageName)" /> 
       <div class="price">${{orderInfo.cake.price}}</div>
     </div> -->
+    <form class="form-register" @submit.prevent="submitOrder">
+        <div class="alert alert-danger" role="alert" v-if="createOrderErrors">
+        There were problems creating this order.
+      </div>
 
    <div class="form-group">
       <label for="style">Style:</label>
-      <select v-model="orderInfo.style">
+      <select v-model="orderInfo.cake.style">
       <option v-for="style in cake.styles" :key="style.id" :value="style.style">
        {{ style.style }}
       </option>
@@ -18,7 +22,7 @@
     </div>
     <div class="form-group">
       <label for="size">Size:</label>
-      <select v-model="orderInfo.size">
+      <select v-model="orderInfo.cake.size">
       <option v-for="size in cake.sizes" :key="size.id" :value="size.size">
        {{ size.size }}
       </option>
@@ -28,7 +32,7 @@
     </div>
     <div class="form-group">
       <label for="flavor">Flavor:</label>
-      <select v-model="orderInfo.flavor">
+      <select v-model="orderInfo.cake.flavor">
       <option v-for="flavor in cake.flavors" :key="flavor.id" :value="flavor.flavor">
        {{ flavor.flavor }}
       </option>
@@ -38,7 +42,7 @@
     </div>
     <div class="form-group">
       <label for="frosting">Frosting:</label>
-      <select v-model="orderInfo.frosting">
+      <select v-model="orderInfo.cake.frosting">
       <option v-for="frosting in cake.frostings" :key="frosting.id" :value="frosting.frosting">
        {{ frosting.frosting }}
       </option>
@@ -48,7 +52,7 @@
     </div>
     <div class="form-group">
       <label for="filling">Filling:</label>
-      <select v-model="orderInfo.filling">
+      <select v-model="orderInfo.cake.filling">
       <option v-for="filling in cake.fillings" :key="filling.id" :value="filling.filling">
        {{ filling.filling }}
       </option>
@@ -57,10 +61,7 @@
       
     </div>
 
-      <form class="form-register" @submit.prevent="submitOrder">
-        <div class="alert alert-danger" role="alert" v-if="createOrderErrors">
-        There were problems creating this order.
-      </div>
+      
       <div class="orderforms">
         <div class="form-group">
           <label for="name">Quantity:</label>
@@ -177,11 +178,14 @@ export default {
         orderStatus: 'pending',
         date: '',
         time: '',
-        style: '',
-        size: '',
-        flavor: '',
-        frosting: '',
-        filling: ''
+        cake: {
+          name: '',
+          style: '',
+          size: '',
+          flavor: '',
+          frosting: '',
+          filling: ''
+        }
 
         
       },
