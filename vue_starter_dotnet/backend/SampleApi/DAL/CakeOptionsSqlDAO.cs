@@ -226,6 +226,85 @@ namespace SampleApi.DAL
             return true;
         }
 
+        public List<Fillings> GetAllCakeFillings()
+        {
+
+            List<Fillings> listOfFillings = new List<Fillings>();
+
+            try
+            {
+                // Create a new connection object
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    // Open the connection
+                    conn.Open();
+
+                    string sql = $"SELECT * FROM fillings";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+
+                    // Execute the command
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    // Loop through each row
+                    while (reader.Read())
+                    {
+
+                        Fillings filling = new Fillings();
+                        filling.id = Convert.ToInt32(reader["id"]);
+                        filling.filling = Convert.ToString(reader["filling"]);
+                        filling.isAvailable = Convert.ToBoolean(reader["available"]);
+
+                        listOfFillings.Add(filling);
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw;
+            }
+
+            return listOfFillings;
+        }
+        public List<Flavors> GetAllCakeFlavors()
+        {
+
+            List<Flavors> listOfFlavors = new List<Flavors>();
+
+            try
+            {
+                // Create a new connection object
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    // Open the connection
+                    conn.Open();
+
+                    string sql = $"SELECT * FROM flavors";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+
+                    // Execute the command
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    // Loop through each row
+                    while (reader.Read())
+                    {
+
+                        Flavors flavor = new Flavors();
+                        flavor.id = Convert.ToInt32(reader["id"]);
+                        flavor.flavor = Convert.ToString(reader["flavor"]);
+                        flavor.isAvailable = Convert.ToBoolean(reader["available"]);
+
+                        listOfFlavors.Add(flavor);
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw;
+            }
+
+            return listOfFlavors;
+        }
+
 
     }
 }
