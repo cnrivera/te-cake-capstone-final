@@ -5,9 +5,7 @@ import Home from './views/Home.vue'
 import Login from './views/Login.vue'
 import Register from './views/Register.vue'
 import StandardCakes from './views/StandardCakes.vue'
-import CreateCake from './views/CreateCake.vue'
 import OrderCake from './views/OrderCake.vue'
-import PendingOrders from './views/PendingOrders.vue'
 import OrderCustomCake from './views/OrderCustomCake.vue'
 import AdminMenu from './views/AdminMenu.vue'
 
@@ -59,25 +57,9 @@ const router = new Router({
       }
     },
     {
-      path: '/createcake',
-      name: 'create-cake',
-      component: CreateCake,
-      meta: {
-        requiresAuth: true
-      }
-    },
-    {
       path: '/standardcakes/:id',
       name: 'order-cake',
       component: OrderCake,
-      meta: {
-        requiresAuth: false
-      }
-    },
-    {
-      path: '/pendingorders',
-      name: 'pending-orders',
-      component: PendingOrders,
       meta: {
         requiresAuth: false
       }

@@ -95,7 +95,7 @@
 
 <script>
 export default {
-  name: 'createCake',
+  name: 'create-cake',
   data() {
     return {
       cake: {
