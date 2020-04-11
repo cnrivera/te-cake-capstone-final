@@ -27,7 +27,7 @@ namespace SampleApi.Controllers
         }
 
         /// <summary>
-        /// returns a list of all Frostings from the frostings table
+        /// returns a list of all frostings from the frostings table
         ///
         /// </summary>
         /// <returns></returns>
@@ -49,7 +49,7 @@ namespace SampleApi.Controllers
         }
 
         /// <summary>
-        /// returns a list of all fillings from the fillings table
+        /// returns a list of all flavors from the flavors table
         ///
         /// </summary>
         /// <returns></returns>
