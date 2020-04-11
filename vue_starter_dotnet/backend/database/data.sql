@@ -56,26 +56,26 @@ VALUES ( 1, 'Yellow')
 INSERT INTO frostings (available, frosting)
 VALUES ( 1, 'Hazelnut Buttercream')
 
-INSERT INTO sizes (available, size, price_multiplier)
-VALUES ( 1, 'Full-pan', 1)
+INSERT INTO sizes (available, size, base_price)
+VALUES ( 1, 'Full-pan', 70)
 
-INSERT INTO sizes (available, size, price_multiplier)
-VALUES ( 1, 'Half-pan', 1)
+INSERT INTO sizes (available, size, base_price)
+VALUES ( 1, 'Half-pan', 40)
 
-INSERT INTO sizes (available, size, price_multiplier)
-VALUES ( 1, '3-tier', 1)
+INSERT INTO sizes (available, size, base_price)
+VALUES ( 1, '3-tier', 100)
 
-INSERT INTO sizes (available, size, price_multiplier)
-VALUES ( 1, 'Standard', 1)
+INSERT INTO sizes (available, size, base_price)
+VALUES ( 1, 'Standard', 4)
 
-INSERT INTO sizes (available, size, price_multiplier)
-VALUES ( 1, '8-inch', 1)
+INSERT INTO sizes (available, size, base_price)
+VALUES ( 1, '8-inch', 40)
 
-INSERT INTO sizes (available, size, price_multiplier)
-VALUES ( 1, '12-inch', 1)
+INSERT INTO sizes (available, size, base_price)
+VALUES ( 1, '12-inch', 75)
 
-INSERT INTO sizes (available, size, price_multiplier)
-VALUES ( 1, '18-inch', 1)
+INSERT INTO sizes (available, size, base_price)
+VALUES ( 1, '18-inch', 125)
 
 INSERT INTO style_size (style_id, size_id)
 VALUES (1, 1), (1,2)

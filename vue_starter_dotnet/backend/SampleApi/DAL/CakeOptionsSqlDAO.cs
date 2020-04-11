@@ -124,7 +124,7 @@ namespace SampleApi.DAL
                         Sizes size = new Sizes();
                         size.id = Convert.ToInt32(reader["id"]);
                         size.size = Convert.ToString(reader["size"]);
-                        size.priceMultiplier = Convert.ToDouble(reader["price_multiplier"]);
+                        size.basePrice = Convert.ToDouble(reader["base_price"]);
                         size.isAvailable = Convert.ToBoolean(reader["available"]);
 
                         listOfSizes.Add(size);
@@ -146,12 +146,12 @@ namespace SampleApi.DAL
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("INSERT INTO sizes VALUES (@id, @available, @size, @price_multiplier);", conn);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO sizes VALUES (@id, @available, @size, @base_price);", conn);
 
                     cmd.Parameters.AddWithValue("@id", newSize.id);
                     cmd.Parameters.AddWithValue("@available", newSize.isAvailable);
                     cmd.Parameters.AddWithValue("@style", newSize.size);
-                    cmd.Parameters.AddWithValue("@price", newSize.priceMultiplier);
+                    cmd.Parameters.AddWithValue("@price", newSize.basePrice);
 
                     cmd.ExecuteNonQuery();
                 }

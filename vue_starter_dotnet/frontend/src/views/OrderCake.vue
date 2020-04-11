@@ -115,7 +115,6 @@ export default {
         orderStatus: 'pending',
         date: '',
         time: '',
-
         cake: []
       },
       createOrderErrors: false,

@@ -59,7 +59,27 @@ namespace SampleApi.Controllers
             return cakeOptionsDao.GetAllCakeFlavors();
         }
 
+        /// <summary>
+        /// returns a list of all sizes from the sizes table
+        ///
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("getAllSizes")]
+        public List<Sizes> GetAllSizes()
+        {
+            return cakeOptionsDao.GetAllCakeSizes();
+        }
 
+        /// <summary>
+        /// returns a list of all styles from the styles table
+        ///
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("getAllStyles")]
+        public List<Styles> GetAllStyles()
+        {
+            return cakeOptionsDao.GetAllCakeStyles();
+        }
 
     }
 }

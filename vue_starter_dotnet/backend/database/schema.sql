@@ -61,7 +61,7 @@ CREATE TABLE sizes
 	id			int			identity(1,1),
 	available bit not null,
 	size varchar (50) not null,
-	price_multiplier float not null,
+	base_price float not null,
 
 	constraint pk_sizes primary key(id)
 );

@@ -142,17 +142,8 @@ export default {
     return {
       cake: 
         {
-          name: 'Custom',
-          styles: [
-              {id: 1, style: 'sheet cake'},
-              {id: 2, style: 'layer cake'}
-              ],
-          sizes: [
-            {id: 1, size: 'full-pan'},
-            {id: 2, size: 'half-pan'},
-            {id: 3, size: '3-tier'},
-            {id: 4, size: '12-inch'}
-            ],
+          styles: [],
+          sizes: [],
           flavors: [],
           frostings: [],
           fillings: [],
@@ -170,12 +161,13 @@ export default {
         date: '',
         time: '',
         cake: {
-          name: '',
+          name: 'Custom',
           style: '',
           size: '',
           flavor: '',
           frosting: '',
-          filling: ''
+          filling: '',
+          // size.basePrice:
         }
       },
       createOrderErrors: false,
@@ -224,8 +216,6 @@ export default {
       .catch((err) => console.error(err));
     },
   
-  
-
   getFlavorsList() {
       fetch(`${process.env.VUE_APP_REMOTE_API_OPTIONS}/getAllFlavors`)
       .then((response) => {
@@ -233,6 +223,28 @@ export default {
       })
       .then((data) => {
         this.cake.flavors = data;
+      })
+      .catch((err) => console.error(err));
+    },
+
+      getStylesList() {
+      fetch(`${process.env.VUE_APP_REMOTE_API_OPTIONS}/getAllStyles`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        this.cake.styles = data;
+      })
+      .catch((err) => console.error(err));
+    },
+
+      getSizesList() {
+      fetch(`${process.env.VUE_APP_REMOTE_API_OPTIONS}/getAllSizes`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        this.cake.sizes = data;
       })
       .catch((err) => console.error(err));
     },
@@ -244,6 +256,8 @@ created() {
       this.getFrostingsList();
       this.getFillingsList();
       this.getFlavorsList();
+      this.getSizesList();
+      this.getStylesList();
     }
 }
     
