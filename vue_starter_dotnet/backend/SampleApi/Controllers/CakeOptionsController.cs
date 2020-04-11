@@ -21,7 +21,7 @@ namespace SampleApi.Controllers
         private ICakeOptionsDAO cakeOptionsDao;
 
         
-        public CakeOptionsController(ICakeOptionsDAO cakeDao)
+        public CakeOptionsController(ICakeOptionsDAO cakeOptionsDao)
         {
             this.cakeOptionsDao = cakeOptionsDao;
         }

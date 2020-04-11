@@ -141,33 +141,30 @@ export default {
   data() {
     return {
       cake: 
-          {
-            name: 'Custom',
-            styles: [
-                {id: 1, style: 'sheet cake'},
-                {id: 2, style: 'layer cake'}
+        {
+          name: 'Custom',
+          styles: [
+              {id: 1, style: 'sheet cake'},
+              {id: 2, style: 'layer cake'}
               ],
-            sizes: [
-              {id: 1, size: 'full-pan'},
-              {id: 2, size: 'half-pan'},
-              {id: 3, size: '3-tier'},
-              {id: 4, size: '12-inch'}
+          sizes: [
+            {id: 1, size: 'full-pan'},
+            {id: 2, size: 'half-pan'},
+            {id: 3, size: '3-tier'},
+            {id: 4, size: '12-inch'}
             ],
-            flavors: [
-              {id: 1, flavor: 'vanilla'},
-              {id: 2, flavor: 'chocolate'}
+          flavors: [
+            {id: 1, flavor: 'vanilla'},
+            {id: 2, flavor: 'chocolate'}
             ],
-            frostings: [
-              {id: 1, frosting: 'vanilla buttercream'},
-              {id: 2, frosting: 'chocolate buttercream'}
+          frostings: [],
+          fillings: [
+            {id: 1, filling: 'raspberry'},
+            {id: 2, filling: 'orange cream'}
             ],
-            fillings: [
-              {id: 1, filling: 'raspberry'},
-              {id: 2, filling: 'orange cream'}
-            ],
-            price: ''
+          price: ''
 
-    },
+        },
       
       orderInfo: {
         quantity: '',
@@ -186,8 +183,6 @@ export default {
           frosting: '',
           filling: ''
         }
-
-        
       },
       createOrderErrors: false,
     };
@@ -213,20 +208,19 @@ export default {
 
         .then((err) => console.error(err));
     },
-    
-  },
-  getFrostingsList() {
-      fetch(`${process.env.VUE_APP_REMOTE_API_CAKE}/getAll`)
+    getFrostingsList() {
+      fetch(`${process.env.VUE_APP_REMOTE_API_OPTIONS}/getAllFrostings`)
       .then((response) => {
         return response.json();
       })
       .then((data) => {
-        this.cakes.frostings = data;
+        this.cake.frostings = data;
       })
       .catch((err) => console.error(err));
     },
+  },
   created() {
-    // this.getFrostingsList();
+      this.getFrostingsList();
   }
 }
 </script>
