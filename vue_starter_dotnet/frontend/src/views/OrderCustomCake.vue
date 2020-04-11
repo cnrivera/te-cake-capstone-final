@@ -192,6 +192,7 @@ export default {
       createOrderErrors: false,
     };
   },
+
   methods: {
     submitOrder() {
       fetch(`${process.env.VUE_APP_REMOTE_API_ORDER}/cakeOrder`, {
@@ -214,8 +215,18 @@ export default {
     },
     
   },
+  getFrostingsList() {
+      fetch(`${process.env.VUE_APP_REMOTE_API_CAKE}/getAll`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        this.cakes.frostings = data;
+      })
+      .catch((err) => console.error(err));
+    },
   created() {
-    // this.getCake(this.$route.params.id);
+    // this.getFrostingsList();
   }
 }
 </script>
