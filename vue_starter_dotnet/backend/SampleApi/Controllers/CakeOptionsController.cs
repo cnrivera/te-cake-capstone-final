@@ -54,7 +54,7 @@ namespace SampleApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("getAllFlavors")]
-        public List<Fillings> GetAllFlavors()
+        public List<Flavors> GetAllFlavors()
         {
             return cakeOptionsDao.GetAllCakeFlavors();
         }

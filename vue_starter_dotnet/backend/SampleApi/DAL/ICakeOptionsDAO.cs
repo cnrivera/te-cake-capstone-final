@@ -45,7 +45,17 @@ namespace SampleApi.DAL
         ///</Summary>
         List<Frostings> GetAllCakeFrostings();
 
-        
+        ///<Summary>
+        /// Returns a list of cake flavors stored in our SQL database
+        ///</Summary>
+        List<Flavors> GetAllCakeFlavors();
+
+        ///<Summary>
+        /// Returns a list of cake fillings stored in our SQL database
+        ///</Summary>
+        List<Fillings> GetAllCakeFillings();
+
+
 
 
 
