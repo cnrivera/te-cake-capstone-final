@@ -146,9 +146,7 @@ export default {
           sizes: [],
           flavors: [],
           frostings: [],
-          fillings: [],
-          price: ''
-
+          fillings: []
         },
       
       orderInfo: {
@@ -167,7 +165,7 @@ export default {
           flavor: '',
           frosting: '',
           filling: '',
-          // size.basePrice:
+          price: 25
         }
       },
       createOrderErrors: false,

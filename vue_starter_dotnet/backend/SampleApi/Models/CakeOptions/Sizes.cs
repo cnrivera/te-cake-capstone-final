@@ -9,7 +9,7 @@ namespace SampleApi.Models
     {
         public int id { get; set; }
         public string size { get; set; }
-        public double priceMultiplier { get; set; }
+        public double basePrice { get; set; }
         public bool isAvailable { get; set; }
     }
 }
