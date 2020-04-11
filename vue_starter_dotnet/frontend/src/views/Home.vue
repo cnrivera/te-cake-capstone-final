@@ -6,7 +6,7 @@
     </div>
     <div class="homebtn">
       <router-link :to="{name: 'standard-cakes'}" class="btn btn-info" role="button">House Favorites</router-link>
-      <router-link :to="{name: ''}" class="btn btn-info" role="button">Custom Cake</router-link>
+      <router-link :to="{name: 'order-custom-cake'}" class="btn btn-info" role="button">Custom Cake</router-link>
     </div>
   </div>
 </div>
