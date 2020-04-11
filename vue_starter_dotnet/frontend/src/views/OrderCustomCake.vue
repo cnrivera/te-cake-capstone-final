@@ -153,15 +153,9 @@ export default {
             {id: 3, size: '3-tier'},
             {id: 4, size: '12-inch'}
             ],
-          flavors: [
-            {id: 1, flavor: 'vanilla'},
-            {id: 2, flavor: 'chocolate'}
-            ],
+          flavors: [],
           frostings: [],
-          fillings: [
-            {id: 1, filling: 'raspberry'},
-            {id: 2, filling: 'orange cream'}
-            ],
+          fillings: [],
           price: ''
 
         },
@@ -218,11 +212,42 @@ export default {
       })
       .catch((err) => console.error(err));
     },
+    
+  getFillingsList() {
+      fetch(`${process.env.VUE_APP_REMOTE_API_OPTIONS}/getAllFillings`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        this.cake.fillings = data;
+      })
+      .catch((err) => console.error(err));
+    },
+  
+  
+
+  getFlavorsList() {
+      fetch(`${process.env.VUE_APP_REMOTE_API_OPTIONS}/getAllFlavors`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        this.cake.flavors = data;
+      })
+      .catch((err) => console.error(err));
+    },
   },
-  created() {
+
+  
+  
+created() {
       this.getFrostingsList();
-  }
+      this.getFillingsList();
+      this.getFlavorsList();
+    }
 }
+    
+
 </script>
 
 <style>
