@@ -125,6 +125,29 @@ namespace SampleApi.DAL
             }
             return true;
         }
+        public bool UpdateOrderStatus(Order order)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("UPDATE orders SET order_status = @status WHERE order_id = @id;", conn);
+                    cmd.Parameters.AddWithValue("@id", order.orderId);
+                    cmd.Parameters.AddWithValue("@status", order.orderStatus);
+
+                    cmd.ExecuteNonQuery();
+
+
+                }
+            }
+            catch (SqlException ex)
+            {
+
+                return false;
+            }
+            return true;
+        }
 
 
     }

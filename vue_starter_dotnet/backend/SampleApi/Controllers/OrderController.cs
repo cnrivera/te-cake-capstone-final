@@ -49,5 +49,20 @@ namespace SampleApi.Controllers
 
 
         }
+        /// <summary>
+        /// Updates order status
+        /// </summary>
+        /// <param name="order"></param>
+        /// <returns></returns>
+        [HttpPost("updateOrderStatus")]
+        public IActionResult UpdateCakeAvailability([FromBody] Order order)
+        {
+            bool result = false;
+            if (orderDao.UpdateOrderStatus(order))
+            {
+                result = true;
+            }
+            return Ok(result);
+        }
     }
 }
