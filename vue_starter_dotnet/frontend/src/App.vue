@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    
     <div id="navbarcontents" class="container-fluid">
 
       <img src="./assets/elevate-sweets.png">

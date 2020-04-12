@@ -120,7 +120,6 @@ namespace SampleApi.DAL
             }
             catch (SqlException ex)
             {
-                
                 return false;
             }
             return true;

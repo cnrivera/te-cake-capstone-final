@@ -1,6 +1,6 @@
 <template>
 <div id="standardcakescontainer">
-  <div v-for="cake in activeUsers" :key="cake.name" class="cakeinfo">
+  <div v-for="cake in availableCakes" :key="cake.name" class="cakeinfo">
     <h3>{{cake.name}}</h3>
 
     <div class="cakeimg">
@@ -50,7 +50,7 @@ export default {
     this.getCakeList();
   },
   computed: {
-    activeUsers() {
+    availableCakes() {
       return this.cakes.filter(function(u) {
         return u.isAvailable
       })
