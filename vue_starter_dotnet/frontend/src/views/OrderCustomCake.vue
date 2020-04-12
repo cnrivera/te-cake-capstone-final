@@ -1,136 +1,96 @@
 <template>
-  <div id="ordercustomcake">
+<div id="ordercustomcake">
 
- <!--    <div class="ordercakeimg">
-      <img v-bind:src="require('../../src/assets/' + orderInfo.cake.imageName)" /> 
-      <div class="price">${{orderInfo.cake.price}}</div>
-    </div> -->
-    <form class="form-register" @submit.prevent="submitOrder(orderInfo.cake.size.basePrice, orderInfo.cake.size.size, )">
-        <div class="alert alert-danger" role="alert" v-if="createOrderErrors">
-        There were problems creating this order.
-      </div>
-
-   <div class="form-group">
-      <label for="style">Style:</label>
-      <select v-model="orderInfo.cake.style">
-      <option v-for="style in cake.styles" :key="style.id" :value="style.style">
-       {{ style.style }}
-      </option>
-</select>
-
-      
+  <form @submit.prevent="submitOrder(orderInfo.cake.size.basePrice, orderInfo.cake.size.size, )">
+    <div class="alert alert-danger" role="alert" v-if="createOrderErrors">
+      There were problems creating this order.
     </div>
+
+    <div class="form-group">
+      <label for="style">Style:</label>
+      <select class="form-control" v-model="orderInfo.cake.style">
+        <option v-for="style in cake.styles" :key="style.id" :value="style.style">{{ style.style }}</option>
+      </select>
+    </div>
+      
     <div class="form-group">
       <label for="size">Size:</label>
-      <select v-model="orderInfo.cake.size">
-      <option v-for="size in cake.sizes" :key="size.id" :value="size">
-       {{ size.size }} ${{size.basePrice}}
-      </option>
-</select>
-
-      
+      <select class="form-control" v-model="orderInfo.cake.size">
+        <option v-for="size in cake.sizes" :key="size.id" :value="size">{{ size.size }} ${{size.basePrice}}</option>
+      </select>
     </div>
+    
     <div class="form-group">
       <label for="flavor">Flavor:</label>
-      <select v-model="orderInfo.cake.flavor">
-      <option v-for="flavor in cake.flavors" :key="flavor.id" :value="flavor.flavor">
-       {{ flavor.flavor }}
-      </option>
-</select>
-
-      
+      <select class="form-control" v-model="orderInfo.cake.flavor">
+        <option v-for="flavor in cake.flavors" :key="flavor.id" :value="flavor.flavor">{{ flavor.flavor }}</option>
+      </select>
     </div>
+    
     <div class="form-group">
       <label for="frosting">Frosting:</label>
-      <select v-model="orderInfo.cake.frosting">
-      <option v-for="frosting in cake.frostings" :key="frosting.id" :value="frosting.frosting">
-       {{ frosting.frosting }}
-      </option>
-</select>
-
-      
+      <select class="form-control" v-model="orderInfo.cake.frosting">
+        <option v-for="frosting in cake.frostings" :key="frosting.id" :value="frosting.frosting">{{ frosting.frosting }}</option>
+      </select>
     </div>
+      
     <div class="form-group">
       <label for="filling">Filling:</label>
-      <select v-model="orderInfo.cake.filling">
-      <option v-for="filling in cake.fillings" :key="filling.id" :value="filling.filling">
-       {{ filling.filling }}
-      </option>
-</select>
-
-      
+      <select class="form-control" v-model="orderInfo.cake.filling">
+        <option v-for="filling in cake.fillings" :key="filling.id" :value="filling.filling">{{ filling.filling }}</option>
+      </select>
     </div>
 
-      
-      <div class="orderforms">
-        <div class="form-group">
-          <label for="name">Quantity:</label>
-          <input v-model="orderInfo.quantity"
-          type="text"
-          class="form-control"
-          required
-          />
-        </div>
-        <div class="form-group">
-          <label for="price">Name:</label>
-          <input v-model="orderInfo.customerName"
-          type="text"
-          class="form-control"
-          required
-          />
-        </div>
-        <div class="form-group">
-        <label for="name">Phone:</label>
-        <input v-model="orderInfo.phoneNumber"
-        type="text"
-        class="form-control"
-        required
-        />
-        </div>
-        <div class="form-group">
-        <label for="name">Email:</label>
-        <input v-model="orderInfo.email"
-        type="text"
-        class="form-control"
-        required
-        />
-        </div>
-        <div class="form-group">
-        <label for="name">Date:</label>
-        <input v-model="orderInfo.date"
-        type="text"
-        class="form-control"
-        required
-        />
-        </div>
-        <div class="form-group">
-        <label for="name">Time:</label>
-        <select v-model="orderInfo.time" class="form-control">
-          <option value="9:00am">9:00am</option>
-          <option value="10:00am">10:00am</option>
-          <option value="11:00am">11:00am</option>
-          <option value="12:00am">12:00am</option>
-          <option value="1:00pm">1:00pm</option>
-          <option value="2:00pm">2:00pm</option>
-          <option value="3:00pm">3:00pm</option>
-          <option value="4:00pm">4:00pm</option>
-          <option value="5:00pm">5:00pm</option>
-        </select>
-      </div>
+    <div class="form-group">
+      <label for="name">Quantity:</label>
+      <input v-model="orderInfo.quantity" type="text" class="form-control" required />
+    </div>
 
-      </div>
-      <div class="form-group" v-if="orderInfo.style != 'Cupcake'">
+    <div class="form-group">
+      <label for="price">Name:</label>
+      <input v-model="orderInfo.customerName" type="text" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+      <label for="name">Phone:</label>
+      <input v-model="orderInfo.phoneNumber" type="text" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+      <label for="name">Email:</label>
+      <input v-model="orderInfo.email" type="text" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+      <label for="name">Date:</label>
+      <input v-model="orderInfo.date" type="text" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+      <label for="name">Time:</label>
+      <select v-model="orderInfo.time" class="form-control">
+        <option value="9:00am">9:00am</option>
+        <option value="10:00am">10:00am</option>
+        <option value="11:00am">11:00am</option>
+        <option value="12:00am">12:00am</option>
+        <option value="1:00pm">1:00pm</option>
+        <option value="2:00pm">2:00pm</option>
+        <option value="3:00pm">3:00pm</option>
+        <option value="4:00pm">4:00pm</option>
+        <option value="5:00pm">5:00pm</option>
+      </select>
+    </div>
+
+    <div class="form-group" v-if="orderInfo.style != 'Cupcake'">
       <label for="name">Add Message to Cake ($10.00):</label>
-      <input v-model.trim="orderInfo.writingOnCake"
-      type="text"
-      class="form-control"
-      />
+      <input v-model.trim="orderInfo.writingOnCake" type="text" class="form-control" />
       <input type="hidden" v-model="orderInfo.id"/>
-      </div>
-      <button class="btn btn-lg btn-info btn-block" type="submit" >Submit Order</button>
-    </form>
-
     </div>
+
+    <button class="btn btn-lg btn-info btn-block" type="submit" >Submit Order</button>
+  </form>
+
+</div>
 
   
 </template>
@@ -140,15 +100,13 @@ export default {
   name: 'order-cake',
   data() {
     return {
-      cake: 
-        {
-          styles: [],
-          sizes: [],
-          flavors: [],
-          frostings: [],
-          fillings: []
-        },
-      
+      cake: {
+        styles: [],
+        sizes: [],
+        flavors: [],
+        frostings: [],
+        fillings: []
+      },
       orderInfo: {
         quantity: '',
         customerName: '',
@@ -176,7 +134,6 @@ export default {
     //   // filter prices to find price for option selected
     // }
   },
-
   methods: {
     submitOrder(baseprice, size) {
       this.orderInfo.cake.price = baseprice;
@@ -192,15 +149,14 @@ export default {
         },
         body: JSON.stringify(this.orderInfo),
       })
-        .then((response) => {
-          if (response.ok) {
-            this.$router.push({ path: '/standardcakes' });
-          } else {
-            this.createOrderErrors = true;
-          }
-        })
-
-        .then((err) => console.error(err));
+      .then((response) => {
+        if (response.ok) {
+          this.$router.push({ path: '/standardcakes' });
+        } else {
+          this.createOrderErrors = true;
+        }
+      })
+      .then((err) => console.error(err));
     },
     getFrostingsList() {
       fetch(`${process.env.VUE_APP_REMOTE_API_OPTIONS}/getAllFrostings`)
@@ -212,8 +168,7 @@ export default {
       })
       .catch((err) => console.error(err));
     },
-    
-  getFillingsList() {
+    getFillingsList() {
       fetch(`${process.env.VUE_APP_REMOTE_API_OPTIONS}/getAllFillings`)
       .then((response) => {
         return response.json();
@@ -223,8 +178,7 @@ export default {
       })
       .catch((err) => console.error(err));
     },
-  
-  getFlavorsList() {
+    getFlavorsList() {
       fetch(`${process.env.VUE_APP_REMOTE_API_OPTIONS}/getAllFlavors`)
       .then((response) => {
         return response.json();
@@ -234,8 +188,7 @@ export default {
       })
       .catch((err) => console.error(err));
     },
-
-      getStylesList() {
+    getStylesList() {
       fetch(`${process.env.VUE_APP_REMOTE_API_OPTIONS}/getAllStyles`)
       .then((response) => {
         return response.json();
@@ -245,8 +198,7 @@ export default {
       })
       .catch((err) => console.error(err));
     },
-
-      getSizesList() {
+    getSizesList() {
       fetch(`${process.env.VUE_APP_REMOTE_API_OPTIONS}/getAllSizes`)
       .then((response) => {
         return response.json();
@@ -257,19 +209,14 @@ export default {
       .catch((err) => console.error(err));
     },
   },
-
-  
-  
-created() {
-      this.getFrostingsList();
-      this.getFillingsList();
-      this.getFlavorsList();
-      this.getSizesList();
-      this.getStylesList();
-    }
+  created() {
+    this.getFrostingsList();
+    this.getFillingsList();
+    this.getFlavorsList();
+    this.getSizesList();
+    this.getStylesList();
+  }
 }
-    
-
 </script>
 
 <style>
@@ -281,27 +228,14 @@ created() {
   background-color: hsla(188, 56%, 8%, 0.7);
   color: whitesmoke;
   border-radius: 5px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between
 }
-#ordercustomcake .ordercakedetails {
-  width: 63%;
-}
-#ordercustomcake .ordercakeimg {
-  position: relative;
-  width: 35%;
-}
-#ordercustomcake .ordercakeimg > img {
-  border-radius: 5px;
+#ordercustomcake form {
   width: 100%;
-}
-.ordercakedetails .orderforms {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between
 }
-.ordercakedetails .orderforms div {
+#ordercustomcake div {
   width: 49%;
 }
 </style>

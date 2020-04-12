@@ -3,7 +3,6 @@ import Router from 'vue-router'
 import auth from './auth'
 import Home from './views/Home.vue'
 import Login from './views/Login.vue'
-import Register from './views/Register.vue'
 import StandardCakes from './views/StandardCakes.vue'
 import OrderCake from './views/OrderCake.vue'
 import OrderCustomCake from './views/OrderCustomCake.vue'
@@ -36,14 +35,6 @@ const router = new Router({
       path: "/login",
       name: "login",
       component: Login,
-      meta: {
-        requiresAuth: false
-      }
-    },
-    {
-      path: "/register",
-      name: "register",
-      component: Register,
       meta: {
         requiresAuth: false
       }

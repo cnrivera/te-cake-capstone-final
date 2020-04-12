@@ -1,13 +1,14 @@
 <template>
   <div id="app">
     <div id="navbarcontents" class="container-fluid">
-
-      <img src="./assets/elevate-sweets.png">
-      <div id="navbarbuttons">
+      <div class="navbarbuttons">
+        <img src="./assets/elevate-sweets.png">
         <router-link :to="{name: 'home'}" class="btn btn-info" role="button">Home</router-link>
         <router-link :to="{name: 'standard-cakes'}" class="btn btn-info" role="button">House Favorites</router-link>
-        <router-link :to="{name: 'admin-menu'}" class="btn btn-info" role="button">Admin Menu</router-link>
-        <router-link :to="{name: 'pending-orders'}" class="btn btn-info" role="button">Pending Orders</router-link>
+        <router-link :to="{name: 'order-custom-cake'}" class="btn btn-info" role="button">Custom Cake</router-link>
+      </div>
+      <div class="adminbutton">
+        <router-link :to="{name: 'admin-menu'}" class="btn btn-default" role="button">Admin Menu</router-link>
       </div>
     </div>
 
@@ -22,23 +23,19 @@ html, #app{
 #navbarcontents {
   background-color: rgb(56, 54, 54);
   display: flex;
-  justify-content: left;
+  justify-content: space-between;
   height: 15vh;
 }
-#loginbutton {
-  justify-content: right;
-}
-#navbarbuttons {
-  display: flex;
-  align-items: center;
-}
-#navbarbuttons .btn{
+.navbarbuttons .btn{
   font-size: 22px;
   margin: 10px;
 }
-#navbarcontents > img{
+.navbarbuttons img{
   height: 100%;
   margin-right: 50px;
 }
-
+.adminbutton .btn{
+  color: whitesmoke;
+  width: 120px;
+}
 </style>
