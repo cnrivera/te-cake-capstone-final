@@ -5,7 +5,7 @@
       <img v-bind:src="require('../../src/assets/' + orderInfo.cake.imageName)" /> 
       <div class="price">${{orderInfo.cake.price}}</div>
     </div> -->
-    <form class="form-register" @submit.prevent="submitOrder">
+    <form class="form-register" @submit.prevent="submitOrder(orderInfo.cake.size.basePrice, orderInfo.cake.size.size, )">
         <div class="alert alert-danger" role="alert" v-if="createOrderErrors">
         There were problems creating this order.
       </div>
@@ -23,7 +23,7 @@
     <div class="form-group">
       <label for="size">Size:</label>
       <select v-model="orderInfo.cake.size">
-      <option v-for="size in cake.sizes" :key="size.id" :value="size.size">
+      <option v-for="size in cake.sizes" :key="size.id" :value="size">
        {{ size.size }} ${{size.basePrice}}
       </option>
 </select>
@@ -120,8 +120,8 @@
 
       </div>
       <div class="form-group" v-if="orderInfo.style != 'Cupcake'">
-      <label for="name">Add Message to Cake:</label>
-      <input v-model="orderInfo.writingOnCake"
+      <label for="name">Add Message to Cake ($10.00):</label>
+      <input v-model.trim="orderInfo.writingOnCake"
       type="text"
       class="form-control"
       />
@@ -178,7 +178,12 @@ export default {
   },
 
   methods: {
-    submitOrder() {
+    submitOrder(baseprice, size) {
+      this.orderInfo.cake.price = baseprice;
+      this.orderInfo.cake.size = size;
+      if (this.orderInfo.cake.writingOnCake != ''){
+        this.orderInfo.cake.price += 10;
+      } 
       fetch(`${process.env.VUE_APP_REMOTE_API_ORDER}/cakeOrder`, {
         method: 'POST',
         headers: {
