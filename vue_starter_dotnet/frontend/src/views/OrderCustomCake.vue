@@ -154,7 +154,7 @@ export default {
         customerName: '',
         phoneNumber: '',
         email: '',
-        writingOnCake: '',
+        writingOnCake: 'none',
         orderStatus: 'pending',
         date: '',
         time: '',
@@ -181,7 +181,7 @@ export default {
     submitOrder(baseprice, size) {
       this.orderInfo.cake.price = baseprice;
       this.orderInfo.cake.size = size;
-      if (this.orderInfo.cake.writingOnCake != ''){
+      if (this.orderInfo.writingOnCake !== 'none'){
         this.orderInfo.cake.price += 10;
       } 
       fetch(`${process.env.VUE_APP_REMOTE_API_ORDER}/cakeOrder`, {
