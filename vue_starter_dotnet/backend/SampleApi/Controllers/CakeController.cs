@@ -54,8 +54,6 @@ namespace SampleApi.Controllers
                result = true;
             }
             return Ok(result);
-
-
         }
     }
 }

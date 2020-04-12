@@ -1,5 +1,5 @@
 <template>
-  <div id="ordercake">
+  <div id="ordercustomcake">
 
  <!--    <div class="ordercakeimg">
       <img v-bind:src="require('../../src/assets/' + orderInfo.cake.imageName)" /> 
@@ -268,7 +268,7 @@ created() {
 </script>
 
 <style>
-#ordercake {
+#ordercustomcake {
   margin-top: 30px;
   margin-left: 10%;
   margin-right: 10%;
@@ -280,14 +280,14 @@ created() {
   flex-wrap: wrap;
   justify-content: space-between
 }
-#ordercake .ordercakedetails {
+#ordercustomcake .ordercakedetails {
   width: 63%;
 }
-#ordercake .ordercakeimg {
+#ordercustomcake .ordercakeimg {
   position: relative;
   width: 35%;
 }
-#ordercake .ordercakeimg > img {
+#ordercustomcake .ordercakeimg > img {
   border-radius: 5px;
   width: 100%;
 }

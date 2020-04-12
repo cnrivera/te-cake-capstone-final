@@ -1,6 +1,6 @@
 <template>
 <div id="standardcakescontainer">
-  <div v-for="cake in cakes" :key="cake.name" class="cakeinfo">
+  <div v-for="cake in activeUsers" :key="cake.name" class="cakeinfo">
     <h3>{{cake.name}}</h3>
 
     <div class="cakeimg">
@@ -28,13 +28,13 @@
 <script>
 
 export default {
-    name: "standard-cakes",
-    data() {
-      return {
-        cakes: [],
-      }
-    },
-    methods: {
+  name: "standard-cakes",
+  data() {
+    return {
+      cakes: [],
+    }
+  },
+  methods: {
     getCakeList() {
       fetch(`${process.env.VUE_APP_REMOTE_API_CAKE}/getAll`)
       .then((response) => {
@@ -48,6 +48,13 @@ export default {
   },
   created() {
     this.getCakeList();
+  },
+  computed: {
+    activeUsers() {
+      return this.cakes.filter(function(u) {
+        return u.isAvailable
+      })
+    }
   }
 }
 </script>
@@ -73,10 +80,10 @@ export default {
   border-radius: 5px;
   margin-bottom: 10px;
 }
-li {
+#standardcakescontainer li {
   list-style: none;
 }
-h3 {
+#standardcakescontainer h3 {
   text-align: center;
 }
 .cakeimg {
