@@ -8,7 +8,7 @@
         <li><b>Pick up Date and Time:</b> {{order.date}} {{order.time}}</li>
         <li><b>Current Order Status:</b>{{order.orderStatus}}</li>
         <li><label for="size"><b>Change Order Status To:</b></label>
-      <select v-model="order.orderStatus">
+      <select v-model="order.orderStatus" v-on:change.prevent="UpdateOrderStatus(order.orderId, order.orderStatus)">
       <option v-for="status in statusChange" :key="status" :value="status">
        {{ status }} 
              </option>
@@ -44,6 +44,29 @@ export default {
         this.orders = data;
       })
       .catch((err) => console.error(err));
+    },
+  UpdateOrderStatus(orderId, orderStatus) {
+    let orderNew = {
+        orderId: orderId,
+        orderStatus: orderStatus
+      }
+      fetch(`${process.env.VUE_APP_REMOTE_API_ORDER}/updateOrderStatus`, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(orderNew),
+      })
+        .then((response) => {
+          if (response.ok) {
+            this.getPendingOrders();
+          } else {
+            this.updateCakeErrors = true;
+          }
+        })
+
+        .then((err) => console.error(err));
     },
   },
   created() {

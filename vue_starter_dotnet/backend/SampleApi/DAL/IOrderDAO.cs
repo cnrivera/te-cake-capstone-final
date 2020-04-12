@@ -21,5 +21,7 @@ namespace SampleApi.DAL
         /// </summary>
         bool AddOrder(Order order);
 
+        bool UpdateOrderStatus(Order order);
+
     }
 }
