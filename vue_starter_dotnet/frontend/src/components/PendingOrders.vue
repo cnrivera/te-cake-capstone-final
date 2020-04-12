@@ -1,17 +1,17 @@
 <template>
-    <div id="pendingorderscontainer"> 
-         <h1>All Pending Orders</h1>    
-      <div v-for="order in orders" :key="order.name" class="orderdetails">
-      <ul>
-        <li><b>Order Number:</b> {{order.orderId}}
-        <li><b>Customer Name:</b> {{order.customerName}}</li>
-        <li><b>Pick up Date and Time:</b> {{order.date}} {{order.time}}</li>
-        <li><b>Current Order Status:</b>{{order.orderStatus}}</li>
-        <li><label for="size"><b>Change Order Status To:</b></label>
-      <select v-model="order.orderStatus" v-on:change.prevent="UpdateOrderStatus(order.orderId, order.orderStatus)">
-      <option v-for="status in statusChange" :key="status" :value="status">
-       {{ status }} 
-             </option>
+  <div id="pendingorderscontainer"> 
+    <h1>All Pending Orders</h1>    
+    <div v-for="order in orders" :key="order.name" class="orderdetails">
+    <ul>
+      <li><b>Order Number:</b> {{order.orderId}}
+      <li><b>Customer Name:</b> {{order.customerName}}</li>
+      <li><b>Pick up Date and Time:</b> {{order.date}} {{order.time}}</li>
+      <li><b>Current Order Status:</b>{{order.orderStatus}}</li>
+      <li><label for="size"><b>Change Order Status To:</b></label>
+    <select v-model="order.orderStatus" v-on:change.prevent="UpdateOrderStatus(order.orderId, order.orderStatus)">
+    <option v-for="status in statusChange" :key="status" :value="status">
+      {{ status }} 
+    </option>
 </select>
 </li>
       </ul>

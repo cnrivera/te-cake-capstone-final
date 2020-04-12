@@ -33,7 +33,6 @@
         />
       </div>
       <div id="loginPageButtons">
-        <router-link :to="{ name: 'register' }" id="needAccount">Need an account?</router-link>
         <button type="submit" class="btn btn-info">Sign in</button>
       </div>
     </form>
@@ -78,7 +77,7 @@ export default {
               token = token.replace(/"/g, '');
             }
             auth.saveToken(token);
-            this.$router.push('/');
+            this.$router.push('/adminmenu');
           }
         })
         .catch((err) => console.error(err));

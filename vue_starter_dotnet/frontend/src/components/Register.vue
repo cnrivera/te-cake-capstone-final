@@ -39,9 +39,6 @@
           required
         />
       </div>
-      <router-link :to="{ name: 'login' }" id="haveAccount">
-        Have an account?
-      </router-link>
       <button class="btn btn-lg btn-info btn-block" type="submit">
         Create Account
       </button>

@@ -8,7 +8,7 @@ BEGIN TRANSACTION;
 INSERT INTO users
   (username,password,salt,role)
 VALUES
-  ('user', 'jUE98uhvS5tdIlxRsmz1W7/Qaqo=', '9CWPUTvXqQ4=', 'User');
+  ('name', 'KgrolkOWjHuNvQtFrGwZOqGm5qs=', 'V7CHRJ6vltc=', 'User');
 
 -- STANDARD CAKE INSERT STATEMENTS -- 
 
