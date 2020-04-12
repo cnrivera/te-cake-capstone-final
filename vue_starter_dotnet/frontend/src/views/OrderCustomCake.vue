@@ -24,7 +24,7 @@
       <label for="size">Size:</label>
       <select v-model="orderInfo.cake.size">
       <option v-for="size in cake.sizes" :key="size.id" :value="size.size">
-       {{ size.size }}
+       {{ size.size }} ${{size.basePrice}}
       </option>
 </select>
 
@@ -170,6 +170,11 @@ export default {
       },
       createOrderErrors: false,
     };
+  },
+  computed: {
+    // price() {
+    //   // filter prices to find price for option selected
+    // }
   },
 
   methods: {
