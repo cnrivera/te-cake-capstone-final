@@ -122,7 +122,29 @@ namespace SampleApi.DAL
             }
             return true;
         }
+        public bool UpdateCakeAvailability(Cake cake)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("UPDATE standard_cakes SET available = @available WHERE id = @id;", conn);
+                    cmd.Parameters.AddWithValue("@id", cake.id);
+                    cmd.Parameters.AddWithValue("@available", cake.isAvailable);
 
+                    cmd.ExecuteNonQuery();
+
+
+                }
+            }
+            catch (SqlException ex)
+            {
+
+                return false;
+            }
+            return true;
+        }
 
     }
 }

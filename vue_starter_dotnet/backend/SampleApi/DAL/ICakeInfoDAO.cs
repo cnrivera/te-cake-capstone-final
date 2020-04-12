@@ -23,5 +23,7 @@ namespace SampleApi.DAL
 
         Cake GetCake(int id);
 
+        bool UpdateCakeAvailability(Cake cake);
+
     }
 }

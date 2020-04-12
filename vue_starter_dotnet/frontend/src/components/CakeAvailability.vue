@@ -5,8 +5,8 @@
     <img class="availabilityimg" v-bind:src="require('../../src/assets/' + cake.imageName)" /> 
     <div>
       <h4>{{cake.name}}</h4>
-      <button v-if="cake.isAvailable" class="btn btn-success btn-lg btn-block">Available - click to disable</button>
-      <button v-if="!cake.isAvailable" class="btn btn-danger btn-lg btn-block">Unavailable - click to enable</button>
+      <button v-if="cake.isAvailable" v-on:click.prevent="UpdateCakeAvailability(cake.id, !cake.isAvailable)" class="btn btn-success btn-lg btn-block">Available - click to disable</button>
+      <button v-if="!cake.isAvailable" v-on:click.prevent="UpdateCakeAvailability(cake.id, !cake.isAvailable)" class="btn btn-danger btn-lg btn-block">Unavailable - click to enable</button>
     </div>
   </div>
 
@@ -19,7 +19,9 @@ export default {
   data() {
     return {
       cakes: [],
-    }
+      updateCakeErrors: false,
+    };
+    
   },
   methods: {
     getCakeList() {
@@ -32,10 +34,36 @@ export default {
       })
       .catch((err) => console.error(err));
     },
+  
+ 
+    UpdateCakeAvailability(id, isAvailable) {
+      let cakeNew = {
+        id: id,
+        isAvailable: isAvailable
+      }
+      fetch(`${process.env.VUE_APP_REMOTE_API_CAKE}/updateAvailable`, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(cakeNew),
+      })
+        .then((response) => {
+          if (response.ok) {
+            this.$router.push({ path: '/standardcakes' });
+          } else {
+            this.updateCakeErrors = true;
+          }
+        })
+
+        .then((err) => console.error(err));
+    },
   },
   created() {
     this.getCakeList();
   },
+  
 }
 </script>
 

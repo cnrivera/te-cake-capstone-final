@@ -55,5 +55,20 @@ namespace SampleApi.Controllers
             }
             return Ok(result);
         }
+        /// <summary>
+        /// Updates availablity of standard cake in the database
+        /// </summary>
+        /// <param name="cake"></param>
+        /// <returns></returns>
+        [HttpPost("updateAvailable")]
+        public IActionResult UpdateCakeAvailability([FromBody] Cake cake)
+        {
+            bool result = false;
+            if (cakeDao.UpdateCakeAvailability(cake))
+            {
+                result = true;
+            }
+            return Ok(result);
+        }
     }
 }
