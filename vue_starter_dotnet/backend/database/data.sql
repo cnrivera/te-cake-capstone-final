@@ -47,14 +47,35 @@ VALUES ('Oh Ho, Oreo! Ice Cream Cake', 50, 'Ice Cream Cake', '8-inch', 'Cookies 
 INSERT INTO styles (available, style, price)
 VALUES ( 1, 'Sheet cake', 1)
 
+INSERT INTO styles (available, style, price)
+VALUES ( 1, 'Layer cake', 1)
+
+INSERT INTO styles (available, style, price)
+VALUES ( 1, 'Cupcake', 1)
+
 INSERT INTO fillings (available, filling, additional_cost)
 VALUES ( 1, 'None', 1)
+
+INSERT INTO fillings (available, filling, additional_cost)
+VALUES ( 1, 'Raspberry', 1)
 
 INSERT INTO flavors (available, flavor)
 VALUES ( 1, 'Yellow')
 
+INSERT INTO flavors (available, flavor)
+VALUES ( 1, 'Chocolate')
+
+INSERT INTO flavors (available, flavor)
+VALUES (1, 'Red Velvet')
+
 INSERT INTO frostings (available, frosting)
 VALUES ( 1, 'Hazelnut Buttercream')
+
+INSERT INTO frostings (available, frosting)
+VALUES ( 1, 'Vanilla Buttercream')
+
+INSERT INTO frostings (available, frosting)
+VALUES ( 1, 'Chocolate Ganache')
 
 INSERT INTO sizes (available, size, base_price)
 VALUES ( 1, 'Full-pan', 70)
@@ -66,19 +87,13 @@ INSERT INTO sizes (available, size, base_price)
 VALUES ( 1, '3-tier', 100)
 
 INSERT INTO sizes (available, size, base_price)
+VALUES ( 1, '2-tier', 80)
+
+INSERT INTO sizes (available, size, base_price)
 VALUES ( 1, 'Standard', 4)
 
-INSERT INTO sizes (available, size, base_price)
-VALUES ( 1, '8-inch', 40)
-
-INSERT INTO sizes (available, size, base_price)
-VALUES ( 1, '12-inch', 75)
-
-INSERT INTO sizes (available, size, base_price)
-VALUES ( 1, '18-inch', 125)
-
 INSERT INTO style_size (style_id, size_id)
-VALUES (1, 1), (1,2)
+VALUES (1, 1), (1,2), (2,3), (2,4), (3,5)
 
 --INSERT INTO custom_cakes (name, price, style_id, size_id, flavor_id, frosting_id, filling_id, description, image_path)
 --VALUES ('Holy Sheet Cake!', 45,  , 1 , 1, 1, 1, 'A great basic cake for any event. Delicious hazelnut buttercream frosting pairs perfectly with yellow sponge cake.', 'sheet-cake-yellow-chocolate-frosting.png');

@@ -64,4 +64,7 @@ export default {
     font-size: 5vw;
   }
 }
+#homepage {
+  padding: 3vh;
+}
 </style>

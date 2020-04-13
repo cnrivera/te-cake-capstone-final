@@ -2,8 +2,8 @@
 <div id="adminmenu">
   <button v-on:click="openPendingOrders" class="btn btn-info">Pending Orders</button>
   <button v-on:click="openCreateCake" class="btn btn-info">Create Cake</button>
-  <button v-on:click="openToggleCakes" class="btn btn-info">disable cake</button>
-  <button v-on:click="openRegester" class="btn btn-info">Regester User</button>
+  <button v-on:click="openToggleCakes" class="btn btn-info">Disable Cake</button>
+  <button v-on:click="openRegester" class="btn btn-info">Register User</button>
 
   <div v-if="createCakeOpen">
     <create-cake/>
@@ -73,5 +73,8 @@ export default {
 </script>
 
 <style>
-
+  #adminmenu .btn {
+    margin: 10px;
+    border: 2px solid black;
+  }
 </style>

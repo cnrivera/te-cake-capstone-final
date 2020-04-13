@@ -95,4 +95,9 @@ export default {
 .toggleselectbox div button {
   margin-top: 20px;
 }
+@media (max-width:1150px) {
+  .toggleselectbox {
+    width: 100%;
+  }
+}
 </style>
