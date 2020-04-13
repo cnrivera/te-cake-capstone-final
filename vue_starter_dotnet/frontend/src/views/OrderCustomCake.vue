@@ -8,8 +8,8 @@
 
     <div class="form-group">
       <label for="style">Style:</label>
-      <select class="form-control" v-model="orderInfo.cake.style" v-on:change.prevent="FilterSizes(orderinfo.cake.styles.style.id)">
-        <option v-for="style in cake.styles" :key="style.id" :value="style.style">{{ style.style }}</option>
+      <select class="form-control" v-model="orderInfo.cake.style" @change.prevent="FilterSizes(orderInfo.cake.style.id)">
+        <option v-for="style in cake.styles" :key="style.id" :value="style">{{ style.style }}</option>
       </select>
     </div>
       
