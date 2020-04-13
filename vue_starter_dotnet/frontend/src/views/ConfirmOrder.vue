@@ -4,7 +4,7 @@
   <h2>Your Order is Confirmed</h2>
   <p>If there are any problems with your order, or if you need to cancel or modify this order, please contact us.</p>
 
-  <ul>
+  <ul style="list-style: none;">
   <li>Order ID: {{order.orderId}}</li>
   <li>Total Order Cost (due at pickup): ${{order.orderTotal}}.00</li>
   <li>Pickup Date and Time: {{order.date}} at {{order.time}}</li>
@@ -53,7 +53,7 @@ export default {
 </script>
 
 <style>
-#ordercake {
+#confirmorder {
   margin-top: 30px;
   margin-left: 10%;
   margin-right: 10%;
@@ -65,23 +65,5 @@ export default {
   flex-wrap: wrap;
   justify-content: space-between
 }
-#ordercake .ordercakedetails {
-  width: 63%;
-}
-#ordercake .ordercakeimg {
-  position: relative;
-  width: 35%;
-}
-#ordercake .ordercakeimg > img {
-  border-radius: 5px;
-  width: 100%;
-}
-.ordercakedetails .orderforms {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between
-}
-.ordercakedetails .orderforms div {
-  width: 49%;
-}
+
 </style>
