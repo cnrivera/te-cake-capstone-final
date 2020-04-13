@@ -11,5 +11,7 @@ namespace SampleApi.Models
         public string size { get; set; }
         public double basePrice { get; set; }
         public bool isAvailable { get; set; }
+
+        public int styleId { get; set; }
     }
 }

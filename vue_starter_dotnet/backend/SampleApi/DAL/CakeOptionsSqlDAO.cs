@@ -126,7 +126,7 @@ namespace SampleApi.DAL
                         size.size = Convert.ToString(reader["size"]);
                         size.basePrice = Convert.ToDouble(reader["base_price"]);
                         size.isAvailable = Convert.ToBoolean(reader["available"]);
-                        
+                        size.styleId = Convert.ToInt32(reader["style_id"]);
 
                         listOfSizes.Add(size);
                     }
