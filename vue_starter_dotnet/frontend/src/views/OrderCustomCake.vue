@@ -208,12 +208,13 @@ export default {
         return response.json();
       })
       .then((data) => {
-        this.cake.sizes = data;
+        this.allSizes = data;
+        this.cake.sizes = this.allSizes;
       })
       .catch((err) => console.error(err));
     },
      FilterSizes(id){
-        this.cake.sizes = this.cake.sizes.filter( u => {
+        this.cake.sizes = this.allSizes.filter( u => {
           return u.styleId == id
         });
      }
