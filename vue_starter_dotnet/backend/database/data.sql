@@ -65,6 +65,9 @@ VALUES ( 1, 'Yellow')
 INSERT INTO flavors (available, flavor)
 VALUES ( 1, 'Chocolate')
 
+INSERT INTO flavors (available, flavor)
+VALUES (1, 'Red Velvet')
+
 INSERT INTO frostings (available, frosting)
 VALUES ( 1, 'Hazelnut Buttercream')
 
