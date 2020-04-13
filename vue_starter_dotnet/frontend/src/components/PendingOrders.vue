@@ -26,8 +26,10 @@
         </tr>
       </tbody>
     </table>
+  <div class ="checkbox">
     <input type="checkbox" id="filter" name="filter" v-on:click="FilterOrders">
     <label for="filter"> Show only Pending Orders</label><br>
+  </div>
 </div>
 </template>
 
@@ -84,7 +86,7 @@ export default {
       })
         .then((response) => {
           if (response.ok) {
-            this.getOrders();
+            this.FilterOrders();
           } else {
             this.updateCakeErrors = true;
           }
@@ -121,8 +123,9 @@ th {
 td, th {  
     padding: 5px;
 }
-td{
 
+.checkbox{
+  padding-left: 25px;
 }
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
   background-color: hsla(187, 53%, 39%, 0.7);
