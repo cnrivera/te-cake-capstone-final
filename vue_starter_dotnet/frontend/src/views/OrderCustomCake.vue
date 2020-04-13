@@ -155,7 +155,7 @@ export default {
         })
         .then( (data)=>{
            let createdId=data;
-           this.$router.push({ path: `/confirmorder/${createdId}`});
+           this.$router.push({ path: `/ordercustomcake/${createdId}`});
          
       })
     },
