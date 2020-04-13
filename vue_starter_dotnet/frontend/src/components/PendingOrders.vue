@@ -26,6 +26,8 @@
         </tr>
       </tbody>
     </table>
+    <input type="checkbox" id="filter" name="filter" v-on:click="FilterOrders">
+    <label for="filter"> Show only Pending Orders</label><br>
 </div>
 </template>
 
@@ -35,6 +37,7 @@ export default {
     data() {
       return {
         orders: [],
+        filteredOrders: [],
         statusChange: [
           'pending',
           'canceled',
@@ -44,15 +47,27 @@ export default {
       }
     },
     methods: {
-    getPendingOrders() {
+    getOrders() {
       fetch(`${process.env.VUE_APP_REMOTE_API_ORDER}/getAllOrders`)
       .then((response) => {
         return response.json();
       })
       .then((data) => {
-        this.orders = data;
+        this.allOrders = data;
+        this.orders = this.allOrders;
       })
       .catch((err) => console.error(err));
+    },
+    FilterOrders(){
+     if(document.getElementById("filter").checked == true)
+      {
+        this.orders = this.orders.filter(function(u) {
+          return u.orderStatus == 'pending'
+        });
+      }
+      else{
+      this.orders = this.allOrders;
+      }
     },
   UpdateOrderStatus(orderId, orderStatus) {
     let orderNew = {
@@ -69,7 +84,7 @@ export default {
       })
         .then((response) => {
           if (response.ok) {
-            this.getPendingOrders();
+            this.getOrders();
           } else {
             this.updateCakeErrors = true;
           }
@@ -79,7 +94,7 @@ export default {
     },
   },
   created() {
-    this.getPendingOrders();
+    this.getOrders();
   }
 }
 </script>

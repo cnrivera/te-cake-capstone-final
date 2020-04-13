@@ -41,7 +41,7 @@ namespace SampleApi.DAL
                     // Open the connection
                     conn.Open();
 
-                    string sql = $"SELECT * FROM orders";
+                    string sql = $"SELECT * FROM orders ORDER BY pickup_datetime";
                     SqlCommand cmd = new SqlCommand(sql, conn);
 
                     // Execute the command
