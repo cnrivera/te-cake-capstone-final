@@ -19,9 +19,11 @@ namespace SampleApi.DAL
         /// <summary>
         /// Adds an order into our SQL database
         /// </summary>
-        bool AddOrder(Order order);
+        int AddOrder(Order order);
 
         bool UpdateOrderStatus(Order order);
+
+        Order GetOrder(int id);
 
     }
 }

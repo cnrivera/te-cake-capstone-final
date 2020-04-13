@@ -89,8 +89,9 @@ namespace SampleApi.DAL
         /// Saves the user to the database.
         /// </summary>
         /// <param name="cake">cake being added</param>
-        public bool AddOrder(Order order)
+        public int AddOrder(Order order)
         {
+            int id = 0;
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
@@ -115,14 +116,16 @@ namespace SampleApi.DAL
 
                     cmd.ExecuteNonQuery();
 
-                 
+                    cmd = new SqlCommand("SELECT order_id FROM orders WHERE order_id = @@Identity;", conn);
+                    id = Convert.ToInt32(cmd.ExecuteScalar());
+
                 }
             }
             catch (SqlException ex)
             {
-                return false;
+                
             }
-            return true;
+            return id;
         }
         public bool UpdateOrderStatus(Order order)
         {
@@ -148,6 +151,10 @@ namespace SampleApi.DAL
             return true;
         }
 
+        public Order GetOrder(int id)
+        {
+            return GetAllOrders().FirstOrDefault(o => o.orderId == id);
+        }
 
     }
 }

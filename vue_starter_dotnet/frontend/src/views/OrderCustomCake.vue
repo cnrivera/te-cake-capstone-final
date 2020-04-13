@@ -129,15 +129,12 @@ export default {
       createOrderErrors: false,
     };
   },
-  computed: {
-    // price() {
-    //   // filter prices to find price for option selected
-    // }
-  },
+  
   methods: {
     submitOrder(baseprice, size) {
       this.orderInfo.cake.price = baseprice;
       this.orderInfo.cake.size = size;
+
       if (this.orderInfo.writingOnCake !== 'none'){
         this.orderInfo.cake.price += 10;
       } 
@@ -150,12 +147,12 @@ export default {
         body: JSON.stringify(this.orderInfo),
       })
       .then((response) => {
-        if (response.ok) {
-          this.$router.push({ path: '/standardcakes' });
-        } else {
-          this.createOrderErrors = true;
-        }
-      })
+          if (response.body.id !==0) {
+            this.$router.push({ path: `/confirmorder/${response.body.id}` });
+          } else {
+            this.createOrderErrors = true;
+          }
+        })
       .then((err) => console.error(err));
     },
     getFrostingsList() {

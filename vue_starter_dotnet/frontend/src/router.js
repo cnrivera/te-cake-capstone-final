@@ -7,6 +7,7 @@ import StandardCakes from './views/StandardCakes.vue'
 import OrderCake from './views/OrderCake.vue'
 import OrderCustomCake from './views/OrderCustomCake.vue'
 import AdminMenu from './views/AdminMenu.vue'
+import ConfirmOrder from './views/ConfirmOrder.vue'
 
 Vue.use(Router)
 
@@ -71,6 +72,14 @@ const router = new Router({
         requiresAuth: true
       }
     },
+    {
+      path: '/ordercustomcake/:id',
+      name: 'confirm-order',
+      component: ConfirmOrder,
+      meta: {
+        requiresAuth: false
+      }
+    }
   ]
 })
 
@@ -85,6 +94,7 @@ router.beforeEach((to, from, next) => {
   } else {
     // Else let them go to their next destination
     next();
+    
   }
 });
 

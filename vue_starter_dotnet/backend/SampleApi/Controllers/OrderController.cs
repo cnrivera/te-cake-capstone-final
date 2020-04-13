@@ -37,16 +37,12 @@ namespace SampleApi.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
+        
         [HttpPost("cakeOrder")]
         public IActionResult Create([FromBody] Order order)
         {
-            bool result=false;
-            if (orderDao.AddOrder(order))
-            {
-               result = true;
-            }
-            return Ok(result);
-
+            int id = orderDao.AddOrder(order);
+            return Ok(id);
 
         }
         /// <summary>
@@ -63,6 +59,13 @@ namespace SampleApi.Controllers
                 result = true;
             }
             return Ok(result);
+        }
+
+        //[HttpGet( "{id}", Name ="getOrder")]
+        [HttpGet("getOrder/{id}")]
+        public Order GetOrder(int id)
+        {
+            return orderDao.GetOrder(id);
         }
     }
 }
