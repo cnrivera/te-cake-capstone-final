@@ -110,5 +110,7 @@ VALUES ('Holy Sheet Cake!', 1, 'Sheet cake', 'Full-pan', 'Yellow', 'Hazelnut But
 
 SELECT * from standard_cakes
 
+SELECT * from orders
+
 
 COMMIT TRANSACTION;
