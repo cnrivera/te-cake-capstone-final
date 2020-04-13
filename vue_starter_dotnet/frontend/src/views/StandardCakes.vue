@@ -20,8 +20,6 @@
       <router-link v-bind:to="{name: 'order-cake',params: {id:cake.id}}" class="btn btn-info" role="button">Purchase Cake</router-link>
     </div>
   </div>
-
-  <router-link to="/createcake" class="newcakebtn btn btn-lg btn-info btn-block">Add New Cake</router-link>
 </div>
 </template>
 
