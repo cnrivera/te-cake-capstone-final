@@ -2,6 +2,7 @@
   <div id="confirmorder">
 
   <h2>Your Order is Confirmed</h2>
+  
   <ul>
   <li>Order ID: {{order.orderId}}</li>
   <li>Pickup Date and Time: {{order.date}} at {{order.time}}</li>

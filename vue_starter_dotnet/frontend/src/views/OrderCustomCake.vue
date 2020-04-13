@@ -145,6 +145,7 @@ export default {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(this.orderInfo),
+        
       })
 
         .then((response) => {

@@ -73,6 +73,7 @@ const router = new Router({
       }
     },
     {
+      
       path: '/ordercustomcake/:id',
       name: 'confirm-order',
       component: ConfirmOrder,
@@ -94,7 +95,7 @@ router.beforeEach((to, from, next) => {
   } else {
     // Else let them go to their next destination
     next();
-    
+
   }
 });
 
