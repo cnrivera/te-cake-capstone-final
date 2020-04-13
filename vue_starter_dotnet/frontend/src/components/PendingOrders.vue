@@ -1,23 +1,32 @@
 <template>
   <div id="pendingorderscontainer"> 
-    <h1>All Pending Orders</h1>    
-    <div v-for="order in orders" :key="order.name" class="orderdetails">
-    <ul>
-      <li><b>Order Number:</b> {{order.orderId}}
-      <li><b>Customer Name:</b> {{order.customerName}}</li>
-      <li><b>Pick up Date and Time:</b> {{order.date}} {{order.time}}</li>
-      <li><b>Current Order Status:</b>{{order.orderStatus}}</li>
-      <li><label for="size"><b>Change Order Status To:</b></label>
-    <select v-model="order.orderStatus" v-on:change.prevent="UpdateOrderStatus(order.orderId, order.orderStatus)">
+    <table id="orders" class = "table-bordered table-hover table-striped"> 
+      <thead>
+        <tr>
+          <th>Order ID Number</th>
+          <th>Pick Up Time</th>
+          <th>Order Details</th>
+          <th>Customer Details</th>
+          <th>Order Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="order in orders" :key="order.name" class="orderdetails">
+          <td >{{order.orderId}}</td>
+          <td>{{order.date}} at {{order.time}}</td>
+          <td><b>Cake Name:</b> {{order.cake.name}} <br/> <b>Style:</b> {{order.cake.style}} <br/> <b>Size:</b> {{order.cake.size}}<br/>
+          <b>Flavor:</b> {{order.cake.flavor}} <br/> <b>Frosting:</b> {{order.cake.flavor}} <br/> <b>Filling:</b> {{order.cake.filling}} <br/> <b>Quantity:</b> {{order.quantity}}
+          <br/><b>Writing on Cake:</b> {{order.cake.writingOnCake}}</td>
+          <td><b>Customer Name:</b> {{order.customerName}} <br/> <b>Email:</b> {{order.email}} <br/> <b>Customer Phone:</b> {{order.phoneNumber}}</td>
+          <td><select v-model="order.orderStatus" v-on:change.prevent="UpdateOrderStatus(order.orderId, order.orderStatus)">
     <option v-for="status in statusChange" :key="status" :value="status">
       {{ status }} 
     </option>
-</select>
-</li>
-      </ul>
-            </div>
-      
-  </div>
+</select></td>
+        </tr>
+      </tbody>
+    </table>
+</div>
 </template>
 
 <script>
@@ -77,5 +86,32 @@ export default {
 
 
 <style>
+table{
+  margin-top: 30px;
+  margin-left: 2%;
+  margin-right: 10%;
+  padding: 15px;
+  background-color: hsla(188, 56%, 8%, 0.7);
+  color: whitesmoke;
+  border-radius: 5px;
+}
+
+h1{
+  padding: 5px;
+}
+th {  
+    font-weight: bold; /* Make sure they're bold */
+}
+
+td, th {  
+    padding: 5px;
+}
+td{
+
+}
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: hsla(187, 53%, 39%, 0.7);
+  color: white;
+}
 
 </style>
