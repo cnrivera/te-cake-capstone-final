@@ -12,7 +12,7 @@
   <li>Style: {{order.cake.style}} </li>
   <li>Size: {{order.cake.size}}</li>
   <li>Flavor: {{order.cake.flavor}}</li>
-  <li>Frosting: {{order.cake.flavor}}</li>
+  <li>Frosting: {{order.cake.frosting}}</li>
   <li>Filling: {{order.cake.filling}}</li>
   <li>Quantity: {{order.quantity}}</li>
   <li>Writing on Cake: {{order.cake.writingOnCake}}</li>
