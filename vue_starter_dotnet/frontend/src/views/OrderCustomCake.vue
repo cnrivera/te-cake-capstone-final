@@ -8,7 +8,7 @@
 
     <div class="form-group">
       <label for="style">Style:</label>
-      <select class="form-control" v-model="orderInfo.cake.style">
+      <select class="form-control" v-model="orderInfo.cake.style" v-on:change.prevent="FilterSizes(orderinfo.cake.styles.style.id)">
         <option v-for="style in cake.styles" :key="style.id" :value="style.style">{{ style.style }}</option>
       </select>
     </div>
@@ -53,17 +53,18 @@
 
     <div class="form-group">
       <label for="name">Phone:</label>
-      <input v-model="orderInfo.phoneNumber" type="text" class="form-control" required />
+      <input v-model="orderInfo.phoneNumber" type="tel" class="form-control" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+        placeholder="123-456-7890" />
     </div>
 
     <div class="form-group">
       <label for="name">Email:</label>
-      <input v-model="orderInfo.email" type="text" class="form-control" required />
+      <input v-model="orderInfo.email" type="email" class="form-control" required />
     </div>
 
     <div class="form-group">
       <label for="name">Date:</label>
-      <input v-model="orderInfo.date" type="text" class="form-control" required />
+      <input v-model="orderInfo.date" type="date" class="form-control" required />
     </div>
 
     <div class="form-group">
@@ -210,6 +211,11 @@ export default {
       })
       .catch((err) => console.error(err));
     },
+     FilterSizes(id){
+        this.cake.sizes = this.cake.sizes.filter( u => {
+          return u.styleId == id
+        });
+     }
   },
   created() {
     this.getFrostingsList();
