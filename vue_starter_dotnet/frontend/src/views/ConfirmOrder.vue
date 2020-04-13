@@ -1,25 +1,29 @@
 <template>
   <div id="confirmorder">
 
-  <h2>Your Order is Confirmed</h2>
+  <h2>Your Order Has Been Placed!</h2>
   <p>If there are any problems with your order, or if you need to cancel or modify this order, please contact us.</p>
 
-  <ul style="list-style: none;">
-  <li>Order ID: {{order.orderId}}</li>
-  <li>Total Order Cost (due at pickup): ${{order.orderTotal}}.00</li>
-  <li>Pickup Date and Time: {{order.date}} at {{order.time}}</li>
-  <li>Cake Name: {{order.cake.name}}</li>
-  <li>Style: {{order.cake.style}} </li>
-  <li>Size: {{order.cake.size}}</li>
-  <li>Flavor: {{order.cake.flavor}}</li>
-  <li>Frosting: {{order.cake.frosting}}</li>
-  <li>Filling: {{order.cake.filling}}</li>
-  <li>Quantity: {{order.quantity}}</li>
-  <li>Writing on Cake: {{order.cake.writingOnCake}}</li>
-  <li>Customer Name: {{order.customerName}} </li>              
-  <li>Email: {{order.email}} </li>
-  <li>Customer Phone: {{order.phoneNumber}}</li>
+  <div>
+  <ul>
+    <li><b>Order ID:</b> {{order.orderId}}</li>
+    <li><b>Total Order Cost (due at pickup):</b> ${{order.orderTotal}}.00</li>
+    <li><b>Pickup Date and Time:</b> {{order.date}} at {{order.time}}</li>
+    <li><b>Quantity:</b> {{order.quantity}}</li>
+    <li><b>Customer Name:</b> {{order.customerName}} </li>              
+    <li><b>Email:</b> {{order.email}} </li>
+    <li><b>Customer Phone:</b> {{order.phoneNumber}}</li>
   </ul>
+  <ul>
+    <li><b>Cake Name:</b> {{order.cake.name}}</li>
+    <li><b>Style:</b> {{order.cake.style}} </li>
+    <li><b>Size:</b> {{order.cake.size}}</li>
+    <li><b>Flavor:</b> {{order.cake.flavor}}</li>
+    <li><b>Frosting:</b> {{order.cake.frosting}}</li>
+    <li><b>Filling:</b> {{order.cake.filling}}</li>
+    <li><b>Writing on Cake:</b> {{order.cake.writingOnCake}}</li>
+  </ul>
+  </div>
 
 </div>
 </template>
@@ -54,16 +58,24 @@ export default {
 
 <style>
 #confirmorder {
-  margin-top: 30px;
+  margin-top: 50px;
   margin-left: 10%;
   margin-right: 10%;
   padding: 15px;
   background-color: hsla(188, 56%, 8%, 0.7);
   color: whitesmoke;
   border-radius: 5px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between
+  text-align: center;
 }
-
+#confirmorder ul {
+  text-align: start;
+  list-style: none;
+}
+#confirmorder div {
+  margin-top: 30px;
+  margin-left: 12%;
+  margin-right: 12%;
+  display: flex;
+  justify-content: space-around;
+}
 </style>
