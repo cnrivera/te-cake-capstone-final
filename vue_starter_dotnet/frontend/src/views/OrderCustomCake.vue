@@ -1,7 +1,7 @@
 <template>
 <div id="ordercustomcake">
 
-  <form @submit.prevent="submitOrder(orderInfo.cake.size.basePrice, orderInfo.cake.size.size, )">
+  <form @submit.prevent="submitOrder(orderInfo.cake.size.basePrice, orderInfo.cake.size.size, orderInfo.cake.style.style)">
     <div class="alert alert-danger" role="alert" v-if="createOrderErrors">
       There were problems creating this order.
     </div>
@@ -132,10 +132,11 @@ export default {
   },
   
   methods: {
-    submitOrder(baseprice, size) {
+    submitOrder(baseprice, size, style) {
       this.orderInfo.cake.price = baseprice;
       this.orderInfo.cake.size = size;
-
+      this.orderInfo.cake.style = style;
+      
       if (this.orderInfo.writingOnCake !== 'none'){
         this.orderInfo.cake.price += 10;
       } 
