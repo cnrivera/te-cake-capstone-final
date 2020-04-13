@@ -26,10 +26,10 @@ export default {
   name: 'confirm-order',
   data() {
       return {
-        orders: []
+        order: []
     };
   },
-  
+
   methods: {
     
     getOrder(id) {
@@ -38,7 +38,7 @@ export default {
         return response.json();
       })
       .then((data) => {
-        this.orderInfo.cake = data;
+        this.order = data;
       })
       .catch((err) => console.error(err));
     }

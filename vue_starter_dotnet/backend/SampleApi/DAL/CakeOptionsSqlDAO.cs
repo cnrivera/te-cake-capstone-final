@@ -111,7 +111,7 @@ namespace SampleApi.DAL
                     // Open the connection
                     conn.Open();
 
-                    string sql = $"SELECT * FROM sizes";
+                    string sql = $"SELECT * from sizes JOIN style_size ON sizes.id = style_size.size_id JOIN styles ON styles.id = style_size.style_id";
                     SqlCommand cmd = new SqlCommand(sql, conn);
 
                     // Execute the command
@@ -126,6 +126,7 @@ namespace SampleApi.DAL
                         size.size = Convert.ToString(reader["size"]);
                         size.basePrice = Convert.ToDouble(reader["base_price"]);
                         size.isAvailable = Convert.ToBoolean(reader["available"]);
+                        
 
                         listOfSizes.Add(size);
                     }
