@@ -146,14 +146,18 @@ export default {
         },
         body: JSON.stringify(this.orderInfo),
       })
-      .then((response) => {
-          if (response.body.id !==0) {
-            this.$router.push({ path: `/confirmorder/${response.body.id}` });
-          } else {
-            this.createOrderErrors = true;
-          }
+
+        .then((response) => {
+          
+          if (response.ok) {
+            return response.json();
+          }     
         })
-      .then((err) => console.error(err));
+        .then( (data)=>{
+           let createdId=data;
+           this.$router.push({ path: `/confirmorder/${createdId}`});
+         
+      })
     },
     getFrostingsList() {
       fetch(`${process.env.VUE_APP_REMOTE_API_OPTIONS}/getAllFrostings`)

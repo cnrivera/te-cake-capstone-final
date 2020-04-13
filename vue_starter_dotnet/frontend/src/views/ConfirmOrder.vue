@@ -29,6 +29,7 @@ export default {
         orders: []
     };
   },
+  
   methods: {
     
     getOrder(id) {
