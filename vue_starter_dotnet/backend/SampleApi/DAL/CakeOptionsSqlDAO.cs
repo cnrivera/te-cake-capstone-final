@@ -170,7 +170,7 @@ namespace SampleApi.DAL
 
         public bool AddSizeOption(Sizes newSize)
         {
-            int id = 0;
+            int newId = 0;
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
@@ -179,20 +179,20 @@ namespace SampleApi.DAL
                     SqlCommand cmd = new SqlCommand("INSERT INTO sizes (available, size, base_price) VALUES (@available, @size, @base_price);", conn);
 
                     cmd.Parameters.AddWithValue("@available", newSize.isAvailable);
-                    cmd.Parameters.AddWithValue("@style", newSize.size);
-                    cmd.Parameters.AddWithValue("@price", newSize.basePrice);
+                    cmd.Parameters.AddWithValue("@size", newSize.size);
+                    cmd.Parameters.AddWithValue("@base_price", newSize.basePrice);
 
                     cmd.ExecuteNonQuery();
 
-                    cmd = new SqlCommand("SELECT order_id FROM sizes WHERE order_id = @@Identity;", conn);
-                    id = Convert.ToInt32(cmd.ExecuteScalar());
+                    cmd = new SqlCommand("SELECT id FROM sizes WHERE id = @@Identity;", conn);
+                    newId = Convert.ToInt32(cmd.ExecuteScalar());
 
-                    SqlCommand cmd2 = new SqlCommand("INSERT INTO style_size VALUES (@styleId, @id);", conn);
+                    SqlCommand cmd2 = new SqlCommand("INSERT INTO style_size (style_id, size_id) VALUES (@styleId, @id);", conn);
 
-                    cmd.Parameters.AddWithValue("@id", newSize.id);
-                    cmd.Parameters.AddWithValue("@styleId", newSize.styleId);
-
-                    cmd.ExecuteNonQuery();
+                    cmd2.Parameters.AddWithValue("@styleId", newSize.styleId); 
+                    cmd2.Parameters.AddWithValue("@id", newId);
+                    
+                    cmd2.ExecuteNonQuery();
                 }
             }
             catch (SqlException ex)

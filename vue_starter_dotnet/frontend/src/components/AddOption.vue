@@ -7,7 +7,7 @@
       <input v-model="frosting.frosting" type="text" class="form-control" />
     </div>
     <div class="form-group">
-      <label for="imageName">New Frosting is currently available:</label>
+      <label for="available">New Frosting is currently available:</label>
       <input type="checkbox" v-model="frosting.isAvailable"
       class="form-control checkbox"
       />
@@ -18,11 +18,11 @@
   <div id="addoptionform">
   <form @submit.prevent="addFilling">
   <div class="form-group">
-      <label for="frosting">Add New Filling:</label>
+      <label for="filling">Add New Filling:</label>
       <input v-model="filling.filling" type="text" class="form-control" />
     </div>
     <div class="form-group">
-      <label for="imageName">New Filling is currently available:</label>
+      <label for="available">New Filling is currently available:</label>
       <input type="checkbox" v-model="filling.isAvailable"
       class="form-control checkbox"
       />
@@ -33,11 +33,11 @@
   <div id="addoptionform">
   <form @submit.prevent="addFlavor">
   <div class="form-group">
-      <label for="frosting">Add New Flavor:</label>
+      <label for="flavor">Add New Flavor:</label>
       <input v-model="flavor.flavor" type="text" class="form-control" />
     </div>
     <div class="form-group">
-      <label for="imageName">New Flavor is currently available:</label>
+      <label for="available">New Flavor is currently available:</label>
       <input type="checkbox" v-model="flavor.isAvailable"
       class="form-control checkbox"
       />
@@ -48,11 +48,11 @@
   <div id="addoptionform">
   <form @submit.prevent="addStyle">
   <div class="form-group">
-      <label for="frosting">Add New Cake Style:</label>
+      <label for="style">Add New Cake Style:</label>
       <input v-model="style.style" type="text" class="form-control" />
     </div>
     <div class="form-group">
-      <label for="imageName">New Style is currently available:</label>
+      <label for="available">New Style is currently available:</label>
       <input type="checkbox" v-model="style.isAvailable"
       class="form-control checkbox"
       />
@@ -63,8 +63,12 @@
   <div id="addoptionform">
   <form @submit.prevent="addSize">
   <div class="form-group">
-      <label for="frosting">Add New Cake Size:</label>
+      <label for="size">Add New Cake Size:</label>
       <input v-model="size.size" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="size.basePrice">Base Price for New Size:</label>
+      <input v-model="size.basePrice" type="text" class="form-control" />
     </div>
     <div class="form-group">
       <label for="currentStyle">Choose a Cake Style for this Size:</label>
@@ -73,7 +77,7 @@
       </select>
     </div>
     <div class="form-group">
-      <label for="imageName">New Size is currently available:</label>
+      <label for="available">New Size is currently available:</label>
       <input type="checkbox" v-model="size.isAvailable"
       class="form-control checkbox"
       />
@@ -116,7 +120,7 @@ export default {
         size: {
           size: '',
           isAvailable: true,
-          price: 0,
+          basePrice: 0,
           styleId: 0
         },
 
