@@ -202,7 +202,7 @@ namespace SampleApi.DAL
             return true;
         }
 
-        public bool UpdateSizesAvailability(Sizes updatedSize)
+        public bool UpdateSizeAvailability(Sizes updatedSize)
         {
             try
             {

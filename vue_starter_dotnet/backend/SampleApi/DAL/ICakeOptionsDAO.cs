@@ -28,7 +28,13 @@ namespace SampleApi.DAL
         /// </summary>
         /// <returns></returns>
         bool AddSizeOption(Sizes newSize);
-        
+        bool UpdateStyleAvailability(Styles updatedStyle);
+        bool UpdateSizeAvailability(Sizes updatedSize);
+        bool UpdateFrostingAvailability(Frostings updatedFrosting);
+        bool UpdateFlavorAvailability(Flavors updatedFlavor);
+        bool UpdateFillingAvailability(Fillings updatedFilling);
+
+
         ///<Summary>
         /// Returns a list of cake sizes stored in our SQL database
         ///</Summary>
@@ -66,10 +72,6 @@ namespace SampleApi.DAL
         /// Returns a list of cake fillings stored in our SQL database
         ///</Summary>
         List<Fillings> GetAllCakeFillings();
-
-
-
-
 
 
     }
