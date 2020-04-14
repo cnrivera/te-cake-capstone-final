@@ -4,12 +4,12 @@
   <form @submit.prevent="addFrosting">
   <div class="form-group">
       <label for="frosting">Add New Frosting Name:</label>
-      <input v-model="frosting.frosting" type="text" class="form-control" />
+      <input v-model="frosting.frosting" type="text" class="form-control" required />
     </div>
     <div class="form-group">
       <label for="available">New Frosting is currently available:</label>
       <input type="checkbox" v-model="frosting.isAvailable"
-      class="form-control checkbox"
+      class="form-control checkbox" 
       />
     </div>
     <button class="btn btn-lg btn-info btn-block" type="submit" >Submit</button>
@@ -19,7 +19,7 @@
   <form @submit.prevent="addFilling">
   <div class="form-group">
       <label for="filling">Add New Filling Name:</label>
-      <input v-model="filling.filling" type="text" class="form-control" />
+      <input v-model="filling.filling" type="text" class="form-control" required />
     </div>
     <div class="form-group">
       <label for="available">New Filling is currently available:</label>
@@ -34,7 +34,7 @@
   <form @submit.prevent="addFlavor">
   <div class="form-group">
       <label for="flavor">Add New Flavor Name:</label>
-      <input v-model="flavor.flavor" type="text" class="form-control" />
+      <input v-model="flavor.flavor" type="text" class="form-control" required />
     </div>
     <div class="form-group">
       <label for="available">New Flavor is currently available:</label>
@@ -49,8 +49,12 @@
   <form @submit.prevent="addStyle">
   <div class="form-group">
       <label for="style">Add New Cake Style Name:</label>
-      <input v-model="style.style" type="text" class="form-control" />
+      <input v-model="style.style" type="text" class="form-control" required />
     </div>
+    <label for="currentStyle">Choose a Default Cake Size for this Style:</label>
+    <select class="form-control" v-model="style.sizeId" required>
+        <option v-for="size in cake.sizes" :key="size.id" :value="size.id">{{ size.size }}</option>
+      </select>
     <div class="form-group">
       <label for="available">New Style is currently available:</label>
       <input type="checkbox" v-model="style.isAvailable"
@@ -64,17 +68,17 @@
   <form @submit.prevent="addSize">
     <div class="form-group">
       <label for="currentStyle">Choose a Cake Style for this Size:</label>
-      <select class="form-control" v-model="size.styleId">
+      <select class="form-control" v-model="size.styleId" required>
         <option v-for="style in cake.styles" :key="style.id" :value="style.id">{{ style.style }}</option>
       </select>
     </div>
   <div class="form-group">
       <label for="size">Add New Cake Size Name:</label>
-      <input v-model="size.size" type="text" class="form-control" />
+      <input v-model="size.size" type="text" class="form-control" required />
     </div>
     <div class="form-group">
       <label for="size.basePrice">Base Price for New Size:</label>
-      <input v-model="size.basePrice" type="text" class="form-control" />
+      <input v-model="size.basePrice" type="text" class="form-control" required />
     </div>
     
     <div class="form-group">
@@ -97,7 +101,8 @@ export default {
     data() {
     return {
       cake: {
-        styles: []
+        styles: [],
+        sizes: []
       },
 
       frosting: {
@@ -116,7 +121,8 @@ export default {
         style: {
           style: '',
           isAvailable: true,
-          price: 0
+          price: 0,
+          sizeId: 0
         },
         size: {
           size: '',
@@ -141,6 +147,16 @@ methods: {
       })
       .then((data) => {
         this.cake.styles = data;
+      })
+      .catch((err) => console.error(err));
+    },
+     getSizesList() {
+      fetch(`${process.env.VUE_APP_REMOTE_API_OPTIONS}/getAllSizes`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        this.cake.sizes = data;
       })
       .catch((err) => console.error(err));
     },
@@ -248,6 +264,7 @@ methods: {
 
   created() {
     this.getStylesList();
+    this.getSizesList();
   }
 }
 </script>

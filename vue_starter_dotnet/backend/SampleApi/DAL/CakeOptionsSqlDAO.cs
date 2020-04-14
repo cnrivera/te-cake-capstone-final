@@ -75,6 +75,7 @@ namespace SampleApi.DAL
         /// <returns></returns>
         public bool AddStyleOption(Styles newStyle)
         {
+            int newStyleId = 0;
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
@@ -88,6 +89,17 @@ namespace SampleApi.DAL
                     cmd.Parameters.AddWithValue("@price", newStyle.price);
                 
                     cmd.ExecuteNonQuery();
+
+                    cmd = new SqlCommand("SELECT id FROM styles WHERE id = @@Identity;", conn);
+                    newStyleId = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    SqlCommand cmd2 = new SqlCommand("INSERT INTO style_size (style_id, size_id) VALUES (@id, @sizeId);", conn);
+
+                    cmd2.Parameters.AddWithValue("@id", newStyleId);
+                    cmd2.Parameters.AddWithValue("@sizeId", newStyle.sizeId);
+                    
+
+                    cmd2.ExecuteNonQuery();
                 }
             }
             catch (SqlException ex)
