@@ -73,7 +73,7 @@
         <option value="9:00am">9:00am</option>
         <option value="10:00am">10:00am</option>
         <option value="11:00am">11:00am</option>
-        <option value="12:00am">12:00am</option>
+        <option value="12:00am">12:00pm</option>
         <option value="1:00pm">1:00pm</option>
         <option value="2:00pm">2:00pm</option>
         <option value="3:00pm">3:00pm</option>
@@ -82,9 +82,9 @@
       </select>
     </div>
 
-    <div class="form-group" v-if="orderInfo.style != 'Cupcake'">
-      <label for="name">Add Message to Cake ($10.00):</label>
-      <input v-model.trim="orderInfo.writingOnCake" type="text" class="form-control" />
+    <div class="form-group" v-if="orderInfo.cake.style.style != 'Cupcake'">
+      <label for="name">Add Message to Cake ($5.00):</label>
+      <input v-model.trim="orderInfo.writingOnCake" type="text" maxlength="50" class="form-control" />
       <input type="hidden" v-model="orderInfo.id"/>
     </div>
 
@@ -113,7 +113,7 @@ export default {
         customerName: '',
         phoneNumber: '',
         email: '',
-        writingOnCake: 'none',
+        writingOnCake: '',
         orderStatus: 'pending',
         date: '',
         time: '',
@@ -137,8 +137,8 @@ export default {
       this.orderInfo.cake.size = size;
       this.orderInfo.cake.style = style;
       
-      if (this.orderInfo.writingOnCake !== 'none'){
-        this.orderInfo.cake.price += 10;
+      if (this.orderInfo.writingOnCake !== ''){
+        this.orderInfo.cake.price += 5;
       } 
       fetch(`${process.env.VUE_APP_REMOTE_API_ORDER}/cakeOrder`, {
         method: 'POST',

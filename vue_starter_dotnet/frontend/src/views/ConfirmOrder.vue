@@ -21,7 +21,7 @@
     <li><b>Flavor:</b> {{order.cake.flavor}}</li>
     <li><b>Frosting:</b> {{order.cake.frosting}}</li>
     <li><b>Filling:</b> {{order.cake.filling}}</li>
-    <li><b>Writing on Cake:</b> {{order.cake.writingOnCake}}</li>
+    <li><b>Writing on Cake:</b> {{order.writingOnCake}}</li>
   </ul>
   </div>
 
