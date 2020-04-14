@@ -36,10 +36,10 @@ CREATE TABLE standard_cakes
 	style		varchar(50)	not null,
 	size		varchar(50) not null,
 	flavor		varchar(50) not null,
-	frosting		varchar(50) not null,
-	filling		varchar(50) not null,
+	frosting	varchar(50) not null,
+	filling		varchar(50) default(0),
 	description varchar(500) not null,
-	cake_message varchar(50),
+	cake_message varchar(100),
 	image_path	varchar(50) not null,
 	available	bit			default(1)
 	

@@ -59,41 +59,92 @@ VALUES ( 1, 'None', 1)
 INSERT INTO fillings (available, filling, additional_cost)
 VALUES ( 1, 'Raspberry', 1)
 
+INSERT INTO fillings (available, filling, additional_cost)
+VALUES (1, 'Blueberry', 1)
+
+INSERT INTO fillings (available, filling, additional_cost)
+VALUES (1, 'Orange', 1)
+
+INSERT INTO fillings (available, filling, additional_cost)
+VALUES (1, 'Custard Cream', 1)
+
+INSERT INTO fillings (available, filling, additional_cost)
+VALUES (1, 'Vanilla Cream', 1)
+
+INSERT INTO fillings (available, filling, additional_cost)
+VALUES (1, 'Chocolate Cream', 1)
+
 INSERT INTO flavors (available, flavor)
-VALUES ( 1, 'Yellow')
+VALUES ( 1, 'Vanilla')
 
 INSERT INTO flavors (available, flavor)
 VALUES ( 1, 'Chocolate')
 
 INSERT INTO flavors (available, flavor)
+VALUES ( 1, 'Yellow')
+
+INSERT INTO flavors (available, flavor)
 VALUES (1, 'Red Velvet')
 
-INSERT INTO frostings (available, frosting)
-VALUES ( 1, 'Hazelnut Buttercream')
+INSERT INTO flavors (available, flavor)
+VALUES (1, 'Lemon Poppyseed')
+
+INSERT INTO flavors (available, flavor)
+VALUES (1, 'Pineapple')
+
+INSERT INTO flavors (available, flavor)
+VALUES (1, 'Peanut Butter')
 
 INSERT INTO frostings (available, frosting)
 VALUES ( 1, 'Vanilla Buttercream')
 
 INSERT INTO frostings (available, frosting)
+VALUES ( 1, 'Chocolate Buttercream')
+
+INSERT INTO frostings (available, frosting)
+VALUES ( 1, 'Hazelnut Buttercream')
+
+INSERT INTO frostings (available, frosting)
+VALUES ( 1, 'Strawberry Buttercream')
+
+INSERT INTO frostings (available, frosting)
+VALUES ( 1, 'Lavendar Buttercream')
+
+INSERT INTO frostings (available, frosting)
 VALUES ( 1, 'Chocolate Ganache')
 
-INSERT INTO sizes (available, size, base_price)
-VALUES ( 1, 'Full-pan', 70)
+INSERT INTO frostings (available, frosting)
+VALUES ( 1, 'Cream Cheese Icing')
 
 INSERT INTO sizes (available, size, base_price)
-VALUES ( 1, 'Half-pan', 40)
+VALUES ( 1, 'Quarter-pan', 40)
 
 INSERT INTO sizes (available, size, base_price)
-VALUES ( 1, '3-tier', 100)
+VALUES ( 1, 'Half-pan', 80)
 
 INSERT INTO sizes (available, size, base_price)
-VALUES ( 1, '2-tier', 80)
+VALUES ( 1, 'Full-pan', 160)
+
+INSERT INTO sizes (available, size, base_price)
+VALUES ( 1, '2-tier', 75)
+
+INSERT INTO sizes (available, size, base_price)
+VALUES ( 1, '3-tier', 120)
+
+INSERT INTO sizes (available, size, base_price)
+VALUES ( 1, '4-tier', 200)
+
+INSERT INTO sizes (available, size, base_price)
+VALUES ( 1, 'Mini', 3)
 
 INSERT INTO sizes (available, size, base_price)
 VALUES ( 1, 'Standard', 4)
 
+INSERT INTO sizes (available, size, base_price)
+VALUES ( 1, 'Jumbo', 6)
+
 INSERT INTO style_size (style_id, size_id)
-VALUES (1, 1), (1,2), (2,3), (2,4), (3,5)
+VALUES (1,1), (1,2), (1,3), (2,4), (2,5), (2,6), (3,7), (3,8), (3,9)
 
 --INSERT INTO custom_cakes (name, price, style_id, size_id, flavor_id, frosting_id, filling_id, description, image_path)
 --VALUES ('Holy Sheet Cake!', 45,  , 1 , 1, 1, 1, 'A great basic cake for any event. Delicious hazelnut buttercream frosting pairs perfectly with yellow sponge cake.', 'sheet-cake-yellow-chocolate-frosting.png');
