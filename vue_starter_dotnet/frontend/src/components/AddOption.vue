@@ -69,7 +69,7 @@
     <div class="form-group">
       <label for="currentStyle">Choose a Cake Style for this Size:</label>
       <select class="form-control" v-model="size.styleId">
-        <option v-for="style in currentStyle" :key="style.id" :value="style.id">{{ style.style }}</option>
+        <option v-for="style in cake.styles" :key="style.id" :value="style.id">{{ style.style }}</option>
       </select>
     </div>
     <div class="form-group">
@@ -91,7 +91,9 @@ export default {
     name: 'add-option',
     data() {
     return {
-      currentStyles: [],
+      cake: {
+        styles: []
+      },
 
       frosting: {
           frosting: '',
@@ -133,7 +135,7 @@ methods: {
         return response.json();
       })
       .then((data) => {
-        this.currentStyles = data;
+        this.cake.styles = data;
       })
       .catch((err) => console.error(err));
     },
