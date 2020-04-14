@@ -1,5 +1,8 @@
 <template>
+<div>
+  <h1>Add Cake Options</h1>
 <div id="addoptioncontainer">
+  
   <div id="addoptionform">
   <form @submit.prevent="addFrosting">
   <div class="form-group">
@@ -11,8 +14,13 @@
       <input type="checkbox" v-model="frosting.isAvailable"
       class="form-control checkbox" 
       />
+      <div id="btnctr">
+      <button class="btn btn-lg btn-info btn-center btn-block" type="submit" >Submit</button>
+      </div>
     </div>
-    <button class="btn btn-lg btn-info btn-block" type="submit" >Submit</button>
+    
+    
+    
   </form>
   </div>
   <div id="addoptionform">
@@ -27,7 +35,9 @@
       class="form-control checkbox"
       />
     </div>
+    <div id="btnctr">
     <button class="btn btn-lg btn-info btn-block" type="submit" >Submit</button>
+    </div>
   </form>
   </div>
   <div id="addoptionform">
@@ -42,7 +52,9 @@
       class="form-control checkbox"
       />
     </div>
+    <div id="btnctr">
     <button class="btn btn-lg btn-info btn-block" type="submit" >Submit</button>
+    </div>
   </form>
   </div>
   <div id="addoptionform">
@@ -61,7 +73,9 @@
       class="form-control checkbox"
       />
     </div>
-    <button class="btn btn-lg btn-info btn-block" type="submit" >Submit</button>
+    <div id="btnctr">
+      <button class="btn btn-lg btn-info btn-block" type="submit" >Submit</button>
+      </div>
   </form>
   </div>
   <div id="addoptionform">
@@ -87,11 +101,12 @@
       class="form-control checkbox"
       />
     </div>
-
+<div id="btnctr">
     <button class="btn btn-lg btn-info btn-block" type="submit" >Submit</button>
+    </div>
   </form>
   </div> 
-  
+  </div>
   </div>
 </template>
 
@@ -272,26 +287,33 @@ methods: {
 
 
 <style>
-#addoptionform{
-  margin-top: 30px;
-  margin-left: 10%;
-  margin-right: 10%;
-  padding: 15px;
-  background-color: hsla(188, 56%, 8%, 0.7);
-  color: whitesmoke;
-  border-radius: 5px;
-}
-#addoptionform .form-group {
-  width: 49%;
-}
 #addoptioncontainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   font-weight: bold;
 }
+#addoptionform{
+  margin-top: 30px;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding: 15px;
+  background-color: hsla(188, 56%, 8%, 0.7);
+  color: whitesmoke;
+  border-radius: 5px;
+  width: 40%
+}
+#addoptionform .form-group {
+  
+}
+
 #addoptionform .checkbox {
   width: 35px;
 }
+#btnctr {
+  padding-right: 25px;
+  width: 100%;
+}
+
 
 </style>
