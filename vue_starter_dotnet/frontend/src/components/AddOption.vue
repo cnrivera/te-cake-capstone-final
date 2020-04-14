@@ -60,11 +60,17 @@
     <button class="btn btn-lg btn-info btn-block" type="submit" >Submit</button>
   </form>
   </div>
-  <!-- <div id="addoptionform">
+  <div id="addoptionform">
   <form @submit.prevent="addSize">
   <div class="form-group">
       <label for="frosting">Add New Cake Size:</label>
       <input v-model="size.size" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="currentStyle">Choose a Cake Style for this Size:</label>
+      <select class="form-control" v-model="size.styleId">
+        <option v-for="style in currentStyle" :key="style.id" :value="style.id">{{ style.style }}</option>
+      </select>
     </div>
     <div class="form-group">
       <label for="imageName">New Size is currently available:</label>
@@ -72,9 +78,10 @@
       class="form-control checkbox"
       />
     </div>
+
     <button class="btn btn-lg btn-info btn-block" type="submit" >Submit</button>
   </form>
-  </div> -->
+  </div> 
   
   </div>
 </template>
@@ -84,6 +91,8 @@ export default {
     name: 'add-option',
     data() {
     return {
+      currentStyles: [],
+
       frosting: {
           frosting: '',
           isAvailable: true
@@ -105,7 +114,8 @@ export default {
         size: {
           size: '',
           isAvailable: true,
-          price: 0
+          price: 0,
+          styleId: 0
         },
 
       updateFillingOptionErrors: false,
@@ -117,7 +127,17 @@ export default {
     
   },
 methods: {
-    addFrosting() 
+  getStylesList() {
+      fetch(`${process.env.VUE_APP_REMOTE_API_OPTIONS}/getAllStyles`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        this.currentStyles = data;
+      })
+      .catch((err) => console.error(err));
+    },
+  addFrosting() 
     {
       fetch(`${process.env.VUE_APP_REMOTE_API_OPTIONS}/newFrosting`, {
         method: 'POST',
@@ -137,7 +157,7 @@ methods: {
 
         .then((err) => console.error(err));
     },
-    addFilling() 
+  addFilling() 
     {
       fetch(`${process.env.VUE_APP_REMOTE_API_OPTIONS}/newFilling`, {
         method: 'POST',
@@ -157,7 +177,7 @@ methods: {
 
         .then((err) => console.error(err));
     },
-    addFlavor() 
+  addFlavor() 
     {
       fetch(`${process.env.VUE_APP_REMOTE_API_OPTIONS}/newFlavor`, {
         method: 'POST',
@@ -177,7 +197,7 @@ methods: {
 
         .then((err) => console.error(err));
     },
-     addStyle() 
+  addStyle() 
     {
       fetch(`${process.env.VUE_APP_REMOTE_API_OPTIONS}/newStyle`, {
         method: 'POST',
@@ -197,6 +217,30 @@ methods: {
 
         .then((err) => console.error(err));
     },
+    addSize() 
+    {
+      fetch(`${process.env.VUE_APP_REMOTE_API_OPTIONS}/newSize`, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(this.size),
+      })
+        .then((response) => {
+          if (response.ok) {
+            this.$router.push({ path: '/standardcakes/' });
+          } else {
+            this.updateSizeOptionErrors = true;
+          }
+        })
+
+        .then((err) => console.error(err));
+    }
+},
+
+  created() {
+    this.getStylesList();
   }
 }
 </script>
