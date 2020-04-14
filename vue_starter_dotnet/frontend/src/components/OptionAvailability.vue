@@ -2,10 +2,42 @@
   <div id='optionavailability'>
 
     <div class="stylegroup">
-      <h2>Cake Style's</h2>
+      <h2>Cake Styles</h2>
       <div v-for="option in options.styles" :key="option.id">
-        <button v-if="!option.available" class="btn btn-success btn-block">{{option.style}}</button>
-        <button v-if="option.available" class="btn btn-danger btn-block">{{option.style}}</button>
+        <button v-if="option.isAvailable" v-on:click.prevent="UpdateStyleAvailability(option.id, !option.isAvailable)" class="btn btn-success btn-block">{{option.style}}</button>
+        <button v-if="!option.isAvailable" v-on:click.prevent="UpdateStyleAvailability(option.id, !option.isAvailable)" class="btn btn-danger btn-block">{{option.style}}</button>
+      </div>
+    </div>
+
+    <div class="stylegroup">
+      <h2>Cake Sizes</h2>
+      <div v-for="option in options.sizes" :key="option.id">
+        <button v-if="option.isAvailable" class="btn btn-success btn-block">{{option.size}}</button>
+        <button v-if="!option.isAvailable" class="btn btn-danger btn-block">{{option.size}}</button>
+      </div>
+    </div>
+
+    <div class="stylegroup">
+      <h2>Cake Flavors</h2>
+      <div v-for="option in options.flavors" :key="option.id">
+        <button v-if="option.isAvailable" class="btn btn-success btn-block">{{option.flavor}}</button>
+        <button v-if="!option.isAvailable" class="btn btn-danger btn-block">{{option.flavor}}</button>
+      </div>
+    </div>
+
+    <div class="stylegroup">
+      <h2>Cake Frostings</h2>
+      <div v-for="option in options.frostings" :key="option.id">
+        <button v-if="option.isAvailable" class="btn btn-success btn-block">{{option.frosting}}</button>
+        <button v-if="!option.isAvailable" class="btn btn-danger btn-block">{{option.frosting}}</button>
+      </div>
+    </div>
+
+    <div class="stylegroup">
+      <h2>Cake Fillings</h2>
+      <div v-for="option in options.fillings" :key="option.id">
+        <button v-if="option.isAvailable" class="btn btn-success btn-block">{{option.filling}}</button>
+        <button v-if="!option.isAvailable" class="btn btn-danger btn-block">{{option.filling}}</button>
       </div>
     </div>
 
@@ -23,10 +55,36 @@ export default {
         flavors: [],
         frostings: [],
         fillings: [],
-      }
+      },
+      updateCakeError: false,
     }
   },
   methods: {
+    UpdateStyleAvailability(id, isAvailable) {
+      let optionNew = {
+        id: id,
+        isAvailable: isAvailable
+      }
+      fetch(`${process.env.VUE_APP_REMOTE_API_OPTIONS}/updateStyle`, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(optionNew),
+      })
+        .then((response) => {
+          if (response.ok) {
+            this.getStylesList();
+          } else {
+            this.updateCakeErrors = true;
+          }
+        })
+
+        .then((err) => console.error(err));
+    },
+
+
     getFrostingsList() {
       fetch(`${process.env.VUE_APP_REMOTE_API_OPTIONS}/getAllFrostings`)
       .then((response) => {
