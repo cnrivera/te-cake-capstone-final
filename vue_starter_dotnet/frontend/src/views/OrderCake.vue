@@ -63,6 +63,7 @@
         <input v-model="orderInfo.date"
         type="date"
         class="form-control"
+        min=
         required
         />
         </div>
@@ -105,7 +106,8 @@ export default {
   name: 'order-cake',
   data() {
     return {
-      
+      minDate: '',
+      maxDate: '',
       orderInfo: {
         quantity: '',
         customerName: '',
@@ -153,10 +155,20 @@ export default {
         this.orderInfo.cake = data;
       })
       .catch((err) => console.error(err));
+    },
+    getMinDate(){
+      /*var today = new Date();
+      var dd = String(today.getDate()).padStart(2, '0');
+      var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+      var yyyy = today.getFullYear();
+      today = mm + '/' + dd + '/' + yyyy;
+      this.minDate = today; */
+      this.minDate = "2020-04-14";
     }
   },
   created() {
     this.getCake(this.$route.params.id);
+    this.getMinDate();
   }
 }
 </script>

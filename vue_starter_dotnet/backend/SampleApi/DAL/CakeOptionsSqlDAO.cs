@@ -98,6 +98,34 @@ namespace SampleApi.DAL
             return true;
         }
 
+        public bool UpdateStyleAvailability(Styles updatedStyle)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("UPDATE styles SET available = @available WHERE id = @id;", conn);
+                    cmd.Parameters.AddWithValue("@id", updatedStyle.id);
+                    cmd.Parameters.AddWithValue("@available", updatedStyle.isAvailable);
+
+                    cmd.ExecuteNonQuery();
+
+
+                }
+            }
+            catch (SqlException ex)
+            {
+
+                return false;
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Following three methods are for getting, adding, updating size options
+        /// </summary>
+        /// <returns></returns>
         public List<Sizes> GetAllCakeSizes()
         {
 
@@ -174,6 +202,34 @@ namespace SampleApi.DAL
             return true;
         }
 
+        public bool UpdateSizesAvailability(Sizes updatedSize)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("UPDATE sizes SET available = @available WHERE id = @id;", conn);
+                    cmd.Parameters.AddWithValue("@id", updatedSize.id);
+                    cmd.Parameters.AddWithValue("@available", updatedSize.isAvailable);
+
+                    cmd.ExecuteNonQuery();
+
+
+                }
+            }
+            catch (SqlException ex)
+            {
+
+                return false;
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Following 3 methods are used for getting, adding, updating frosting options
+        /// </summary>
+        /// <returns></returns>
         public List<Frostings> GetAllCakeFrostings()
         {
 
@@ -214,6 +270,7 @@ namespace SampleApi.DAL
             return listOfFrostings;
         }
 
+
         public bool AddFrostingOption(Frostings newFrosting)
         {
             try
@@ -236,45 +293,59 @@ namespace SampleApi.DAL
             return true;
         }
 
-        public List<Fillings> GetAllCakeFillings()
+        public bool UpdateFrostingAvailability(Frostings updatedFrosting)
         {
-
-            List<Fillings> listOfFillings = new List<Fillings>();
-
             try
             {
-                // Create a new connection object
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    // Open the connection
                     conn.Open();
+                    SqlCommand cmd = new SqlCommand("UPDATE frostings SET available = @available WHERE id = @id;", conn);
+                    cmd.Parameters.AddWithValue("@id", updatedFrosting.id);
+                    cmd.Parameters.AddWithValue("@available", updatedFrosting.isAvailable);
 
-                    string sql = $"SELECT * FROM fillings";
-                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.ExecuteNonQuery();
 
-                    // Execute the command
-                    SqlDataReader reader = cmd.ExecuteReader();
 
-                    // Loop through each row
-                    while (reader.Read())
-                    {
-
-                        Fillings filling = new Fillings();
-                        filling.id = Convert.ToInt32(reader["id"]);
-                        filling.filling = Convert.ToString(reader["filling"]);
-                        filling.isAvailable = Convert.ToBoolean(reader["available"]);
-
-                        listOfFillings.Add(filling);
-                    }
                 }
             }
             catch (SqlException ex)
             {
-                throw;
-            }
 
-            return listOfFillings;
+                return false;
+            }
+            return true;
         }
+
+        /// <summary>
+        /// Following 3 methods are used for adding, updating, getting flavor options
+        /// </summary>
+        /// <param name="updatedFlavor"></param>
+        /// <returns></returns>
+        public bool UpdateFlavorAvailability(Flavors updatedFlavor)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("UPDATE flavors SET available = @available WHERE id = @id;", conn);
+                    cmd.Parameters.AddWithValue("@id", updatedFlavor.id);
+                    cmd.Parameters.AddWithValue("@available", updatedFlavor.isAvailable);
+
+                    cmd.ExecuteNonQuery();
+
+
+                }
+            }
+            catch (SqlException ex)
+            {
+
+                return false;
+            }
+            return true;
+        }
+
         public List<Flavors> GetAllCakeFlavors()
         {
 
@@ -336,6 +407,11 @@ namespace SampleApi.DAL
             return true;
         }
 
+        /// <summary>
+        /// Following 3 methods are used for for adding, udpating, getting filling options
+        /// </summary>
+        /// <param name="newFilling"></param>
+        /// <returns></returns>
         public bool AddFillingOption(Fillings newFilling)
         {
             try
@@ -356,6 +432,69 @@ namespace SampleApi.DAL
                 return false;
             }
             return true;
+        }
+
+        public bool UpdateFillingAvailability(Fillings updatedFilling)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("UPDATE fillings SET available = @available WHERE id = @id;", conn);
+                    cmd.Parameters.AddWithValue("@id", updatedFilling.id);
+                    cmd.Parameters.AddWithValue("@available", updatedFilling.isAvailable);
+
+                    cmd.ExecuteNonQuery();
+
+
+                }
+            }
+            catch (SqlException ex)
+            {
+
+                return false;
+            }
+            return true;
+        }
+        public List<Fillings> GetAllCakeFillings()
+        {
+
+            List<Fillings> listOfFillings = new List<Fillings>();
+
+            try
+            {
+                // Create a new connection object
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    // Open the connection
+                    conn.Open();
+
+                    string sql = $"SELECT * FROM fillings";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+
+                    // Execute the command
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    // Loop through each row
+                    while (reader.Read())
+                    {
+
+                        Fillings filling = new Fillings();
+                        filling.id = Convert.ToInt32(reader["id"]);
+                        filling.filling = Convert.ToString(reader["filling"]);
+                        filling.isAvailable = Convert.ToBoolean(reader["available"]);
+
+                        listOfFillings.Add(filling);
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw;
+            }
+
+            return listOfFillings;
         }
 
 
