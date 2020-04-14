@@ -241,12 +241,21 @@ export default {
     margin-left: 10%;
     margin-right: 10%;
   }
- .stylegroup {
+  .stylegroup {
   margin-top: 15px;
   padding: 15px;
   padding-right: 35px;
   background-color: hsla(188, 56%, 8%, 0.7);
   color: whitesmoke;
   border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+ }
+ .stylegroup div {
+   width: 49%;
+ } 
+ .stylegroup h2 {
+   width: 100%;
  }
 </style>

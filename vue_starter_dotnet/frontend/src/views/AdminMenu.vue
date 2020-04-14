@@ -1,11 +1,13 @@
 <template>
 <div id="adminmenu">
-  <button v-on:click="openPendingOrders" class="btn btn-info">Pending Orders</button>
-  <button v-on:click="openCreateCake" class="btn btn-info">Create Cake</button>
-  <button v-on:click="openToggleCakes" class="btn btn-info">Disable Cake</button>
-  <button v-on:click="openAddOption" class="btn btn-info">Add Cake Option</button>
-  <button v-on:click="openOptionAvailability" class="btn btn-info">Disable Cake Option</button>
-  <button v-on:click="openRegester" class="btn btn-info">Register User</button>
+  <div class="adminbtn">
+    <button v-on:click="openPendingOrders" class="btn btn-info btn-block">Orders</button>
+    <button v-on:click="openCreateCake" class="btn btn-info btn-block">Create Cake</button>
+    <button v-on:click="openToggleCakes" class="btn btn-info btn-block">Disable Cake</button>
+    <button v-on:click="openAddOption" class="btn btn-info btn-block">Add Cake Option</button>
+    <button v-on:click="openOptionAvailability" class="btn btn-info btn-block">Disable Cake Option</button>
+    <button v-on:click="openRegester" class="btn btn-info btn-block">Register User</button>
+  </div>
 
   <div v-if="pendingOrdersOpen">
     <pending-orders/>
@@ -103,5 +105,10 @@ export default {
   #adminmenu .btn {
     margin: 10px;
     border: 2px solid black;
+  }
+  .adminbtn {
+    display: flex;
+    border-bottom: 10px solid rgb(56, 54, 54);
+    background-color: hsla(188, 56%, 8%, 0.7);
   }
 </style>
