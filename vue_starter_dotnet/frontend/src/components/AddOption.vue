@@ -3,7 +3,7 @@
   <div id="addoptionform">
   <form @submit.prevent="addFrosting">
   <div class="form-group">
-      <label for="frosting">Add New Frosting:</label>
+      <label for="frosting">Add New Frosting Name:</label>
       <input v-model="frosting.frosting" type="text" class="form-control" />
     </div>
     <div class="form-group">
@@ -18,7 +18,7 @@
   <div id="addoptionform">
   <form @submit.prevent="addFilling">
   <div class="form-group">
-      <label for="filling">Add New Filling:</label>
+      <label for="filling">Add New Filling Name:</label>
       <input v-model="filling.filling" type="text" class="form-control" />
     </div>
     <div class="form-group">
@@ -33,7 +33,7 @@
   <div id="addoptionform">
   <form @submit.prevent="addFlavor">
   <div class="form-group">
-      <label for="flavor">Add New Flavor:</label>
+      <label for="flavor">Add New Flavor Name:</label>
       <input v-model="flavor.flavor" type="text" class="form-control" />
     </div>
     <div class="form-group">
@@ -48,7 +48,7 @@
   <div id="addoptionform">
   <form @submit.prevent="addStyle">
   <div class="form-group">
-      <label for="style">Add New Cake Style:</label>
+      <label for="style">Add New Cake Style Name:</label>
       <input v-model="style.style" type="text" class="form-control" />
     </div>
     <div class="form-group">
@@ -62,20 +62,21 @@
   </div>
   <div id="addoptionform">
   <form @submit.prevent="addSize">
-  <div class="form-group">
-      <label for="size">Add New Cake Size:</label>
-      <input v-model="size.size" type="text" class="form-control" />
-    </div>
-    <div class="form-group">
-      <label for="size.basePrice">Base Price for New Size:</label>
-      <input v-model="size.basePrice" type="text" class="form-control" />
-    </div>
     <div class="form-group">
       <label for="currentStyle">Choose a Cake Style for this Size:</label>
       <select class="form-control" v-model="size.styleId">
         <option v-for="style in cake.styles" :key="style.id" :value="style.id">{{ style.style }}</option>
       </select>
     </div>
+  <div class="form-group">
+      <label for="size">Add New Cake Size Name:</label>
+      <input v-model="size.size" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="size.basePrice">Base Price for New Size:</label>
+      <input v-model="size.basePrice" type="text" class="form-control" />
+    </div>
+    
     <div class="form-group">
       <label for="available">New Size is currently available:</label>
       <input type="checkbox" v-model="size.isAvailable"
