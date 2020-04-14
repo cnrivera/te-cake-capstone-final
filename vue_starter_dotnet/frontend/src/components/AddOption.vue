@@ -127,7 +127,7 @@ export default {
         size: {
           size: '',
           isAvailable: true,
-          basePrice: 0,
+          basePrice: '',
           styleId: 0
         },
 
