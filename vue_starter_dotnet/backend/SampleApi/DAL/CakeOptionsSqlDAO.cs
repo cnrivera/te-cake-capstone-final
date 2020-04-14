@@ -80,9 +80,9 @@ namespace SampleApi.DAL
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("INSERT INTO styles VALUES (@id, @available, @style, @price);", conn);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO styles (available, style, price) VALUES (@available, @style, @price);", conn);
 
-                    cmd.Parameters.AddWithValue("@id", newStyle.id);
+            
                     cmd.Parameters.AddWithValue("@available", newStyle.isAvailable);
                     cmd.Parameters.AddWithValue("@style", newStyle.style);
                     cmd.Parameters.AddWithValue("@price", newStyle.price);
@@ -142,17 +142,27 @@ namespace SampleApi.DAL
 
         public bool AddSizeOption(Sizes newSize)
         {
+            int id = 0;
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("INSERT INTO sizes VALUES (@id, @available, @size, @base_price);", conn);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO sizes (available, size, base_price) VALUES (@available, @size, @base_price);", conn);
 
-                    cmd.Parameters.AddWithValue("@id", newSize.id);
                     cmd.Parameters.AddWithValue("@available", newSize.isAvailable);
                     cmd.Parameters.AddWithValue("@style", newSize.size);
                     cmd.Parameters.AddWithValue("@price", newSize.basePrice);
+
+                    cmd.ExecuteNonQuery();
+
+                    cmd = new SqlCommand("SELECT order_id FROM sizes WHERE order_id = @@Identity;", conn);
+                    id = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    SqlCommand cmd2 = new SqlCommand("INSERT INTO style_size VALUES (@styleId, @id);", conn);
+
+                    cmd.Parameters.AddWithValue("@id", newSize.id);
+                    cmd.Parameters.AddWithValue("@styleId", newSize.styleId);
 
                     cmd.ExecuteNonQuery();
                 }
@@ -211,9 +221,8 @@ namespace SampleApi.DAL
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("INSERT INTO frostings VALUES (@id, @available, @frosting);", conn);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO frostings (available, frosting) VALUES (@available, @frosting);", conn);
 
-                    cmd.Parameters.AddWithValue("@id", newFrosting.id);
                     cmd.Parameters.AddWithValue("@available", newFrosting.isAvailable);
                     cmd.Parameters.AddWithValue("@frosting", newFrosting.frosting);
 
@@ -304,6 +313,49 @@ namespace SampleApi.DAL
             }
 
             return listOfFlavors;
+        }
+        public bool AddFlavorOption(Flavors newFlavor)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("INSERT INTO flavors (available, flavor) VALUES (@available, @flavor);", conn);
+
+                    cmd.Parameters.AddWithValue("@available", newFlavor.isAvailable);
+                    cmd.Parameters.AddWithValue("@flavor", newFlavor.flavor);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException ex)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public bool AddFillingOption(Fillings newFilling)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("INSERT INTO fillings (available, filling) VALUES (@available, @filling);", conn);
+
+                    cmd.Parameters.AddWithValue("@available", newFilling.isAvailable);
+                    cmd.Parameters.AddWithValue("@filling", newFilling.filling);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException ex)
+            {
+                return false;
+            }
+            return true;
         }
 
 

@@ -81,5 +81,46 @@ namespace SampleApi.Controllers
             return cakeOptionsDao.GetAllCakeStyles();
         }
 
+        [HttpPost("newFlavor")]
+        public IActionResult Create([FromBody] Flavors flavor)
+        {
+            bool result = false;
+            if (cakeOptionsDao.AddFlavorOption(flavor))
+            {
+                result = true;
+            }
+            return Ok(result);
+        }
+        [HttpPost("newFilling")]
+        public IActionResult Create([FromBody] Fillings filling)
+        {
+            bool result = false;
+            if (cakeOptionsDao.AddFillingOption(filling))
+            {
+                result = true;
+            }
+            return Ok(result);
+        }
+        [HttpPost("newFrosting")]
+        public IActionResult Create([FromBody] Frostings frosting)
+        {
+            bool result = false;
+            if (cakeOptionsDao.AddFrostingOption(frosting))
+            {
+                result = true;
+            }
+            return Ok(result);
+        }
+        [HttpPost("newFilling")]
+        public IActionResult Create([FromBody] Styles style)
+        {
+            bool result = false;
+            if (cakeOptionsDao.AddStyleOption(style))
+            {
+                result = true;
+            }
+            return Ok(result);
+        }
+
     }
 }

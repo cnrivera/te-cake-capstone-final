@@ -40,6 +40,18 @@ namespace SampleApi.DAL
         /// <returns></returns>
         bool AddFrostingOption(Frostings newFrosting);
 
+        /// <summary>
+        /// adds a filling to our database so that is available for customers in the drop down menu
+        /// </summary>
+        /// <returns></returns>
+        bool AddFillingOption(Fillings newfilling);
+
+        /// <summary>
+        /// adds a flavor to our database so that is available for customers in the drop down menu
+        /// </summary>
+        /// <returns></returns>
+        bool AddFlavorOption(Flavors newFlavor);
+
         ///<Summary>
         /// Returns a list of cake frostings stored in our SQL database
         ///</Summary>

@@ -85,7 +85,7 @@
       <div class="form-group" v-if="orderInfo.cake.style != 'Cupcake'">
       <label for="name">Add Message to Cake ($5.00):</label>
       <input v-model.trim="orderInfo.writingOnCake"
-      type="text" maxlength="50"
+      type="text" maxlength="150"
       class="form-control"
       />
 
