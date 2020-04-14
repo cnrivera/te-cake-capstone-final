@@ -39,9 +39,9 @@
           required
         />
       </div>
-      <button class="createbtn btn btn-lg btn-info btn-block" type="submit">
-        Create Account
-      </button>
+      <div class="createbtn">
+        <button class="btn btn-lg btn-info btn-block" type="submit">Create Account</button>
+      </div>
     </form>
   </div>
 </template>
@@ -99,5 +99,9 @@ export default {
 }
 #haveAccount {
   color: whitesmoke;
+}
+.createbtn {
+  width: 100%;
+  padding-right: 25px;
 }
 </style>
