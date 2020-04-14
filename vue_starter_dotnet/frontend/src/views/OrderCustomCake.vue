@@ -171,7 +171,9 @@ export default {
         return response.json();
       })
       .then((data) => {
-        this.cake.frostings = data;
+        this.cake.frostings = data.filter(function(u) {
+        return u.isAvailable
+      })
       })
       .catch((err) => console.error(err));
     },
@@ -181,7 +183,9 @@ export default {
         return response.json();
       })
       .then((data) => {
-        this.cake.fillings = data;
+        this.cake.fillings = data.filter(function(u) {
+        return u.isAvailable
+      })
       })
       .catch((err) => console.error(err));
     },
@@ -191,7 +195,9 @@ export default {
         return response.json();
       })
       .then((data) => {
-        this.cake.flavors = data;
+        this.cake.flavors = data.filter(function(u) {
+        return u.isAvailable
+      })
       })
       .catch((err) => console.error(err));
     },
@@ -201,7 +207,9 @@ export default {
         return response.json();
       })
       .then((data) => {
-        this.cake.styles = data;
+        this.cake.styles = data.filter(function(u) {
+        return u.isAvailable
+      })
       })
       .catch((err) => console.error(err));
     },
@@ -211,7 +219,9 @@ export default {
         return response.json();
       })
       .then((data) => {
-        this.allSizes = data;
+        this.allSizes = data.filter(function(u) {
+        return u.isAvailable
+      })
         this.cake.sizes = this.allSizes;
       })
       .catch((err) => console.error(err));
