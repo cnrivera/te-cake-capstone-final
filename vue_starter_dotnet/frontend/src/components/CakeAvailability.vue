@@ -4,7 +4,7 @@
   <div v-for="cake in cakes" :key="cake.name" class="toggleselectbox">
     <img class="availabilityimg" v-bind:src="require('../../src/assets/' + cake.imageName)" /> 
     <div>
-      <h4>{{cake.name}}</h4>
+      <h5>{{cake.name}}</h5>
       <button v-if="cake.isAvailable" v-on:click.prevent="UpdateCakeAvailability(cake.id, !cake.isAvailable)" class="btn btn-success btn-lg btn-block">Available - click to disable</button>
       <button v-if="!cake.isAvailable" v-on:click.prevent="UpdateCakeAvailability(cake.id, !cake.isAvailable)" class="btn btn-danger btn-lg btn-block">Unavailable - click to enable</button>
     </div>

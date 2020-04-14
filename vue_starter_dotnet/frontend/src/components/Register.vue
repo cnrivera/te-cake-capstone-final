@@ -39,7 +39,7 @@
           required
         />
       </div>
-      <button class="btn btn-lg btn-info btn-block" type="submit">
+      <button class="createbtn btn btn-lg btn-info btn-block" type="submit">
         Create Account
       </button>
     </form>
