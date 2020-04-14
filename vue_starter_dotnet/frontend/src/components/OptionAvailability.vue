@@ -12,32 +12,32 @@
     <div class="stylegroup">
       <h2>Cake Sizes</h2>
       <div v-for="option in options.sizes" :key="option.id">
-        <button v-if="option.isAvailable" class="btn btn-success btn-block">{{option.size}}</button>
-        <button v-if="!option.isAvailable" class="btn btn-danger btn-block">{{option.size}}</button>
+        <button v-if="option.isAvailable" v-on:click.prevent="UpdateSizeAvailability(option.id, !option.isAvailable)" class="btn btn-success btn-block">{{option.size}}</button>
+        <button v-if="!option.isAvailable" v-on:click.prevent="UpdateSizeAvailability(option.id, !option.isAvailable)" class="btn btn-danger btn-block">{{option.size}}</button>
       </div>
     </div>
 
     <div class="stylegroup">
       <h2>Cake Flavors</h2>
       <div v-for="option in options.flavors" :key="option.id">
-        <button v-if="option.isAvailable" class="btn btn-success btn-block">{{option.flavor}}</button>
-        <button v-if="!option.isAvailable" class="btn btn-danger btn-block">{{option.flavor}}</button>
+        <button v-if="option.isAvailable" v-on:click.prevent="UpdateFlavorAvailability(option.id, !option.isAvailable)" class="btn btn-success btn-block">{{option.flavor}}</button>
+        <button v-if="!option.isAvailable" v-on:click.prevent="UpdateFlavorAvailability(option.id, !option.isAvailable)" class="btn btn-danger btn-block">{{option.flavor}}</button>
       </div>
     </div>
 
     <div class="stylegroup">
       <h2>Cake Frostings</h2>
       <div v-for="option in options.frostings" :key="option.id">
-        <button v-if="option.isAvailable" class="btn btn-success btn-block">{{option.frosting}}</button>
-        <button v-if="!option.isAvailable" class="btn btn-danger btn-block">{{option.frosting}}</button>
+        <button v-if="option.isAvailable" v-on:click.prevent="UpdateFrostingAvailability(option.id, !option.isAvailable)" class="btn btn-success btn-block">{{option.frosting}}</button>
+        <button v-if="!option.isAvailable" v-on:click.prevent="UpdateFrostingAvailability(option.id, !option.isAvailable)" class="btn btn-danger btn-block">{{option.frosting}}</button>
       </div>
     </div>
 
     <div class="stylegroup">
       <h2>Cake Fillings</h2>
       <div v-for="option in options.fillings" :key="option.id">
-        <button v-if="option.isAvailable" class="btn btn-success btn-block">{{option.filling}}</button>
-        <button v-if="!option.isAvailable" class="btn btn-danger btn-block">{{option.filling}}</button>
+        <button v-if="option.isAvailable" v-on:click.prevent="UpdateFillingAvailability(option.id, !option.isAvailable)" class="btn btn-success btn-block">{{option.filling}}</button>
+        <button v-if="!option.isAvailable" v-on:click.prevent="UpdateFillingAvailability(option.id, !option.isAvailable)" class="btn btn-danger btn-block">{{option.filling}}</button>
       </div>
     </div>
 
@@ -83,8 +83,98 @@ export default {
 
         .then((err) => console.error(err));
     },
+    UpdateSizeAvailability(id, isAvailable) {
+      let optionNew = {
+        id: id,
+        isAvailable: isAvailable
+      }
+      fetch(`${process.env.VUE_APP_REMOTE_API_OPTIONS}/updateSize`, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(optionNew),
+      })
+        .then((response) => {
+          if (response.ok) {
+            this.getSizesList();
+          } else {
+            this.updateCakeErrors = true;
+          }
+        })
 
+        .then((err) => console.error(err));
+    },
+    UpdateFlavorAvailability(id, isAvailable) {
+      let optionNew = {
+        id: id,
+        isAvailable: isAvailable
+      }
+      fetch(`${process.env.VUE_APP_REMOTE_API_OPTIONS}/updateFlavor`, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(optionNew),
+      })
+        .then((response) => {
+          if (response.ok) {
+            this.getFlavorsList();
+          } else {
+            this.updateCakeErrors = true;
+          }
+        })
 
+        .then((err) => console.error(err));
+    },
+    UpdateFrostingAvailability(id, isAvailable) {
+      let optionNew = {
+        id: id,
+        isAvailable: isAvailable
+      }
+      fetch(`${process.env.VUE_APP_REMOTE_API_OPTIONS}/updateFrosting`, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(optionNew),
+      })
+        .then((response) => {
+          if (response.ok) {
+            this.getFrostingsList();
+          } else {
+            this.updateCakeErrors = true;
+          }
+        })
+
+        .then((err) => console.error(err));
+    },
+    UpdateFillingAvailability(id, isAvailable) {
+      let optionNew = {
+        id: id,
+        isAvailable: isAvailable
+      }
+      fetch(`${process.env.VUE_APP_REMOTE_API_OPTIONS}/updateFilling`, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(optionNew),
+      })
+        .then((response) => {
+          if (response.ok) {
+            this.getFillingsList();
+          } else {
+            this.updateCakeErrors = true;
+          }
+        })
+
+        .then((err) => console.error(err));
+    },
     getFrostingsList() {
       fetch(`${process.env.VUE_APP_REMOTE_API_OPTIONS}/getAllFrostings`)
       .then((response) => {
