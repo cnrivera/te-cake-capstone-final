@@ -57,26 +57,26 @@ VALUES ( 1, 'Cupcake', 1)
 
 -- Fillings --
 
-INSERT INTO fillings (available, filling, additional_cost)
-VALUES ( 1, 'None', 1)
+INSERT INTO fillings (available, filling)
+VALUES ( 1, 'None')
 
-INSERT INTO fillings (available, filling, additional_cost)
-VALUES ( 1, 'Raspberry', 1)
+INSERT INTO fillings (available, filling)
+VALUES ( 1, 'Raspberry')
 
-INSERT INTO fillings (available, filling, additional_cost)
-VALUES (1, 'Blueberry', 1)
+INSERT INTO fillings (available, filling)
+VALUES (1, 'Blueberry')
 
-INSERT INTO fillings (available, filling, additional_cost)
-VALUES (1, 'Orange', 1)
+INSERT INTO fillings (available, filling)
+VALUES (1, 'Orange')
 
-INSERT INTO fillings (available, filling, additional_cost)
-VALUES (1, 'Custard Cream', 1)
+INSERT INTO fillings (available, filling)
+VALUES (1, 'Custard Cream')
 
-INSERT INTO fillings (available, filling, additional_cost)
-VALUES (1, 'Vanilla Cream', 1)
+INSERT INTO fillings (available, filling)
+VALUES (1, 'Vanilla Cream')
 
-INSERT INTO fillings (available, filling, additional_cost)
-VALUES (1, 'Chocolate Cream', 1)
+INSERT INTO fillings (available, filling)
+VALUES (1, 'Chocolate Cream')
 
 -- Flavors --
 

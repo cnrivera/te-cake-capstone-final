@@ -121,6 +121,16 @@ namespace SampleApi.Controllers
             }
             return Ok(result);
         }
+        [HttpPost("newSize")]
+        public IActionResult Create([FromBody] Sizes size)
+        {
+            bool result = false;
+            if (cakeOptionsDao.AddSizeOption(size))
+            {
+                result = true;
+            }
+            return Ok(result);
+        }
 
     }
 }

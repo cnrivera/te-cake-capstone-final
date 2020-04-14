@@ -88,8 +88,7 @@ CREATE TABLE fillings
 (
 	id			int			identity(1,1),
 	available bit not null,
-	filling varchar (50) not null,
-	additional_cost float not null,
+	filling varchar (50) not null
 
 	constraint pk_fillings primary key(id)
 );
