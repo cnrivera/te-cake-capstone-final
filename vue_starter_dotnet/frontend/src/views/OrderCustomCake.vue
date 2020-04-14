@@ -64,7 +64,7 @@
 
     <div class="form-group">
       <label for="name">Date:</label>
-      <input v-model="orderInfo.date" type="date" class="form-control" required />
+      <input v-bind:min="minDate" v-bind:max="maxDate" v-model="orderInfo.date" type="date" class="form-control" required />
     </div>
 
     <div class="form-group">
@@ -101,6 +101,9 @@ export default {
   name: 'order-cake',
   data() {
     return {
+      minDate: '',
+      maxDate: '',
+
       cake: {
         styles: [],
         sizes: [],
@@ -217,7 +220,23 @@ export default {
         this.cake.sizes = this.allSizes.filter( u => {
           return u.styleId == id
         });
-     }
+     },
+     getMinDate(){
+      var today = new Date();
+      var dd = String(today.getDate() + 2).padStart(2, '0');
+      var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+      var yyyy = today.getFullYear();
+      today = yyyy + '-' + mm + '-' + dd;
+      this.minDate = today; 
+    },
+    getMaxDate(){
+      var today = new Date();
+      var dd = String(today.getDate() + 2).padStart(2, '0');
+      var mm = String(today.getMonth() + 7).padStart(2, '0'); //January is 0!
+      var yyyy = today.getFullYear();
+      today = yyyy + '-' + mm + '-' + dd;
+      this.maxDate = today; 
+    }
   },
   created() {
     this.getFrostingsList();
@@ -225,6 +244,8 @@ export default {
     this.getFlavorsList();
     this.getSizesList();
     this.getStylesList();
+    this.getMinDate();
+    this.getMaxDate();
   }
 }
 </script>

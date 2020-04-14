@@ -37,6 +37,28 @@ namespace SampleApi.Controllers
             return cakeOptionsDao.GetAllCakeFrostings();
         }
 
+        [HttpPost("updateFrosting")]
+        public IActionResult UpdateFrostingAvailability([FromBody] Frostings frosting)
+        {
+            bool result = false;
+            if (cakeOptionsDao.UpdateFrostingAvailability(frosting))
+            {
+                result = true;
+            }
+            return Ok(result);
+        }
+        [HttpPost("newFrosting")]
+        public IActionResult Create([FromBody] Frostings frosting)
+        {
+            bool result = false;
+            if (cakeOptionsDao.AddFrostingOption(frosting))
+            {
+                result = true;
+            }
+            return Ok(result);
+        }
+
+
         /// <summary>
         /// returns a list of all fillings from the fillings table
         ///
@@ -58,6 +80,18 @@ namespace SampleApi.Controllers
             }
             return Ok(result);
         }
+        
+        [HttpPost("newFilling")]
+        public IActionResult Create([FromBody] Fillings filling)
+        {
+            bool result = false;
+            if (cakeOptionsDao.AddFillingOption(filling))
+            {
+                result = true;
+            }
+            return Ok(result);
+        }
+
 
         /// <summary>
         /// returns a list of all flavors from the flavors table
@@ -75,6 +109,16 @@ namespace SampleApi.Controllers
         {
             bool result = false;
             if (cakeOptionsDao.UpdateFlavorAvailability(flavor))
+            {
+                result = true;
+            }
+            return Ok(result);
+        }
+        [HttpPost("newFlavor")]
+        public IActionResult Create([FromBody] Flavors flavor)
+        {
+            bool result = false;
+            if (cakeOptionsDao.AddFlavorOption(flavor))
             {
                 result = true;
             }
@@ -103,6 +147,7 @@ namespace SampleApi.Controllers
             return Ok(result);
         }
 
+
         /// <summary>
         /// returns a list of all styles from the styles table
         ///
@@ -113,6 +158,18 @@ namespace SampleApi.Controllers
         {
             return cakeOptionsDao.GetAllCakeStyles();
         }
+
+        [HttpPost("newSize")]
+        public IActionResult Create([FromBody] Sizes size)
+        {
+            bool result = false;
+            if (cakeOptionsDao.AddSizeOption(size))
+            {
+                result = true;
+            }
+            return Ok(result);
+        }
+
 
         [HttpPost("updateStyle")]
         public IActionResult UpdateStyleAvailability([FromBody] Styles style)
@@ -125,48 +182,7 @@ namespace SampleApi.Controllers
             return Ok(result);
         }
 
-        [HttpPost("newFlavor")]
-        public IActionResult Create([FromBody] Flavors flavor)
-        {
-            bool result = false;
-            if (cakeOptionsDao.AddFlavorOption(flavor))
-            {
-                result = true;
-            }
-            return Ok(result);
-        }
-        [HttpPost("newFilling")]
-        public IActionResult Create([FromBody] Fillings filling)
-        {
-            bool result = false;
-            if (cakeOptionsDao.AddFillingOption(filling))
-            {
-                result = true;
-            }
-            return Ok(result);
-        }
-
-        [HttpPost("updateFrosting")]
-        public IActionResult UpdateFrostingAvailability([FromBody] Frostings frosting)
-        {
-            bool result = false;
-            if (cakeOptionsDao.UpdateFrostingAvailability(frosting))
-            {
-                result = true;
-            }
-            return Ok(result);
-        }
-
-        [HttpPost("newFrosting")]
-        public IActionResult Create([FromBody] Frostings frosting)
-        {
-            bool result = false;
-            if (cakeOptionsDao.AddFrostingOption(frosting))
-            {
-                result = true;
-            }
-            return Ok(result);
-        }
+  
         [HttpPost("newStyle")]
         public IActionResult Create([FromBody] Styles style)
         {
@@ -177,16 +193,6 @@ namespace SampleApi.Controllers
             }
             return Ok(result);
         }
-        [HttpPost("newSize")]
-        public IActionResult Create([FromBody] Sizes size)
-        {
-            bool result = false;
-            if (cakeOptionsDao.AddSizeOption(size))
-            {
-                result = true;
-            }
-            return Ok(result);
-        }
-
+       
     }
 }

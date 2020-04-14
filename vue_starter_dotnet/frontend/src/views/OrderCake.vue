@@ -60,10 +60,9 @@
         </div>
         <div class="form-group">
         <label for="name">Date:</label>
-        <input v-model="orderInfo.date"
-        type="date"
+        <input data-provide="datepicker" v-model="orderInfo.date"
         class="form-control"
-        v-bind:min="minDate"
+        
         required
         />
         </div>
@@ -158,11 +157,19 @@ export default {
     },
     getMinDate(){
       var today = new Date();
-      var dd = String(today.getDate() + 1).padStart(2, '0');
+      var dd = String(today.getDate() + 2).padStart(2, '0');
       var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
       var yyyy = today.getFullYear();
       today = yyyy + '-' + mm + '-' + dd;
       this.minDate = today; 
+    },
+    getMaxDate(){
+      var today = new Date();
+      var dd = String(today.getDate() + 2).padStart(2, '0');
+      var mm = String(today.getMonth() + 7).padStart(2, '0'); //January is 0!
+      var yyyy = today.getFullYear();
+      today = yyyy + '-' + mm + '-' + dd;
+      this.maxDate = today; 
     }
   },
   created() {
