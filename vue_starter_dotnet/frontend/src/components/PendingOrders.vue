@@ -1,5 +1,16 @@
 <template>
   <div id="pendingorderscontainer"> 
+     
+     <div class="search">
+        <input type="text" v-on:keyup="SearchOrders" id="search" name="search" placeholder="Search Orders..."/>
+    </div>
+      
+    <div class ="checkbox">
+      <input type="checkbox" id="filter" name="filter" v-on:click="FilterOrders">
+      <label for="filter"> Show only Pending Orders</label><br>
+    </div>
+
+
     <table id="orders" class = "table-bordered table-hover table-striped"> 
       <thead>
         <tr>
@@ -26,10 +37,6 @@
         </tr>
       </tbody>
     </table>
-  <div class ="checkbox">
-    <input type="checkbox" id="filter" name="filter" v-on:click="FilterOrders">
-    <label for="filter"> Show only Pending Orders</label><br>
-  </div>
 </div>
 </template>
 
@@ -45,7 +52,7 @@ export default {
           'canceled',
           'ready',
           'completed'
-        ]
+        ],
       }
     },
     methods: {
@@ -70,6 +77,16 @@ export default {
       else{
       this.orders = this.allOrders;
       }
+    },
+  SearchOrders(){
+      var query = document.getElementById("search").value.toLowerCase();
+      this.orders = this.allOrders;
+      this.orders = this.orders.filter(function(u) {
+          return u.customerName.toLowerCase().includes(query) 
+          || u.email.toLowerCase().includes(query)
+          || u.phoneNumber.toLowerCase().includes(query)
+          || u.orderStatus.toLowerCase().includes(query)
+      });
     },
   UpdateOrderStatus(orderId, orderStatus) {
     let orderNew = {
