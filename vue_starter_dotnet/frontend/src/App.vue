@@ -62,6 +62,7 @@ html, #app{
     position: absolute;
     background-color: rgb(56, 54, 54);
     border-radius: 5px;
+    z-index: 10;
   }
   .dropdowncontent .btn {
     display: block;
