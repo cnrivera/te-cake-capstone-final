@@ -1,6 +1,6 @@
 <template>
 <div>
-  <h1>Add Cake Options</h1>
+  
 <div id="addoptioncontainer">
   
   <div id="addoptionform">
@@ -292,16 +292,17 @@ methods: {
   flex-wrap: wrap;
   justify-content: space-between;
   font-weight: bold;
-}
-#addoptionform{
   margin-top: 30px;
   margin-left: 5%;
   margin-right: 5%;
+}
+#addoptionform{
+  margin-top: 30px;
   padding: 15px;
   background-color: hsla(188, 56%, 8%, 0.7);
   color: whitesmoke;
   border-radius: 5px;
-  width: 40%
+  width: 48%
 }
 #addoptionform .form-group {
   
