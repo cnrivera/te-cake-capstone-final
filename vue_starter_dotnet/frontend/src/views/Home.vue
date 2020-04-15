@@ -24,7 +24,8 @@ export default {
   height: 85vh;
   background-position: center;
   background-size: cover;
-  padding: 10vh;
+  padding-left: 7%;
+  padding-right: 7%;
 }
 .hometext {
   width: 100%;
@@ -33,6 +34,8 @@ export default {
   border: 4px solid rgba(68, 68, 68, 0.5);
   border-radius: 10px;
   font-size: 22px;
+  margin-top: 7vh;
+  margin-bottom: 10vh;
 }
 .homebtn {
   width: 100%;
@@ -60,11 +63,8 @@ export default {
   #homeinfo {
     width: 100%;
   }
-  .homebtn .btn {
-    font-size: 5vw;
+  #homeinfo .btn {
+    font-size: 4.6vw;
   }
-}
-#homepage {
-  padding: 3vh;
 }
 </style>
