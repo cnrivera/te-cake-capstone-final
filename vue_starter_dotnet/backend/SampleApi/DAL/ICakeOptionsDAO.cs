@@ -22,6 +22,7 @@ namespace SampleApi.DAL
         /// Returns a list of cake styles stored in our SQL database
         ///</Summary>
         List<Styles> GetAllCakeStyles();
+
         List<Sizes> GetAllCakeSizesFiltered(int styId);
 
         /// <summary>

@@ -20,6 +20,7 @@ namespace SampleApi.DAL
         /// </summary>
         /// <param name="connectionString">the database connection string</param>
         public CakeOptionsSqlDAO(string connectionString)
+
         {
             this.connectionString = connectionString;
         }
