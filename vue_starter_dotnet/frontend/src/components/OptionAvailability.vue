@@ -212,7 +212,6 @@ export default {
           if (response.ok) {
             this.getSizesList();
             this.selectedStyleId = styleId;
-            this.FilterSizesforStyle(this.selectedStyleId);
           } else {
             this.updateCakeErrors = true;
           }
@@ -234,7 +233,7 @@ export default {
         body: JSON.stringify(sizeAdd),
       })
         .then((response) => {
-          
+
           if (response.ok) {
             this.getSizesList();
             this.selectedStyleId = styleId;
@@ -297,10 +296,10 @@ export default {
       })
       .catch((err) => console.error(err));
     },
-    FilterSizesforStyle(id){
-        this.options.sizes = this.allSizes.filter(s => s.styleId == id
-          );
-     },
+    // FilterSizesforStyle(id){
+    //     this.options.sizes = this.allSizes.filter(s => s.styleId == id
+    //       );
+    //  },
   },
   created() {
     this.getFrostingsList();
