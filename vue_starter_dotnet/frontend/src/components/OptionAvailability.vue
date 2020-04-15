@@ -234,6 +234,7 @@ export default {
         body: JSON.stringify(sizeAdd),
       })
         .then((response) => {
+          
           if (response.ok) {
             this.getSizesList();
             this.selectedStyleId = styleId;
