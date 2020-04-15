@@ -291,8 +291,7 @@ export default {
         return response.json();
       })
       .then((data) => {
-        this.allSizes = data;
-        this.options.sizes = this.allSizes;
+        this.options.sizes = data;
       })
       .catch((err) => console.error(err));
     },
