@@ -44,19 +44,14 @@
     <div class="stylegroup">
       <h2>Add/Remove Size For Style</h2>
     <label for="style">Remove Size From Style:</label>
-      <select class="form-control" v-model="selectedStyleId">
-        <option v-for="option in options.styles" :value="option.id" :key="option.id" selected="selectedStyleId">{{ option.style }}</option>
+      <select class="form-control" v-model="selectedStyleId" @change="getSizesListFiltered(selectedStyleId)">
+        <option v-for="option in options.styles" :value="option.id" :key="option.id">{{ option.style }} </option>
       </select>
-      <div v-for="option in options.sizes" :value="option.id" :key="option.id">
+      <div v-for="option in options.sizesByStyle" :value="option.id" :key="option.id">
       <button v-if="option.styleId==selectedStyleId" v-on:click.prevent="RemoveSizeFromStyle(selectedStyleId, option.id)" class="btn btn-success btn-block">{{option.size}}</button>
       <button v-if="option.styleId!=selectedStyleId" v-on:click.prevent="AddSizeToStyle(selectedStyleId, option.id)" class="btn btn-danger btn-block">{{option.size}}</button>
       </div>
       </div>
-
-
-    
-
-    
 
   </div>
 </template>
@@ -72,6 +67,7 @@ export default {
         flavors: [],
         frostings: [],
         fillings: [],
+        sizesByStyle: []
       },
       selectedStyleId: 1,
       updateCakeError: false
@@ -210,7 +206,7 @@ export default {
       })
         .then((response) => {
           if (response.ok) {
-            this.getSizesList();
+            this.getSizesListFiltered(styleId);
             this.selectedStyleId = styleId;
           } else {
             this.updateCakeErrors = true;
@@ -235,7 +231,7 @@ export default {
         .then((response) => {
 
           if (response.ok) {
-            this.getSizesList();
+            this.getSizesListFiltered(styleId);
             this.selectedStyleId = styleId;
           } else {
             this.updateCakeErrors = true;
@@ -295,10 +291,16 @@ export default {
       })
       .catch((err) => console.error(err));
     },
-    // FilterSizesforStyle(id){
-    //     this.options.sizes = this.allSizes.filter(s => s.styleId == id
-    //       );
-    //  },
+    getSizesListFiltered(id) {
+      fetch(`${process.env.VUE_APP_REMOTE_API_OPTIONS}/getAllSizesF/${id}`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        this.options.sizesByStyle = data;
+      })
+      .catch((err) => console.error(err));
+    },
   },
   created() {
     this.getFrostingsList();
@@ -306,6 +308,7 @@ export default {
     this.getFlavorsList();
     this.getSizesList();
     this.getStylesList();
+    this.getSizesListFiltered(1);
   },
 }
 </script>

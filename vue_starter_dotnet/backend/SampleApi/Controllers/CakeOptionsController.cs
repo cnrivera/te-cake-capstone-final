@@ -135,6 +135,12 @@ namespace SampleApi.Controllers
         {
             return cakeOptionsDao.GetAllCakeSizes();
         }
+    
+        [HttpGet("getAllSizesF/{id}")]
+        public List<Sizes> GetAllSizesFiltered(int id)
+        {
+            return cakeOptionsDao.GetAllCakeSizesFiltered(id);
+        }
 
         [HttpPost("updateSize")]
         public IActionResult UpdateSizeAvailability([FromBody] Sizes size)

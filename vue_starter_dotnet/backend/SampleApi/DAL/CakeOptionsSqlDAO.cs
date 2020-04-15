@@ -151,8 +151,51 @@ namespace SampleApi.DAL
                     // Open the connection
                     conn.Open();
 
-                    string sql = $"SELECT * from sizes JOIN style_size ON sizes.id = style_size.size_id JOIN styles ON styles.id = style_size.style_id";
+                    string sql = $"SELECT sizes.id, size, ISNULL(base_price,0) AS base_price, ISNULL(sizes.available,0) AS available, ISNULL(style_id,0) AS style_id from sizes LEFT JOIN style_size ON sizes.id = style_size.size_id LEFT JOIN styles ON styles.id = style_size.style_id";
                     SqlCommand cmd = new SqlCommand(sql, conn);
+
+                    // Execute the command
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    // Loop through each row
+                    while (reader.Read())
+                    {
+
+                        Sizes size = new Sizes();
+                        size.id = Convert.ToInt32(reader["id"]);
+                        size.size = Convert.ToString(reader["size"]);
+                        size.basePrice = Convert.ToDouble(reader["base_price"]);
+                        size.isAvailable = Convert.ToBoolean(reader["available"]);
+                        size.styleId = Convert.ToInt32(reader["style_id"]);
+
+                        listOfSizes.Add(size);
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw;
+            }
+
+            return listOfSizes;
+        }
+
+        public List<Sizes> GetAllCakeSizesFiltered(int styId)
+        {
+
+            List<Sizes> listOfSizes = new List<Sizes>();
+
+            try
+            {
+                // Create a new connection object
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    // Open the connection
+                    conn.Open();
+                    
+                    string sql = $"SELECT sizes.id, size, ISNULL(base_price,0) AS base_price, ISNULL(sizes.available,0) AS available, ISNULL(style_id,0) AS style_id from sizes LEFT JOIN style_size ON sizes.id = style_size.size_id AND style_size.style_id=@styId LEFT JOIN styles ON styles.id = style_size.style_id";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@styId", styId);
 
                     // Execute the command
                     SqlDataReader reader = cmd.ExecuteReader();
