@@ -210,6 +210,7 @@ export default {
           if (response.ok) {
             this.getSizesList();
             this.selectedStyleId = styleId;
+            this.FilterSizesforStyle(this.selectedStyleId);
           } else {
             this.updateCakeErrors = true;
           }
