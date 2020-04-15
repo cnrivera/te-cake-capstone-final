@@ -240,6 +240,7 @@ namespace SampleApi.DAL
 
         public bool SizeRemove(Styles sizeRemove)
         {
+
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
