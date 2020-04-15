@@ -263,6 +263,31 @@ namespace SampleApi.DAL
             return true;
         }
 
+        public bool SizeAdd(Styles sizeAdd)
+        {
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("INSERT INTO style_size (style_id, size_id) VALUES (@styleId, @sizeId;", conn);
+                    cmd.Parameters.AddWithValue("@styleId", sizeAdd.id);
+                    cmd.Parameters.AddWithValue("@sizeId", sizeAdd.sizeId);
+
+                    cmd.ExecuteNonQuery();
+
+
+                }
+            }
+            catch (SqlException ex)
+            {
+
+                return false;
+            }
+            return true;
+        }
+
         /// <summary>
         /// Following 3 methods are used for getting, adding, updating frosting options
         /// </summary>
