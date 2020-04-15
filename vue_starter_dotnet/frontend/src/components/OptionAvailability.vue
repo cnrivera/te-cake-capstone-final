@@ -60,6 +60,7 @@
 export default {
   name: 'option-availability',
   data() {
+    
     return {
       options: {
         styles: [],
