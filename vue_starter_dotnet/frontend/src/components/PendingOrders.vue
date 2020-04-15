@@ -3,13 +3,9 @@
      
      <div class="search">
         <input class ="search-input" type="text" v-on:keyup="SearchOrders" id="search" name="search" placeholder="  Search Orders..."/>
-    </div>
-      
-    <div class ="checkbox">
-      <input type="checkbox" id="filter" name="filter" v-on:click="FilterOrders">
+        <input type="checkbox" id="filter" name="filter" v-on:click="FilterOrders">
       <label for="filter"> Show only Pending Orders</label><br>
     </div>
-
 
     <table id="orders" class = "table-bordered table-hover table-striped"> 
       <thead>
@@ -141,9 +137,8 @@ th {
 td, th {  
     padding: 5px;
 }
-
-.checkbox{
-  padding-left: 25px;
+#filter{
+  margin-left: 65px;
 }
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
   background-color: hsla(187, 53%, 39%, 0.7);
@@ -151,16 +146,18 @@ td, th {
 }
 
 .search{
-    margin-bottom: auto;
     margin-top:20px;
     height: 60px;
     background-color: hsla(188, 56%, 8%, 0.7);
     padding: 10px;
-    margin-left: 20px;
-    width: 1105px;
+    margin-left: 25px;
+    width: 605px;
+    border-radius: 5px;
+    color: whitesmoke;
   }
 .search-input{
     margin-top: 5px;
+    border-radius: 5px;
 
   }
 
