@@ -43,7 +43,7 @@
 
     <div class="stylegroup">
       <h2>Add/Remove Size For Style</h2>
-    <label for="style">Remove Size From Style:</label>
+    <label for="style">Select the Style to Add/Remove Sizes:</label>
       <select class="form-control" v-model="selectedStyleId" @change="getSizesListFiltered(selectedStyleId)">
         <option v-for="option in options.styles" :value="option.id" :key="option.id">{{ option.style }} </option>
       </select>
