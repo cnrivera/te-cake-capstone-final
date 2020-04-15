@@ -32,6 +32,8 @@ namespace SampleApi.DAL
         bool UpdateSizeAvailability(Sizes updatedSize);
         bool SizeRemove(Styles sizeRemove);
 
+        bool SizeAdd(Styles sizeAdd);
+
         bool UpdateFrostingAvailability(Frostings updatedFrosting);
         bool UpdateFlavorAvailability(Flavors updatedFlavor);
         bool UpdateFillingAvailability(Fillings updatedFilling);

@@ -194,6 +194,17 @@ namespace SampleApi.Controllers
             return Ok(result);
         }
 
+        [HttpPost("sizeAdd")]
+        public IActionResult AddSizeToStyle([FromBody] Styles style)
+        {
+            bool result = false;
+            if (cakeOptionsDao.SizeAdd(style))
+            {
+                result = true;
+            }
+            return Ok(result);
+        }
+
 
         [HttpPost("newStyle")]
         public IActionResult Create([FromBody] Styles style)
