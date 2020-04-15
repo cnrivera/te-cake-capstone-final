@@ -11,6 +11,10 @@
 
     <div class="stylegroup">
       <h2>Cake Sizes</h2>
+      <label for="style">Filter by Style:</label>
+      <select class="form-control" v-model="selectedStyleId" @change.prevent="FilterSizesforStyle(selectedStyleId)">
+        <option v-for="option in options.styles" :value="option.id" :key="option.id">{{ option.style }}</option>
+      </select>
       <div v-for="option in options.sizes" :key="option.id">
         <button v-if="option.isAvailable" v-on:click.prevent="UpdateSizeAvailability(option.id, !option.isAvailable)" class="btn btn-success btn-block">{{option.size}}</button>
         <button v-if="!option.isAvailable" v-on:click.prevent="UpdateSizeAvailability(option.id, !option.isAvailable)" class="btn btn-danger btn-block">{{option.size}}</button>
@@ -41,6 +45,10 @@
       </div>
     </div>
 
+    
+
+    
+
   </div>
 </template>
 
@@ -56,7 +64,8 @@ export default {
         frostings: [],
         fillings: [],
       },
-      updateCakeError: false,
+      selectedStyleId: 0,
+      updateCakeError: false
     }
   },
   methods: {
@@ -99,6 +108,7 @@ export default {
         .then((response) => {
           if (response.ok) {
             this.getSizesList();
+            this.selectedStyleId = 0;
           } else {
             this.updateCakeErrors = true;
           }
@@ -221,10 +231,15 @@ export default {
         return response.json();
       })
       .then((data) => {
-        this.options.sizes = data;
+        this.allSizes = data;
+        this.options.sizes = this.allSizes;
       })
       .catch((err) => console.error(err));
     },
+    FilterSizesforStyle(id){
+        this.options.sizes = this.allSizes.filter(s => s.styleId == id
+          );
+     },
   },
   created() {
     this.getFrostingsList();
