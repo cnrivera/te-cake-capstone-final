@@ -2,7 +2,7 @@
   <div id="pendingorderscontainer"> 
      
      <div class="search">
-        <input type="text" v-on:keyup="SearchOrders" id="search" name="search" placeholder="Search Orders..."/>
+        <input class ="search-input" type="text" v-on:keyup="SearchOrders" id="search" name="search" placeholder="  Search Orders..."/>
     </div>
       
     <div class ="checkbox">
@@ -14,22 +14,22 @@
     <table id="orders" class = "table-bordered table-hover table-striped"> 
       <thead>
         <tr>
-          <th>Order ID Number</th>
-          <th>Pick Up Time</th>
-          <th>Order Details</th>
-          <th>Customer Details</th>
-          <th>Order Status</th>
+          <th class ="id">Order ID</th>
+          <th class ="time">Pick Up Time</th>
+          <th class ="order">Order Details</th>
+          <th class ="customer">Customer Details</th>
+          <th class ="status">Order Status</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="order in orders" :key="order.name" class="orderdetails">
-          <td >{{order.orderId}}</td>
-          <td>{{order.date}} at {{order.time}}</td>
-          <td><b>Cake Name:</b> {{order.cake.name}} <br/> <b>Style:</b> {{order.cake.style}} <br/> <b>Size:</b> {{order.cake.size}}<br/>
+          <td class ="id">{{order.orderId}}</td>
+          <td class ="time">{{order.date}} at {{order.time}}</td>
+          <td class ="order"><b>Cake Name:</b> {{order.cake.name}} <br/> <b>Style:</b> {{order.cake.style}} <br/> <b>Size:</b> {{order.cake.size}}<br/>
           <b>Flavor:</b> {{order.cake.flavor}} <br/> <b>Frosting:</b> {{order.cake.flavor}} <br/> <b>Filling:</b> {{order.cake.filling}} <br/> <b>Quantity:</b> {{order.quantity}}
           <br/><b>Writing on Cake:</b> {{order.cake.writingOnCake}}</td>
-          <td><b>Customer Name:</b> {{order.customerName}} <br/> <b>Email:</b> {{order.email}} <br/> <b>Customer Phone:</b> {{order.phoneNumber}}</td>
-          <td><select v-model="order.orderStatus" v-on:change.prevent="UpdateOrderStatus(order.orderId, order.orderStatus)">
+          <td class ="customer"><b>Customer Name:</b> {{order.customerName}} <br/> <b>Email:</b> {{order.email}} <br/> <b>Customer Phone:</b> {{order.phoneNumber}}</td>
+          <td class ="status"><select v-model="order.orderStatus" v-on:change.prevent="UpdateOrderStatus(order.orderId, order.orderStatus)">
     <option v-for="status in statusChange" :key="status" :value="status">
       {{ status }} 
     </option>
@@ -128,6 +128,7 @@ table{
   background-color: hsla(188, 56%, 8%, 0.7);
   color: whitesmoke;
   border-radius: 5px;
+  table-layout: fixed;
 }
 
 h1{
@@ -147,6 +148,36 @@ td, th {
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
   background-color: hsla(187, 53%, 39%, 0.7);
   color: white;
+}
+
+.search{
+    margin-bottom: auto;
+    margin-top:20px;
+    height: 60px;
+    background-color: hsla(188, 56%, 8%, 0.7);
+    padding: 10px;
+    margin-left: 20px;
+    width: 1105px;
+  }
+.search-input{
+    margin-top: 5px;
+
+  }
+
+.id{
+  width: 30px;
+}
+.time{
+  width: 275px;
+}
+.order{
+  width: 500px;
+}
+.customer{
+  width: 500px;
+}
+.status{
+  width: 100px;
 }
 
 </style>
