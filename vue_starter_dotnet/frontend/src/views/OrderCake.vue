@@ -62,7 +62,9 @@
         <label for="name">Date:</label>
         <input data-provide="datepicker" v-model="orderInfo.date"
         class="form-control"
-        
+        type="date"
+        v-bind:min="minDate" 
+        v-bind:max="maxDate"
         required
         />
         </div>
@@ -175,6 +177,7 @@ export default {
   created() {
     this.getCake(this.$route.params.id);
     this.getMinDate();
+    this.getMaxDate();
   }
 }
 </script>

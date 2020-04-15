@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="navbarcontents">
-      <img src="./assets/elevate-sweets.png">
+      <router-link :to="{name: 'home'}"><img class="navimg" src="./assets/elevate-sweets.png"></router-link>
       <div class="navbardropdown">
         <button class="btn btn-info">Menu</button>
         <div class="dropdowncontent">
@@ -34,8 +34,8 @@ html, #app{
   font-size: 22px;
   margin: 10px;
 }
-#navbarcontents img{
-  height: 100%;
+#navbarcontents .navimg {
+  height: 15vh;
   margin-right: 50px;
   margin-left: 20px;
 }
