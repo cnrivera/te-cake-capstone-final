@@ -10,8 +10,8 @@
     </div>
 
     <div class="stylegroup">
-      <h2>Cake Sizes for a Particular Style</h2>
-      <label for="style">Style:</label>
+      <h2>Cake Sizes</h2>
+      <label for="style">Filter by Style:</label>
       <select class="form-control" v-model="selectedStyleId" @change.prevent="FilterSizesforStyle(selectedStyleId)">
         <option v-for="option in options.styles" :value="option.id" :key="option.id">{{ option.style }}</option>
       </select>
@@ -108,7 +108,7 @@ export default {
         .then((response) => {
           if (response.ok) {
             this.getSizesList();
-            this.FilterSizesforStyle(this.selectedStyleId);
+            this.selectedStyleId = 0;
           } else {
             this.updateCakeErrors = true;
           }
