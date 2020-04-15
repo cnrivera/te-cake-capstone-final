@@ -118,7 +118,6 @@ export default {
             this.selectedStyleId = 0;
           } else {
             this.updateCakeErrors = true;
-            
           }
         })
 
