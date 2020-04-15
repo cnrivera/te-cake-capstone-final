@@ -11,10 +11,6 @@
 
     <div class="stylegroup">
       <h2>Cake Sizes</h2>
-      <label for="style">Filter by Style:</label>
-      <select class="form-control" v-model="selectedStyleId" @change.prevent="FilterSizesforStyle(selectedStyleId)">
-        <option v-for="option in options.styles" :value="option.id" :key="option.id">{{ option.style }}</option>
-      </select>
       <div v-for="option in options.sizes" :key="option.id">
         <button v-if="option.isAvailable" v-on:click.prevent="UpdateSizeAvailability(option.id, !option.isAvailable)" class="btn btn-success btn-block">{{option.size}}</button>
         <button v-if="!option.isAvailable" v-on:click.prevent="UpdateSizeAvailability(option.id, !option.isAvailable)" class="btn btn-danger btn-block">{{option.size}}</button>
@@ -44,6 +40,17 @@
         <button v-if="!option.isAvailable" v-on:click.prevent="UpdateFillingAvailability(option.id, !option.isAvailable)" class="btn btn-danger btn-block">{{option.filling}}</button>
       </div>
     </div>
+
+    <div class="stylegroup">
+      <h2>Remove Size from Style</h2>
+    <label for="style">Remove Size From Style:</label>
+      <select class="form-control" v-model="selectedStyleId" @load.prevent="FilterSizesforStyle(selectedStyleId)" @change.prevent="FilterSizesforStyle(selectedStyleId)">
+        <option v-for="option in options.styles" :value="option.id" :key="option.id" selected="selectedStyleId">{{ option.style }}</option>
+      </select>
+      <div v-for="option in options.sizes" :value="option.id" :key="option.id">
+        <button v-on:click.prevent="RemoveSizeFromStyle(selectedStyleId, option.id)" class="btn btn-success btn-block">{{option.size}}</button>
+      </div>
+      </div>
 
     
 
@@ -185,6 +192,32 @@ export default {
 
         .then((err) => console.error(err));
     },
+
+  RemoveSizeFromStyle(styleId, sizeId) {
+      let sizeRemove = {
+        id: styleId,
+        sizeId: sizeId
+      }
+      fetch(`${process.env.VUE_APP_REMOTE_API_OPTIONS}/sizeRemove`, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(sizeRemove),
+      })
+        .then((response) => {
+          if (response.ok) {
+            this.getSizesList();
+            this.selectedStyleId = styleId;
+          } else {
+            this.updateCakeErrors = true;
+          }
+        })
+
+        .then((err) => console.error(err));
+    },
+
     getFrostingsList() {
       fetch(`${process.env.VUE_APP_REMOTE_API_OPTIONS}/getAllFrostings`)
       .then((response) => {

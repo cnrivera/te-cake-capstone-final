@@ -238,6 +238,30 @@ namespace SampleApi.DAL
             return true;
         }
 
+        public bool SizeRemove(Styles sizeRemove)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("DELETE FROM style_size WHERE style_id = @styleId AND size_id = @sizeId;", conn);
+                    cmd.Parameters.AddWithValue("@styleId", sizeRemove.id);
+                    cmd.Parameters.AddWithValue("@sizeId", sizeRemove.sizeId);
+
+                    cmd.ExecuteNonQuery();
+
+
+                }
+            }
+            catch (SqlException ex)
+            {
+
+                return false;
+            }
+            return true;
+        }
+
         /// <summary>
         /// Following 3 methods are used for getting, adding, updating frosting options
         /// </summary>

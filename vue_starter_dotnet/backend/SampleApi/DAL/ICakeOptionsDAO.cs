@@ -30,6 +30,7 @@ namespace SampleApi.DAL
         bool AddSizeOption(Sizes newSize);
         bool UpdateStyleAvailability(Styles updatedStyle);
         bool UpdateSizeAvailability(Sizes updatedSize);
+        bool SizeRemove(Styles sizeRemove);
         bool UpdateFrostingAvailability(Frostings updatedFrosting);
         bool UpdateFlavorAvailability(Flavors updatedFlavor);
         bool UpdateFillingAvailability(Fillings updatedFilling);

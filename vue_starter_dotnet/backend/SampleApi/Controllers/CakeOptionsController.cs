@@ -182,7 +182,18 @@ namespace SampleApi.Controllers
             return Ok(result);
         }
 
-  
+        [HttpPost("sizeRemove")]
+        public IActionResult RemoveSizeFromStyle([FromBody] Styles style)
+        {
+            bool result = false;
+            if (cakeOptionsDao.SizeRemove(style))
+            {
+                result = true;
+            }
+            return Ok(result);
+        }
+
+
         [HttpPost("newStyle")]
         public IActionResult Create([FromBody] Styles style)
         {
