@@ -271,7 +271,7 @@ namespace SampleApi.DAL
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("INSERT INTO style_size (style_id, size_id) VALUES (@styleId, @sizeId;", conn);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO style_size (style_id, size_id) VALUES (@styleId, @sizeId);", conn);
                     cmd.Parameters.AddWithValue("@styleId", sizeAdd.id);
                     cmd.Parameters.AddWithValue("@sizeId", sizeAdd.sizeId);
 
