@@ -124,7 +124,7 @@ export default {
       })
         .then((response) => {
           if (response.ok) {
-            this.$router.push({ path: '/confirmorder/' });
+            this.$router.push({ path: '/standardcakes/' });
           } else {
             this.createCakeErrors = true;
           }

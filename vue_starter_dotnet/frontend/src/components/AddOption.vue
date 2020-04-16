@@ -187,7 +187,7 @@ methods: {
       })
         .then((response) => {
           if (response.ok) {
-            this.$router.push({ path: '/standardcakes/' });
+            this.$router.push({ path: '/ordercustomcake/' });
           } else {
             this.updateFrostingOptionErrors = true;
           }
@@ -207,7 +207,7 @@ methods: {
       })
         .then((response) => {
           if (response.ok) {
-            this.$router.push({ path: '/standardcakes/' });
+            this.$router.push({ path: '/ordercustomcake/' });
           } else {
             this.updateFlavorOptionErrors = true;
           }
@@ -227,7 +227,7 @@ methods: {
       })
         .then((response) => {
           if (response.ok) {
-            this.$router.push({ path: '/standardcakes/' });
+            this.$router.push({ path: '/ordercustomcake/' });
           } else {
             this.updateFillingOptionErrors = true;
           }
@@ -247,7 +247,7 @@ methods: {
       })
         .then((response) => {
           if (response.ok) {
-            this.$router.push({ path: '/standardcakes/' });
+            this.$router.push({ path: '/ordercustomcake/' });
           } else {
             this.updateStyleOptionErrors = true;
           }
@@ -267,7 +267,7 @@ methods: {
       })
         .then((response) => {
           if (response.ok) {
-            this.$router.push({ path: '/standardcakes/' });
+            this.$router.push({ path: '/ordercustomcake/' });
           } else {
             this.updateSizeOptionErrors = true;
           }
