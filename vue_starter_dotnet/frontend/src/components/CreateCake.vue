@@ -1,6 +1,5 @@
 <template>
 <div id="cakeform">
-  <h1>Create a New Cake!</h1>
   <div class="alert alert-danger" role="alert" v-if="createCakeErrors">
         There were problems creating this cake.
       </div>

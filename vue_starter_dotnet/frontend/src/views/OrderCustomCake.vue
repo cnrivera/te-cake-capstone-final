@@ -43,7 +43,7 @@
 
     <div class="form-group">
       <label for="name">Quantity:</label>
-      <input v-model="orderInfo.quantity" min="1" type="text" class="form-control" required />
+      <input v-model="orderInfo.quantity" min="1" type="number" class="form-control" required />
     </div>
 
     <div class="form-group">

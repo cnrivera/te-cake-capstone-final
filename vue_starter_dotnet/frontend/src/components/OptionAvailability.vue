@@ -9,11 +9,23 @@
       </div>
     </div>
 
-    <div class="stylegroup">
+    <!-- <div class="stylegroup">
       <h2>Cake Sizes</h2>
       <div v-for="option in options.sizes" :key="option.id">
         <button v-if="option.isAvailable" v-on:click.prevent="UpdateSizeAvailability(option.id, !option.isAvailable)" class="btn btn-success btn-block">{{option.size}}</button>
         <button v-if="!option.isAvailable" v-on:click.prevent="UpdateSizeAvailability(option.id, !option.isAvailable)" class="btn btn-danger btn-block">{{option.size}}</button>
+      </div>
+    </div> -->
+
+    <div class="stylegroup">
+      <h2>Add/Remove Size For Style</h2>
+      <label for="style">Select the Style to Add/Remove Sizes:</label>
+      <select class="form-control" v-model="selectedStyleId" @change="getSizesListFiltered(selectedStyleId)">
+        <option v-for="option in options.styles" :value="option.id" :key="option.id">{{ option.style }} </option>
+      </select>
+      <div v-for="option in options.sizesByStyle" :value="option.id" :key="option.id">
+        <button v-if="option.styleId==selectedStyleId" v-on:click.prevent="RemoveSizeFromStyle(selectedStyleId, option.id)" class="btn btn-success btn-block">{{option.size}}</button>
+        <button v-if="option.styleId!=selectedStyleId" v-on:click.prevent="AddSizeToStyle(selectedStyleId, option.id)" class="btn btn-danger btn-block">{{option.size}}</button>
       </div>
     </div>
 
@@ -40,18 +52,6 @@
         <button v-if="!option.isAvailable" v-on:click.prevent="UpdateFillingAvailability(option.id, !option.isAvailable)" class="btn btn-danger btn-block">{{option.filling}}</button>
       </div>
     </div>
-
-    <div class="stylegroup">
-      <h2>Add/Remove Size For Style</h2>
-    <label for="style">Select the Style to Add/Remove Sizes:</label>
-      <select class="form-control" v-model="selectedStyleId" @change="getSizesListFiltered(selectedStyleId)">
-        <option v-for="option in options.styles" :value="option.id" :key="option.id">{{ option.style }} </option>
-      </select>
-      <div v-for="option in options.sizesByStyle" :value="option.id" :key="option.id">
-      <button v-if="option.styleId==selectedStyleId" v-on:click.prevent="RemoveSizeFromStyle(selectedStyleId, option.id)" class="btn btn-success btn-block">{{option.size}}</button>
-      <button v-if="option.styleId!=selectedStyleId" v-on:click.prevent="AddSizeToStyle(selectedStyleId, option.id)" class="btn btn-danger btn-block">{{option.size}}</button>
-      </div>
-      </div>
 
   </div>
 </template>
