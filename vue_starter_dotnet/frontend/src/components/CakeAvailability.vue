@@ -69,7 +69,10 @@ export default {
 
 <style>
 #cakeavailability {
-  margin: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 30px;
+  margin-bottom: 30px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

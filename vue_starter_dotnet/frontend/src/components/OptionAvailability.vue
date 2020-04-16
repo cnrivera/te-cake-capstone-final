@@ -318,9 +318,10 @@ export default {
   #optionavailability {
     margin-left: 10%;
     margin-right: 10%;
+    margin-top: 30px;
   }
   .stylegroup {
-  margin-top: 15px;
+  margin-bottom: 15px;
   padding: 15px;
   padding-right: 35px;
   background-color: hsla(188, 56%, 8%, 0.7);

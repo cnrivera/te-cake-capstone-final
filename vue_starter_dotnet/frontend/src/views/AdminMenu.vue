@@ -2,8 +2,8 @@
 <div id="adminmenu">
   <div class="adminbtn">
     <button v-on:click="openPendingOrders" class="btn btn-info btn-block">Orders</button>
-    <button v-on:click="openCreateCake" class="btn btn-info btn-block">Create Cake</button>
-    <button v-on:click="openToggleCakes" class="btn btn-info btn-block">Disable Cake</button>
+    <button v-on:click="openCreateCake" class="btn btn-info btn-block">Create Fav.</button>
+    <button v-on:click="openToggleCakes" class="btn btn-info btn-block">Disable Fav.</button>
     <button v-on:click="openAddOption" class="btn btn-info btn-block">Add Cake Option</button>
     <button v-on:click="openOptionAvailability" class="btn btn-info btn-block">Disable Cake Option</button>
     <button v-on:click="openRegester" class="btn btn-info btn-block">Register User</button>

@@ -10,7 +10,7 @@
       <input v-model="frosting.frosting" type="text" class="form-control" required />
     </div>
     <div class="form-group">
-      <label for="available">New Frosting is currently available:</label>
+      <label for="available">Set new frosting to available:</label>
       <input type="checkbox" v-model="frosting.isAvailable"
       class="form-control checkbox" 
       />
@@ -30,7 +30,7 @@
       <input v-model="filling.filling" type="text" class="form-control" required />
     </div>
     <div class="form-group">
-      <label for="available">New Filling is currently available:</label>
+      <label for="available">Set new filling to available:</label>
       <input type="checkbox" v-model="filling.isAvailable"
       class="form-control checkbox"
       />
@@ -47,7 +47,7 @@
       <input v-model="flavor.flavor" type="text" class="form-control" required />
     </div>
     <div class="form-group">
-      <label for="available">New Flavor is currently available:</label>
+      <label for="available">Set new flavor to available:</label>
       <input type="checkbox" v-model="flavor.isAvailable"
       class="form-control checkbox"
       />
@@ -68,7 +68,7 @@
         <option v-for="size in cake.sizes" :key="size.id" :value="size.id">{{ size.size }}</option>
       </select>
     <div class="form-group">
-      <label for="available">New Style is currently available:</label>
+      <label for="available">Set new style to available:</label>
       <input type="checkbox" v-model="style.isAvailable"
       class="form-control checkbox"
       />
@@ -96,7 +96,7 @@
     </div>
     
     <div class="form-group">
-      <label for="available">New Size is currently available:</label>
+      <label for="available">Set new size to available:</label>
       <input type="checkbox" v-model="size.isAvailable"
       class="form-control checkbox"
       />
@@ -297,7 +297,7 @@ methods: {
   margin-right: 5%;
 }
 #addoptionform{
-  margin-top: 30px;
+  margin-bottom: 30px;
   padding: 15px;
   background-color: hsla(188, 56%, 8%, 0.7);
   color: whitesmoke;

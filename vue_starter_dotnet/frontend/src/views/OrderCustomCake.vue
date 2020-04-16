@@ -43,7 +43,7 @@
 
     <div class="form-group">
       <label for="name">Quantity:</label>
-      <input v-model="orderInfo.quantity" type="text" class="form-control" required />
+      <input v-model="orderInfo.quantity" min="1" type="text" class="form-control" required />
     </div>
 
     <div class="form-group">
@@ -63,12 +63,12 @@
     </div>
 
     <div class="form-group">
-      <label for="name">Date:</label>
+      <label for="name">Pickup Date:</label>
       <input v-bind:min="minDate" v-bind:max="maxDate" v-model="orderInfo.date" type="date" class="form-control" required />
     </div>
 
     <div class="form-group">
-      <label for="name">Time:</label>
+      <label for="name">Pickup Time:</label>
       <select v-model="orderInfo.time" class="form-control">
         <option value="9:00am">9:00am</option>
         <option value="10:00am">10:00am</option>

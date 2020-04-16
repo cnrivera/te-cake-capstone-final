@@ -126,10 +126,6 @@ table{
   border-radius: 5px;
   table-layout: fixed;
 }
-
-h1{
-  padding: 5px;
-}
 th {  
     font-weight: bold; /* Make sure they're bold */
 }
@@ -146,7 +142,7 @@ td, th {
 }
 
 .search{
-    margin-top:20px;
+    margin-top:30px;
     height: 60px;
     background-color: hsla(188, 56%, 8%, 0.7);
     padding: 10px;

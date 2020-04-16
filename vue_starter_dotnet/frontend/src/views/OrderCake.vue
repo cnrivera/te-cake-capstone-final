@@ -59,7 +59,7 @@
         />
         </div>
         <div class="form-group">
-        <label for="name">Date:</label>
+        <label for="name">Pickup Date:</label>
         <input data-provide="datepicker" v-model="orderInfo.date"
         class="form-control"
         type="date"
@@ -69,7 +69,7 @@
         />
         </div>
         <div class="form-group">
-        <label for="name">Time:</label>
+        <label for="name">Pickup Time:</label>
         <select v-model="orderInfo.time" class="form-control">
           <option value="9:00am">9:00am</option>
           <option value="10:00am">10:00am</option>

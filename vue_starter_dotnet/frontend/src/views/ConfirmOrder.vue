@@ -58,7 +58,7 @@ export default {
 
 <style>
 #confirmorder {
-  margin-top: 50px;
+  margin-top: 30px;
   margin-left: 10%;
   margin-right: 10%;
   padding: 15px;

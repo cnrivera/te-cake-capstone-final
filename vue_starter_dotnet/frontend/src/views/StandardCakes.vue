@@ -59,7 +59,7 @@ export default {
 
 <style>
 .cakeinfo {
-  margin-top: 15px;
+  margin-top: 30px;
   padding: 15px;
   background-color: hsla(188, 56%, 8%, 0.7);
   color: whitesmoke;
