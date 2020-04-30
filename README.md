@@ -22,6 +22,6 @@ The members of this capstone team include:
 
 You will need the following softare to run the project files:
 
-*Visual Studio Code
-*Visual Studio
-*Microsoft SQL Server Express
+* Visual Studio Code
+* Visual Studio
+* Microsoft SQL Server Express
