@@ -20,7 +20,7 @@ The members of this capstone team include:
 * Will O.
 * Xanth H.
 
-You will need the following softare to run the project files:
+You will need the following software to run the project files:
 
 * Visual Studio Code
 * Visual Studio
